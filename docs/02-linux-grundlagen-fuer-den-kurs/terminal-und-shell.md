@@ -82,6 +82,70 @@ Leertaste          eine Seite weiter
 q                  beenden
 ```
 
+## Befehle verbinden: die Pipe
+
+Mit einer Pipe (`|`) leitest du die Ausgabe eines Befehls an den nächsten Befehl weiter.
+
+Beispiel:
+
+```bash
+ip addr | less
+```
+
+Das bedeutet:
+
+1. `ip addr` erzeugt eine Ausgabe
+2. diese Ausgabe wird nicht direkt vollständig ins Terminal geschrieben
+3. `less` bekommt die Ausgabe und zeigt sie seitenweise an
+
+Pipes sind im Kurs wichtig, weil wir damit TShark-Ausgaben filtern, zählen oder weiterverarbeiten können.
+
+## Zeilen, Wörter und Bytes zählen mit `wc`
+
+Der Befehl `wc` steht historisch für `word count`.
+
+Der Name ist etwas zu kurz gegriffen, denn `wc` kann nicht nur Wörter zählen.
+
+Wichtige Optionen:
+
+| Befehl | Bedeutung |
+|---|---|
+| `wc -l` | Zeilen zählen |
+| `wc -w` | Wörter zählen |
+| `wc -c` | Bytes zählen |
+
+Beispiel:
+
+```bash
+printf "eins\nzwei\ndrei\n" | wc -l
+```
+
+Ausgabe:
+
+```text
+3
+```
+
+Im Kurs verwenden wir `wc -l` häufig, um Zeilen zu zählen.
+
+Das ist besonders praktisch bei TShark, weil viele TShark-Ausgaben pro Paket eine Zeile erzeugen.
+
+Beispiel:
+
+```bash
+tshark -r capture.pcapng -Y "dns" | wc -l
+```
+
+Das bedeutet sinngemäß:
+
+> Zeige alle DNS-Pakete aus der Capture-Datei und zähle die Ausgabezeilen.
+
+Wenn TShark pro Paket eine Zeile ausgibt, entspricht die Anzahl der Zeilen der Anzahl der gefundenen Pakete.
+
+!!! note "Nicht blind als Wahrheit nehmen"
+    `wc -l` zählt Zeilen, nicht direkt Pakete.  
+    In vielen TShark-Standardausgaben ist das praktisch identisch, weil ein Paket als eine Zeile ausgegeben wird. Bei anderen Ausgabeformaten muss man prüfen, ob diese Annahme passt.
+
 ## Befehlshistorie
 
 Mit den Pfeiltasten kannst du alte Befehle erneut aufrufen:

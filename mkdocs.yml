@@ -121,3 +121,14 @@ nav:
       - Paketverwaltung: 02-linux-grundlagen-fuer-den-kurs/paketverwaltung.md
       - Netzwerkbefehle: 02-linux-grundlagen-fuer-den-kurs/netzwerkbefehle.md
       - Rechte und Gruppen: 02-linux-grundlagen-fuer-den-kurs/rechte-und-gruppen.md
+
+  - Wireshark erster Kontakt:
+      - Überblick: 03-wireshark-erster-kontakt/index.md
+      - Oberfläche verstehen: 03-wireshark-erster-kontakt/oberflaeche-verstehen.md
+      - Erstes Capture öffnen: 03-wireshark-erster-kontakt/erstes-capture-oeffnen.md
+      - Profile und Spalten: 03-wireshark-erster-kontakt/profile-und-spalten.md
+      - TShark erster Kontakt: 03-wireshark-erster-kontakt/tshark-erster-kontakt.md
+
+  - Referenz:
+      - Überblick: 90-referenz/index.md
+      - TShark auf Systemen ohne GUI: 90-referenz/tshark-auf-systemen-ohne-gui.md

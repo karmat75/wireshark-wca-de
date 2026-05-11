@@ -1,15 +1,17 @@
-# Paket 04b: Ergänzung Root vs. sudo
+# Paket 05d: `wc` erklären
 
-Dieses Paket aktualisiert den Abschnitt `Rechte und Gruppen`.
+Dieses Paket ergänzt die Linux-Grundlagen und den TShark-Abschnitt.
 
 ## Enthaltene Dateien
 
 ```text
-docs/02-linux-grundlagen-fuer-den-kurs/rechte-und-gruppen.md
+docs/02-linux-grundlagen-fuer-den-kurs/terminal-und-shell.md
+docs/03-wireshark-erster-kontakt/tshark-erster-kontakt.md
 ```
 
 ## Änderung
 
-Ergänzt wurde ein erklärender Abschnitt, warum im Kurs nicht direkt mit `root` gearbeitet wird und warum ein normaler Benutzer mit gezielten `sudo`-Rechten der bessere Standard ist.
-
-Die Erklärung nutzt bewusst den Vergleich zu Windows-Administratorkonten.
+- In den Linux-Grundlagen wird erklärt, was eine Pipe (`|`) ist.
+- Der Befehl `wc` wird erklärt.
+- Es wird klargestellt, dass `wc` historisch für `word count` steht, aber auch Zeilen und Bytes zählen kann.
+- Im TShark-Abschnitt wird erklärt, warum `tshark ... | wc -l` Pakete zählen kann.
