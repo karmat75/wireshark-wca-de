@@ -1,110 +1,68 @@
 # Lern- und Übungsumgebung
 
-In diesem Abschnitt richtest du die Umgebung ein, mit der du den Kurs bearbeiten kannst.
+In diesem Abschnitt richten wir die technische Grundlage für den Kurs ein.
 
-Die Referenzplattform ist ein Ubuntu-basiertes Desktop-System.
+Ziel ist eine Umgebung, in der Lernende zuverlässig mit Wireshark, TShark, Docker, VSCode und den Kursdateien arbeiten können. Die Umgebung soll nachvollziehbar, reproduzierbar und möglichst nah an einer realistischen Arbeitsumgebung sein.
 
-Empfohlen:
+## Warum dieser Abschnitt wichtig ist
+
+Netzwerkanalyse ist praktische Arbeit. Man lernt sie nicht nur durch Lesen, sondern durch Beobachten, Filtern, Vergleichen und Begründen.
+
+Dafür brauchen wir eine Umgebung, in der alle Lernenden ungefähr dieselben Voraussetzungen haben:
+
+- ein Linux-basiertes Desktop-System
+- ein Terminal
+- VSCode als Arbeitsumgebung
+- Git für das Kurs-Repository
+- Wireshark für die grafische Analyse
+- TShark und tcpdump für die Kommandozeile
+- Docker für reproduzierbare Labs
+- Python für Prüfskripte und spätere lokale Fortschrittsspeicherung
+
+## Referenzplattform
+
+Die Referenzplattform für diesen Kurs ist:
 
 - Ubuntu Desktop LTS
 - Pop!_OS als kompatible Ubuntu-basierte Variante
 
-## Ziel dieses Abschnitts
+Andere Systeme können funktionieren, sind aber nicht der primäre Lernpfad.
 
-Nach Abschluss dieses Abschnitts soll deine Umgebung Folgendes können:
+## Ablauf
 
-- VSCode öffnen und das Repository bearbeiten
-- Docker-Container starten
-- Wireshark lokal ausführen
-- Paketmitschnitte ohne Root-Rechte erstellen
-- TShark im Terminal nutzen
-- tcpdump im Terminal nutzen
-- MkDocs lokal bauen und starten
-- erste Labs vorbereiten
+1. Ubuntu oder Pop!_OS installieren
+2. Betriebssystem aktualisieren
+3. benötigte Pakete installieren
+4. VSCode einrichten
+5. Docker installieren
+6. Wireshark installieren
+7. Umgebung prüfen
+8. erstes Repository lokal öffnen und bauen
 
-## Geplante Werkzeuge
+## Ergebnis dieses Abschnitts
 
-Die Lernumgebung nutzt bewusst Werkzeuge, die auch im Alltag von Admins und Operations-Teams nützlich sind.
-
-| Werkzeug | Zweck im Kurs |
-|---|---|
-| Ubuntu oder Pop!_OS | Lernsystem |
-| VSCode | Editor und Arbeitsoberfläche |
-| Git | Versionsverwaltung |
-| Docker | reproduzierbare Lab-Umgebungen |
-| Wireshark | grafische Paket- und Protokollanalyse |
-| TShark | automatisierte Analyse im Terminal |
-| tcpdump | Paketmitschnitt im Terminal |
-| Python | Prüfskripte und Hilfswerkzeuge |
-| MkDocs | Kursdokumentation lokal anzeigen |
-
-## Warum Linux als Basis?
-
-Linux ist für diesen Kurs besonders gut geeignet, weil viele Netzwerk- und Analysewerkzeuge direkt verfügbar sind.
-
-Vorteile:
-
-- gute Paketverfügbarkeit
-- native Nutzung von tcpdump, TShark und Docker
-- einfache Automatisierung mit Bash und Python
-- gute Unterstützung in VSCode
-- gute Eignung für reproduzierbare Labs
-
-## Reihenfolge der Einrichtung
-
-Die Einrichtung soll später Schritt für Schritt dokumentiert werden.
-
-Geplante Reihenfolge:
-
-1. Betriebssystem installieren
-2. System aktualisieren
-3. Basispakete installieren
-4. Git einrichten
-5. VSCode installieren
-6. Docker installieren
-7. Wireshark installieren
-8. Benutzerrechte für Captures konfigurieren
-9. TShark und tcpdump testen
-10. Repository klonen
-11. Python-Umgebung für MkDocs einrichten
-12. Kurs lokal bauen
-13. erstes Demo-Lab starten
-
-## Aktueller Minimaltest
-
-Für den aktuellen Projektstand reicht dieser Test:
+Am Ende dieses Abschnitts sollte die lernende Person folgende Befehle erfolgreich ausführen können:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+code --version
+git --version
+docker version
+docker compose version
+wireshark --version
+tshark --version
+tcpdump --version
 mkdocs build
+```
+
+Außerdem sollte die Kursdokumentation lokal mit MkDocs gestartet werden können:
+
+```bash
+source .venv/bin/activate
 mkdocs serve
 ```
 
-Danach sollte die Kursseite lokal erreichbar sein:
+Danach kann die lokale Kursseite im Browser geöffnet werden:
 
 ```text
 http://127.0.0.1:8000
 ```
-
-## Pop!_OS-Hinweis
-
-Pop!_OS basiert auf Ubuntu und eignet sich grundsätzlich gut für den Kurs.
-
-Je nach Version können einzelne Paketnamen, Desktop-Funktionen oder Installationswege leicht abweichen. Solche Unterschiede werden später in eigenen Hinweisen dokumentiert.
-
-## Nächste Seiten in diesem Abschnitt
-
-Geplant sind unter anderem:
-
-- Ubuntu installieren
-- Pop!_OS Hinweise
-- benötigte Pakete installieren
-- VSCode einrichten
-- Docker installieren
-- Wireshark installieren
-- Umgebung prüfen
-
-Diese Seiten werden im weiteren Projektverlauf ergänzt.

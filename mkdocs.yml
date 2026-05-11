@@ -106,3 +106,18 @@ nav:
 
   - Lernumgebung:
       - Überblick: 01-lern-und-uebungsumgebung/index.md
+      - Ubuntu installieren: 01-lern-und-uebungsumgebung/ubuntu-installieren.md
+      - Pop!_OS Hinweise: 01-lern-und-uebungsumgebung/pop-os-hinweise.md
+      - Benötigte Pakete installieren: 01-lern-und-uebungsumgebung/pakete-installieren.md
+      - VSCode einrichten: 01-lern-und-uebungsumgebung/vscode-einrichten.md
+      - Docker installieren: 01-lern-und-uebungsumgebung/docker-installieren.md
+      - Wireshark installieren: 01-lern-und-uebungsumgebung/wireshark-installieren.md
+      - Umgebung prüfen: 01-lern-und-uebungsumgebung/umgebung-pruefen.md
+
+  - Linux-Grundlagen:
+      - Überblick: 02-linux-grundlagen-fuer-den-kurs/index.md
+      - Terminal und Shell: 02-linux-grundlagen-fuer-den-kurs/terminal-und-shell.md
+      - Dateien und Ordner: 02-linux-grundlagen-fuer-den-kurs/dateien-und-ordner.md
+      - Paketverwaltung: 02-linux-grundlagen-fuer-den-kurs/paketverwaltung.md
+      - Netzwerkbefehle: 02-linux-grundlagen-fuer-den-kurs/netzwerkbefehle.md
+      - Rechte und Gruppen: 02-linux-grundlagen-fuer-den-kurs/rechte-und-gruppen.md
