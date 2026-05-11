@@ -129,6 +129,14 @@ nav:
       - Profile und Spalten: 03-wireshark-erster-kontakt/profile-und-spalten.md
       - TShark erster Kontakt: 03-wireshark-erster-kontakt/tshark-erster-kontakt.md
 
+  - Basis-Kurs:
+      - Überblick: 10-basis-kurs/index.md
+      - Capture-Grundlagen: 10-basis-kurs/01-capture-grundlagen.md
+      - Display Filter: 10-basis-kurs/02-display-filter.md
+      - Ethernet, ARP und VLAN: 10-basis-kurs/03-ethernet-arp-vlan.md
+      - IPv4, IPv6 und ICMP: 10-basis-kurs/04-ipv4-ipv6-icmp.md
+
   - Referenz:
       - Überblick: 90-referenz/index.md
+      - OSI-Modell für Wireshark: 90-referenz/osi-modell-fuer-wireshark.md
       - TShark auf Systemen ohne GUI: 90-referenz/tshark-auf-systemen-ohne-gui.md

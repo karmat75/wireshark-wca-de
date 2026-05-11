@@ -1,17 +1,23 @@
-# Paket 05d: `wc` erklären
+# Paket 08: Basis-Kurs – IPv4, IPv6 und ICMP
 
-Dieses Paket ergänzt die Linux-Grundlagen und den TShark-Abschnitt.
+Dieses Paket ergänzt den Basis-Kurs um Layer-3-Grundlagen.
 
 ## Enthaltene Dateien
 
 ```text
-docs/02-linux-grundlagen-fuer-den-kurs/terminal-und-shell.md
-docs/03-wireshark-erster-kontakt/tshark-erster-kontakt.md
+mkdocs.yml
+docs/10-basis-kurs/04-ipv4-ipv6-icmp.md
 ```
 
-## Änderung
+## Ziel
 
-- In den Linux-Grundlagen wird erklärt, was eine Pipe (`|`) ist.
-- Der Befehl `wc` wird erklärt.
-- Es wird klargestellt, dass `wc` historisch für `word count` steht, aber auch Zeilen und Bytes zählen kann.
-- Im TShark-Abschnitt wird erklärt, warum `tshark ... | wc -l` Pakete zählen kann.
+Dieser Abschnitt erklärt die wichtigsten Layer-3-Themen für Wireshark-Analysen:
+
+- IPv4- und IPv6-Pakete erkennen
+- Quell- und Zieladressen einordnen
+- TTL und Hop Limit verstehen
+- ICMP und ICMPv6 sinnvoll bewerten
+- Fragmentierung und MTU-Probleme einordnen
+- typische Display Filter und TShark-Auswertungen nutzen
+
+Der Fokus liegt auf praktischer Analyse, nicht auf vollständiger RFC-Theorie.
