@@ -82,13 +82,13 @@ Der Kurs ist in mehrere Bereiche unterteilt.
 ### 1. Lern- und Übungsumgebung
 
 - Ubuntu oder Pop!_OS installieren
-- Grundlegende Werkzeuge installieren
+- grundlegende Werkzeuge installieren
 - VSCode einrichten
 - Docker installieren
 - Wireshark installieren
 - TShark und tcpdump testen
-- Erstes Lab ausführen
-- Erste Capture-Datei öffnen
+- erstes Lab ausführen
+- erste Capture-Datei öffnen
 
 ### 2. Basis-Kurs
 
@@ -196,286 +196,255 @@ Die geplante Struktur des Repositories:
 │   └── devcontainer.json
 └── .github/
     ├── workflows/
-        └── ISSUE_TEMPLATE/
-        ```
+    └── ISSUE_TEMPLATE/
+```
 
-        ---
+---
 
-        ## Geplante Lab-Struktur
+## Geplante Lab-Struktur
 
-        Jede Übung soll möglichst gleich aufgebaut sein.
+Jede Übung soll möglichst gleich aufgebaut sein.
 
-        ```text
-        labs/basic/lab-basic-030-dns-nxdomain/
-        ├── README.md
-        ├── scenario.md
-        ├── tasks.md
-        ├── hints.md
-        ├── solution.md
-        ├── metadata.yml
-        ├── check.py
-        └── files/
-            └── capture.pcapng
-            ```
+```text
+labs/basic/lab-basic-030-dns-nxdomain/
+├── README.md
+├── scenario.md
+├── tasks.md
+├── hints.md
+├── solution.md
+├── metadata.yml
+├── check.py
+└── files/
+    └── capture.pcapng
+```
 
-            Jedes Lab soll enthalten:
+Jedes Lab soll enthalten:
 
-            - Ziel
-            - Voraussetzungen
-            - Szenario
-            - Aufgaben
-            - Hinweise
-            - Musterlösung
-            - WCA-Bezug
-            - weiterführende Ressourcen
-            - optional automatisierte Prüfung
+- Ziel
+- Voraussetzungen
+- Szenario
+- Aufgaben
+- Hinweise
+- Musterlösung
+- WCA-Bezug
+- weiterführende Ressourcen
+- optional automatisierte Prüfung
 
-            ---
+---
 
-            ## Beispiel für ein Lab
+## Lokale Fortschrittsspeicherung
 
-            ```markdown
-            # Lab: DNS NXDOMAIN analysieren
+Der Kurs soll ohne zentralen Server funktionieren.
 
-            ## Ziel
+Geplant ist eine lokale Fortschrittsspeicherung auf dem System der lernenden Person.
 
-            Du lernst, DNS-Anfragen und DNS-Antworten in Wireshark zu erkennen und fehlgeschlagene Namensauflösungen zu analysieren.
+Mögliche Funktionen:
 
-            ## Szenario
+```bash
+wwca progress
+wwca quiz run basic-030
+wwca lab check lab-basic-030-dns-nxdomain
+wwca exam start wca-practice-01
+wwca progress export ./mein-fortschritt.json
+wwca progress import ./mein-fortschritt.json
+```
 
-            Ein Client kann eine interne Webanwendung nicht erreichen. Die Anwendung selbst ist online, aber der Benutzer erhält im Browser eine Fehlermeldung.
+Die Ergebnisse sollen lokal gespeichert und exportierbar sein.
 
-            ## Aufgaben
+Geplante Speicherorte:
 
-            1. Öffne die bereitgestellte Capture-Datei.
-            2. Finde die DNS-Abfragen des Clients.
-            3. Ermittle, welche Domain nicht aufgelöst werden konnte.
-            4. Prüfe den DNS Response Code.
-            5. Bewerte, ob das Problem im Netzwerk, im DNS oder bei der Anwendung liegt.
+```text
+~/.local/share/wireshark-wca-de/progress.json
+```
 
-            ## WCA-Bezug
+oder später:
 
-            - Display Filter
-            - DNS
-            - Paketdetails
-            - Analyse von Fehlerbildern
-            ```
+```text
+~/.local/share/wireshark-wca-de/progress.sqlite
+```
 
-            ---
+---
 
-            ## Lokale Fortschrittsspeicherung
+## Externe Ressourcen
 
-            Der Kurs soll ohne zentralen Server funktionieren.
+Der Kurs soll auf gute externe Ressourcen verweisen, diese aber nicht ungeprüft kopieren.
 
-            Geplant ist eine lokale Fortschrittsspeicherung auf dem System der lernenden Person.
+Geplante Ressourcentypen:
 
-            Mögliche Funktionen:
+- offizielle Wireshark-Dokumentation
+- Wireshark User Guide
+- Wireshark Display Filter Reference
+- TShark Manual Page
+- SharkFest-Videos
+- frei verfügbare Artikel
+- öffentlich nutzbare PCAP-Sammlungen
+- ergänzende TCP/IP-Lernmaterialien
 
-            ```bash
-            wwca progress
-            wwca quiz run basic-030
-            wwca lab check lab-basic-030-dns-nxdomain
-            wwca exam start wca-practice-01
-            wwca progress export ./mein-fortschritt.json
-            wwca progress import ./mein-fortschritt.json
-            ```
+Jede Lektion soll möglichst passende Querverweise enthalten.
 
-            Die Ergebnisse sollen lokal gespeichert und exportierbar sein.
+---
 
-            Geplante Speicherorte:
+## Umgang mit PCAP-Dateien
 
-            ```text
-            ~/.local/share/wireshark-wca-de/progress.json
-            ```
+Paketmitschnitte können sensible Informationen enthalten.
 
-            oder später:
+Deshalb gelten für dieses Repository folgende Regeln:
 
-            ```text
-            ~/.local/share/wireshark-wca-de/progress.sqlite
-            ```
+- keine privaten oder produktiven Captures veröffentlichen
+- keine echten Zugangsdaten veröffentlichen
+- keine Kundendaten veröffentlichen
+- keine personenbezogenen Daten veröffentlichen
+- bevorzugt selbst erzeugte Captures verwenden
+- externe Captures nur bei klarer Lizenzlage aufnehmen
+- externe Captures ansonsten nur verlinken
 
-            ---
+---
 
-            ## Externe Ressourcen
+## Status
 
-            Der Kurs soll auf gute externe Ressourcen verweisen, diese aber nicht ungeprüft kopieren.
+Dieses Projekt befindet sich im Aufbau.
 
-            Geplante Ressourcentypen:
+Geplante erste Meilensteine:
 
-            - offizielle Wireshark-Dokumentation
-            - Wireshark User Guide
-            - Wireshark Display Filter Reference
-            - TShark Manual Page
-            - SharkFest-Videos
-            - frei verfügbare Artikel
-            - öffentlich nutzbare PCAP-Sammlungen
-            - ergänzende TCP/IP-Lernmaterialien
+### Milestone 0.1: Foundation MVP
 
-            Jede Lektion soll möglichst passende Querverweise enthalten.
+- Grundstruktur des Repositories
+- README
+- AGENTS.md
+- Lizenzstruktur
+- MkDocs-Grundgerüst
+- Setup-Kapitel für Ubuntu/Pop!_OS
+- Installation der benötigten Werkzeuge
+- erstes Demo-Lab
+- erstes Quiz
+- lokale Fortschrittsspeicherung als Konzept
 
-            ---
+### Milestone 0.2: Basis-Kurs
 
-            ## Umgang mit PCAP-Dateien
+- Wireshark-Grundlagen
+- Capture- und Display-Filter
+- Ethernet und ARP
+- IPv4 und ICMP
+- DNS und DHCP
+- TCP-Grundlagen
+- erste Modulprüfung
 
-            Paketmitschnitte können sensible Informationen enthalten.
+### Milestone 0.3: Advanced/WCA
 
-            Deshalb gelten für dieses Repository folgende Regeln:
+- TCP Deep Dive
+- Performanceanalyse
+- HTTP und TLS
+- Troubleshooting-Szenarien
+- WCA-Lernzielmatrix
+- Probeprüfung
 
-            - keine privaten oder produktiven Captures veröffentlichen
-            - keine echten Zugangsdaten veröffentlichen
-            - keine Kundendaten veröffentlichen
-            - keine personenbezogenen Daten veröffentlichen
-            - bevorzugt selbst erzeugte Captures verwenden
-            - externe Captures nur bei klarer Lizenzlage aufnehmen
-            - externe Captures ansonsten nur verlinken
+---
 
-            ---
+## Schnellstart für Mitwirkende
 
-            ## Status
+Repository klonen:
 
-            Dieses Projekt befindet sich im Aufbau.
+```bash
+git clone https://github.com/karmat75/wireshark-wca-de.git
+cd wireshark-wca-de
+```
 
-            Geplante erste Meilensteine:
+Projekt in VSCode öffnen:
 
-            ### Milestone 0.1: Foundation MVP
+```bash
+code .
+```
 
-            - Grundstruktur des Repositories
-            - README
-            - AGENTS.md
-            - Lizenzstruktur
-            - MkDocs-Grundgerüst
-            - Setup-Kapitel für Ubuntu/Pop!_OS
-            - Installation der benötigten Werkzeuge
-            - erstes Demo-Lab
-            - erstes Quiz
-            - lokale Fortschrittsspeicherung als Konzept
+Optional mit DevContainer öffnen, sobald die DevContainer-Konfiguration vorhanden ist.
 
-            ### Milestone 0.2: Basis-Kurs
+Lokale Dokumentation starten:
 
-            - Wireshark-Grundlagen
-            - Capture- und Display-Filter
-            - Ethernet und ARP
-            - IPv4 und ICMP
-            - DNS und DHCP
-            - TCP-Grundlagen
-            - erste Modulprüfung
+```bash
+mkdocs serve
+```
 
-            ### Milestone 0.3: Advanced/WCA
+Build prüfen:
 
-            - TCP Deep Dive
-            - Performanceanalyse
-            - HTTP und TLS
-            - Troubleshooting-Szenarien
-            - WCA-Lernzielmatrix
-            - Probeprüfung
+```bash
+mkdocs build
+```
 
-            ---
+---
 
-            ## Schnellstart für Mitwirkende
+## Mitwirken
 
-            Repository klonen:
+Beiträge sind willkommen.
 
-            ```bash
-            git clone <repository-url>
-            cd wireshark-wca-de
-            ```
+Mögliche Beiträge:
 
-            Projekt in VSCode öffnen:
+- Korrekturen an Texten
+- neue Labs
+- neue Quizfragen
+- neue PCAPs mit sauberer Lizenz
+- Verbesserungen an Docker-Labs
+- bessere Erklärungen
+- Diagramme
+- WCA-Lernzielzuordnung
+- technische Prüfskripte
+- Übersetzungen und sprachliche Verbesserungen
 
-            ```bash
-            code .
-            ```
+Bitte beachte:
 
-            Optional mit DevContainer öffnen, sobald die DevContainer-Konfiguration vorhanden ist.
+- keine echten Prüfungsfragen
+- keine Exam Dumps
+- keine privaten Captures
+- keine Zugangsdaten
+- keine urheberrechtlich problematischen Inhalte
 
-            Lokale Dokumentation starten:
+---
 
-            ```bash
-            mkdocs serve
-            ```
+## Schreibstil
 
-            Build prüfen:
+Der Kurs soll auf Deutsch geschrieben sein.
 
-            ```bash
-            mkdocs build
-            ```
+Technische Fachbegriffe dürfen zusätzlich mit dem englischen Begriff ergänzt werden.
 
-            ---
+Beispiele:
 
-            ## Mitwirken
+- Anzeige-Filter (Display Filter)
+- Mitschnitt (Capture)
+- Neuübertragung (Retransmission)
+- Zeitüberschreitung (Timeout)
+- Paketverlust (Packet Loss)
+- Rundlaufzeit (Round Trip Time / RTT)
 
-            Beiträge sind willkommen.
+Der Stil soll klar, praktisch und nachvollziehbar sein.
 
-            Mögliche Beiträge:
+Ziel ist nicht, möglichst akademisch zu klingen, sondern echte Analysefähigkeit aufzubauen.
 
-            - Korrekturen an Texten
-            - neue Labs
-            - neue Quizfragen
-            - neue PCAPs mit sauberer Lizenz
-            - Verbesserungen an Docker-Labs
-            - bessere Erklärungen
-            - Diagramme
-            - WCA-Lernzielzuordnung
-            - technische Prüfskripte
-            - Übersetzungen und sprachliche Verbesserungen
+---
 
-            Bitte beachte:
+## Lizenz
 
-            - keine echten Prüfungsfragen
-            - keine Exam Dumps
-            - keine privaten Captures
-            - keine Zugangsdaten
-            - keine urheberrechtlich problematischen Inhalte
+Geplante Lizenzierung:
 
-            ---
+- Kursinhalte: Creative Commons Attribution-ShareAlike 4.0 International
+- Code und Skripte: MIT oder Apache-2.0
+- selbst erzeugte PCAPs: Creative Commons, sofern keine sensiblen Inhalte enthalten sind
 
-            ## Schreibstil
+Die endgültige Lizenzstruktur wird im weiteren Projektverlauf festgelegt.
 
-            Der Kurs soll auf Deutsch geschrieben sein.
+---
 
-            Technische Fachbegriffe dürfen zusätzlich mit dem englischen Begriff ergänzt werden.
+## Haftungsausschluss
 
-            Beispiele:
+Dieses Projekt dient ausschließlich zu Lern- und Ausbildungszwecken.
 
-            - Anzeige-Filter (Display Filter)
-            - Mitschnitt (Capture)
-            - Neuübertragung (Retransmission)
-            - Zeitüberschreitung (Timeout)
-            - Paketverlust (Packet Loss)
-            - Rundlaufzeit (Round Trip Time / RTT)
+Die Nutzung von Wireshark und anderen Analysewerkzeugen darf nur in Netzwerken erfolgen, in denen eine entsprechende Berechtigung vorliegt.
 
-            Der Stil soll klar, praktisch und nachvollziehbar sein.
+Paketmitschnitte können sensible oder personenbezogene Daten enthalten. Lernende und Mitwirkende sind selbst dafür verantwortlich, rechtliche, organisatorische und datenschutzrechtliche Vorgaben einzuhalten.
 
-            Ziel ist nicht, möglichst akademisch zu klingen, sondern echte Analysefähigkeit aufzubauen.
+---
 
-            ---
+## Kein offizielles Wireshark-Projekt
 
-            ## Lizenz
+Dieses Repository ist ein unabhängiges Open-Source-Projekt.
 
-            Geplante Lizenzierung:
+Es ist nicht offiziell mit der Wireshark Foundation verbunden und ersetzt keine offiziellen Schulungs- oder Zertifizierungsunterlagen.
 
-            - Kursinhalte: Creative Commons Attribution-ShareAlike 4.0 International
-            - Code und Skripte: MIT oder Apache-2.0
-            - selbst erzeugte PCAPs: Creative Commons, sofern keine sensiblen Inhalte enthalten sind
-
-            Die endgültige Lizenzstruktur wird im weiteren Projektverlauf festgelegt.
-
-            ---
-
-            ## Haftungsausschluss
-
-            Dieses Projekt dient ausschließlich zu Lern- und Ausbildungszwecken.
-
-            Die Nutzung von Wireshark und anderen Analysewerkzeugen darf nur in Netzwerken erfolgen, in denen eine entsprechende Berechtigung vorliegt.
-
-            Paketmitschnitte können sensible oder personenbezogene Daten enthalten. Lernende und Mitwirkende sind selbst dafür verantwortlich, rechtliche, organisatorische und datenschutzrechtliche Vorgaben einzuhalten.
-
-            ---
-
-            ## Kein offizielles Wireshark-Projekt
-
-            Dieses Repository ist ein unabhängiges Open-Source-Projekt.
-
-            Es ist nicht offiziell mit der Wireshark Foundation verbunden und ersetzt keine offiziellen Schulungs- oder Zertifizierungsunterlagen.
-
-            Wireshark ist ein eingetragenes oder verwendetes Markenzeichen der jeweiligen Rechteinhaber.
+Wireshark ist ein eingetragenes oder verwendetes Markenzeichen der jeweiligen Rechteinhaber.

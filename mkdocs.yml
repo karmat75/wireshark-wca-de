@@ -1,174 +1,98 @@
 site_name: Wireshark WCA DE
 site_description: Deutschsprachiger Open-Source-Selbstlernkurs für Netzwerkanalyse mit Wireshark, ausgerichtet an WCA-101.
 site_author: Wireshark WCA DE Contributors
+site_url: https://karmat75.github.io/wireshark-wca-de/
 
-# Später anpassen, sobald GitHub Pages oder eine andere Veröffentlichung steht.
-# site_url: https://<user-or-org>.github.io/wireshark-wca-de/
-
-# Später anpassen, sobald die finale Repository-URL feststeht.
-# repo_name: <user-or-org>/wireshark-wca-de
-# repo_url: https://github.com/<user-or-org>/wireshark-wca-de
-# edit_uri: edit/main/docs/
+repo_name: karmat75/wireshark-wca-de
+repo_url: https://github.com/karmat75/wireshark-wca-de
+edit_uri: edit/main/docs/
 
 docs_dir: docs
 site_dir: site
 
 theme:
   name: material
-    language: de
+  language: de
 
-      palette:
-          - scheme: default
-                primary: blue grey
-                      accent: light blue
-                            toggle:
-                                    icon: material/weather-night
-                                            name: Dunkles Design aktivieren
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Dunkles Design aktivieren
 
-                                                - scheme: slate
-                                                      primary: blue grey
-                                                            accent: light blue
-                                                                  toggle:
-                                                                          icon: material/weather-sunny
-                                                                                  name: Helles Design aktivieren
+    - scheme: slate
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Helles Design aktivieren
 
-                                                                                    font:
-                                                                                        text: Roboto
-                                                                                            code: Roboto Mono
+  font:
+    text: Roboto
+    code: Roboto Mono
 
-                                                                                              features:
-                                                                                                  - navigation.tabs
-                                                                                                      - navigation.sections
-                                                                                                          - navigation.expand
-                                                                                                              - navigation.indexes
-                                                                                                                  - navigation.top
-                                                                                                                      - navigation.footer
-                                                                                                                          - toc.follow
-                                                                                                                              - search.suggest
-                                                                                                                                  - search.highlight
-                                                                                                                                      - search.share
-                                                                                                                                          - content.code.copy
-                                                                                                                                              - content.code.select
-                                                                                                                                                  - content.tabs.link
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
 
-                                                                                                                                                  plugins:
-                                                                                                                                                    - search:
-                                                                                                                                                          lang: de
+plugins:
+  - search:
+      lang: de
 
-                                                                                                                                                          markdown_extensions:
-                                                                                                                                                            - admonition
-                                                                                                                                                              - attr_list
-                                                                                                                                                                - def_list
-                                                                                                                                                                  - footnotes
-                                                                                                                                                                    - md_in_html
-                                                                                                                                                                      - toc:
-                                                                                                                                                                            permalink: true
-                                                                                                                                                                                  title: Auf dieser Seite
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
 
-                                                                                                                                                                                    - pymdownx.details
+  - toc:
+      permalink: true
+      title: Auf dieser Seite
 
-                                                                                                                                                                                      - pymdownx.superfences:
-                                                                                                                                                                                            custom_fences:
-                                                                                                                                                                                                    - name: mermaid
-                                                                                                                                                                                                              class: mermaid
-                                                                                                                                                                                                                        format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
 
-                                                                                                                                                                                                                          - pymdownx.highlight:
-                                                                                                                                                                                                                                anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
-                                                                                                                                                                                                                                  - pymdownx.inlinehilite
-                                                                                                                                                                                                                                    - pymdownx.snippets
-                                                                                                                                                                                                                                      - pymdownx.tabbed:
-                                                                                                                                                                                                                                            alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
 
-                                                                                                                                                                                                                                              - pymdownx.tasklist:
-                                                                                                                                                                                                                                                    custom_checkbox: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
 
-                                                                                                                                                                                                                                                      - pymdownx.emoji:
-                                                                                                                                                                                                                                                            emoji_index: !!python/name:material.extensions.emoji.twemoji
-                                                                                                                                                                                                                                                                  emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
 
-                                                                                                                                                                                                                                                                  extra:
-                                                                                                                                                                                                                                                                    generator: false
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
-                                                                                                                                                                                                                                                                      social:
-                                                                                                                                                                                                                                                                          - icon: fontawesome/brands/github
-                                                                                                                                                                                                                                                                                link: https://github.com/
-                                                                                                                                                                                                                                                                                      name: GitHub
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-                                                                                                                                                                                                                                                                                      extra_css:
-                                                                                                                                                                                                                                                                                        - assets/stylesheets/extra.css
+extra:
+  generator: false
 
-                                                                                                                                                                                                                                                                                        extra_javascript:
-                                                                                                                                                                                                                                                                                          - assets/javascripts/extra.js
+copyright: >
+  Dieses Projekt ist ein unabhängiger deutschsprachiger Open-Source-Kurs.
+  Es ist nicht offiziell mit der Wireshark Foundation verbunden.
 
-                                                                                                                                                                                                                                                                                          copyright: >
-                                                                                                                                                                                                                                                                                            Dieses Projekt ist ein unabhängiger deutschsprachiger Open-Source-Kurs.
-                                                                                                                                                                                                                                                                                              Es ist nicht offiziell mit der Wireshark Foundation verbunden.
-
-                                                                                                                                                                                                                                                                                              nav:
-                                                                                                                                                                                                                                                                                                - Start:
-                                                                                                                                                                                                                                                                                                      - docs/index.md
-
-                                                                                                                                                                                                                                                                                                        - Orientierung:
-                                                                                                                                                                                                                                                                                                              - Überblick: 00-orientierung/index.md
-                                                                                                                                                                                                                                                                                                                    - Zielgruppe: 00-orientierung/zielgruppe.md
-                                                                                                                                                                                                                                                                                                                          - Kursaufbau: 00-orientierung/kursaufbau.md
-                                                                                                                                                                                                                                                                                                                                - WCA-Bezug: 00-orientierung/wca-bezug.md
-                                                                                                                                                                                                                                                                                                                                      - Rechtliches und Datenschutz: 00-orientierung/rechtliches-und-datenschutz.md
-
-                                                                                                                                                                                                                                                                                                                                        - Lernumgebung:
-                                                                                                                                                                                                                                                                                                                                              - Überblick: 01-lern-und-uebungsumgebung/index.md
-                                                                                                                                                                                                                                                                                                                                                    - Ubuntu installieren: 01-lern-und-uebungsumgebung/ubuntu-installieren.md
-                                                                                                                                                                                                                                                                                                                                                          - Pop!_OS Hinweise: 01-lern-und-uebungsumgebung/pop-os-hinweise.md
-                                                                                                                                                                                                                                                                                                                                                                - Benötigte Pakete installieren: 01-lern-und-uebungsumgebung/pakete-installieren.md
-                                                                                                                                                                                                                                                                                                                                                                      - VSCode einrichten: 01-lern-und-uebungsumgebung/vscode-einrichten.md
-                                                                                                                                                                                                                                                                                                                                                                            - Docker installieren: 01-lern-und-uebungsumgebung/docker-installieren.md
-                                                                                                                                                                                                                                                                                                                                                                                  - Wireshark installieren: 01-lern-und-uebungsumgebung/wireshark-installieren.md
-                                                                                                                                                                                                                                                                                                                                                                                        - Umgebung prüfen: 01-lern-und-uebungsumgebung/umgebung-pruefen.md
-
-                                                                                                                                                                                                                                                                                                                                                                                          - Linux-Grundlagen:
-                                                                                                                                                                                                                                                                                                                                                                                                - Überblick: 02-linux-grundlagen-fuer-den-kurs/index.md
-                                                                                                                                                                                                                                                                                                                                                                                                      - Terminal und Shell: 02-linux-grundlagen-fuer-den-kurs/terminal-und-shell.md
-                                                                                                                                                                                                                                                                                                                                                                                                            - Dateien und Ordner: 02-linux-grundlagen-fuer-den-kurs/dateien-und-ordner.md
-                                                                                                                                                                                                                                                                                                                                                                                                                  - Paketverwaltung: 02-linux-grundlagen-fuer-den-kurs/paketverwaltung.md
-                                                                                                                                                                                                                                                                                                                                                                                                                        - Netzwerkbefehle: 02-linux-grundlagen-fuer-den-kurs/netzwerkbefehle.md
-                                                                                                                                                                                                                                                                                                                                                                                                                              - Rechte und Gruppen: 02-linux-grundlagen-fuer-den-kurs/rechte-und-gruppen.md
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                - Wireshark erster Kontakt:
-                                                                                                                                                                                                                                                                                                                                                                                                                                      - Überblick: 03-wireshark-erster-kontakt/index.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                            - Oberfläche verstehen: 03-wireshark-erster-kontakt/oberflaeche-verstehen.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                  - Erstes Capture öffnen: 03-wireshark-erster-kontakt/erstes-capture-oeffnen.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        - Profile und Spalten: 03-wireshark-erster-kontakt/profile-und-spalten.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                              - TShark erster Kontakt: 03-wireshark-erster-kontakt/tshark-erster-kontakt.md
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                - Basis-Kurs:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                      - Überblick: 10-basis-kurs/index.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - Capture-Grundlagen: 10-basis-kurs/01-capture-grundlagen.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  - Display Filter: 10-basis-kurs/02-display-filter.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        - Ethernet, ARP und VLAN: 10-basis-kurs/03-ethernet-arp-vlan.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              - IPv4, IPv6 und ICMP: 10-basis-kurs/04-ipv4-ipv6-icmp.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - UDP, DNS und DHCP: 10-basis-kurs/05-udp-dns-dhcp.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          - TCP-Grundlagen: 10-basis-kurs/06-tcp-grundlagen.md
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - Erweiterter Kurs:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  - Überblick: 20-advanced-kurs/index.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        - TCP Deep Dive: 20-advanced-kurs/01-tcp-deep-dive.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              - Performanceanalyse: 20-advanced-kurs/02-performance-analyse.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - HTTP und TLS: 20-advanced-kurs/03-http-tls.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          - Fehleranalyse-Methodik: 20-advanced-kurs/04-fehleranalyse-methodik.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                - Security-Basics: 20-advanced-kurs/05-security-basics.md
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  - WCA-Vorbereitung:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        - Überblick: 30-wca-vorbereitung/index.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              - Lernzielmatrix: 30-wca-vorbereitung/lernzielmatrix.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - Prüfungsstrategie: 30-wca-vorbereitung/pruefungsstrategie.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          - Probeprüfung 01: 30-wca-vorbereitung/probepruefung-01.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                - Probeprüfung 02: 30-wca-vorbereitung/probepruefung-02.md
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  - Referenz:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        - Überblick: 90-referenz/index.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              - Filter-Cheatsheet: 90-referenz/filter-cheatsheet.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - TShark-Kommandos: 90-referenz/tshark-kommandos.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          - Glossar: 90-referenz/glossar.md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                - Externe Ressourcen: 90-referenz/externe-ressourcen.md
+nav:
+  - Start: index.md
