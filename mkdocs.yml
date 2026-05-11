@@ -96,3 +96,13 @@ copyright: >
 
 nav:
   - Start: index.md
+
+  - Orientierung:
+      - Überblick: 00-orientierung/index.md
+      - Zielgruppe: 00-orientierung/zielgruppe.md
+      - Kursaufbau: 00-orientierung/kursaufbau.md
+      - WCA-Bezug: 00-orientierung/wca-bezug.md
+      - Rechtliches und Datenschutz: 00-orientierung/rechtliches-und-datenschutz.md
+
+  - Lernumgebung:
+      - Überblick: 01-lern-und-uebungsumgebung/index.md
