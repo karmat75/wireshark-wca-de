@@ -1,23 +1,25 @@
-# Paket 08: Basis-Kurs – IPv4, IPv6 und ICMP
+# Paket 10: Basis-Kurs – TCP-Grundlagen
 
-Dieses Paket ergänzt den Basis-Kurs um Layer-3-Grundlagen.
+Dieses Paket ergänzt den Basis-Kurs um TCP-Grundlagen.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/10-basis-kurs/04-ipv4-ipv6-icmp.md
+docs/10-basis-kurs/06-tcp-grundlagen.md
 ```
 
 ## Ziel
 
-Dieser Abschnitt erklärt die wichtigsten Layer-3-Themen für Wireshark-Analysen:
+Dieser Abschnitt erklärt die TCP-Basis für spätere Deep-Dive- und Troubleshooting-Kapitel:
 
-- IPv4- und IPv6-Pakete erkennen
-- Quell- und Zieladressen einordnen
-- TTL und Hop Limit verstehen
-- ICMP und ICMPv6 sinnvoll bewerten
-- Fragmentierung und MTU-Probleme einordnen
-- typische Display Filter und TShark-Auswertungen nutzen
+- TCP als verbindungsorientiertes Transportprotokoll
+- Ports und Services
+- 3-Way Handshake
+- FIN, RST und Verbindungsabbau
+- Sequence Number und ACK Number
+- TCP Streams in Wireshark
+- erste Analysefelder und Display Filter
+- typische Fehlinterpretationen
 
-Der Fokus liegt auf praktischer Analyse, nicht auf vollständiger RFC-Theorie.
+Der Abschnitt bleibt bewusst Basis-Kurs. Retransmissions, Windowing, SACK, RTT und Performanceanalyse folgen später im erweiterten Kurs.

@@ -538,11 +538,9 @@ Layer-2-Kommunikation zum Gateway ist damit grundsätzlich sichtbar.
 
 ## Verwendete Filter
 
-```text
-arp
-arp.opcode == 1
-arp.opcode == 2
-```
+- arp
+- arp.opcode == 1
+- arp.opcode == 2
 ```
 
 ## Typische Fehlinterpretationen

@@ -135,6 +135,8 @@ nav:
       - Display Filter: 10-basis-kurs/02-display-filter.md
       - Ethernet, ARP und VLAN: 10-basis-kurs/03-ethernet-arp-vlan.md
       - IPv4, IPv6 und ICMP: 10-basis-kurs/04-ipv4-ipv6-icmp.md
+      - UDP, DNS und DHCP: 10-basis-kurs/05-udp-dns-dhcp.md
+      - TCP-Grundlagen: 10-basis-kurs/06-tcp-grundlagen.md
 
   - Referenz:
       - Überblick: 90-referenz/index.md
