@@ -1,25 +1,25 @@
-# Paket 10: Basis-Kurs – TCP-Grundlagen
+# Paket 14: Erweiterter Kurs – Fehleranalyse-Methodik
 
-Dieses Paket ergänzt den Basis-Kurs um TCP-Grundlagen.
+Dieses Paket ergänzt den erweiterten Kurs um eine strukturierte Methodik für Wireshark-Analysen.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/10-basis-kurs/06-tcp-grundlagen.md
+docs/20-advanced-kurs/04-fehleranalyse-methodik.md
 ```
 
 ## Ziel
 
-Dieser Abschnitt erklärt die TCP-Basis für spätere Deep-Dive- und Troubleshooting-Kapitel:
+Dieser Abschnitt verbindet die bisherigen technischen Kapitel zu einer wiederholbaren Vorgehensweise:
 
-- TCP als verbindungsorientiertes Transportprotokoll
-- Ports und Services
-- 3-Way Handshake
-- FIN, RST und Verbindungsabbau
-- Sequence Number und ACK Number
-- TCP Streams in Wireshark
-- erste Analysefelder und Display Filter
-- typische Fehlinterpretationen
+- Symptome sauber erfassen
+- Capture-Punkte bewusst wählen
+- Hypothesen bilden und prüfen
+- Analyse über OSI-/TCP-IP-Schichten strukturieren
+- Belege mit Frame-Nummern dokumentieren
+- Netzwerk-, Client-, Server- und Applikationsprobleme abgrenzen
+- typische Denkfehler vermeiden
+- Analyseberichte nachvollziehbar formulieren
 
-Der Abschnitt bleibt bewusst Basis-Kurs. Retransmissions, Windowing, SACK, RTT und Performanceanalyse folgen später im erweiterten Kurs.
+Der Fokus liegt darauf, aus Paketbeobachtungen belastbare Aussagen zu machen.

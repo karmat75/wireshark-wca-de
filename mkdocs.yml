@@ -138,6 +138,13 @@ nav:
       - UDP, DNS und DHCP: 10-basis-kurs/05-udp-dns-dhcp.md
       - TCP-Grundlagen: 10-basis-kurs/06-tcp-grundlagen.md
 
+  - Erweiterter Kurs:
+      - Überblick: 20-advanced-kurs/index.md
+      - TCP Deep Dive: 20-advanced-kurs/01-tcp-deep-dive.md
+      - Performanceanalyse: 20-advanced-kurs/02-performance-analyse.md
+      - HTTP und TLS: 20-advanced-kurs/03-http-tls.md
+      - Fehleranalyse-Methodik: 20-advanced-kurs/04-fehleranalyse-methodik.md
+
   - Referenz:
       - Überblick: 90-referenz/index.md
       - OSI-Modell für Wireshark: 90-referenz/osi-modell-fuer-wireshark.md
