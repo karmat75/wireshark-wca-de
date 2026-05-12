@@ -144,6 +144,7 @@ nav:
       - Performanceanalyse: 20-advanced-kurs/02-performance-analyse.md
       - HTTP und TLS: 20-advanced-kurs/03-http-tls.md
       - Fehleranalyse-Methodik: 20-advanced-kurs/04-fehleranalyse-methodik.md
+      - Security-Basics: 20-advanced-kurs/05-security-basics.md
 
   - Referenz:
       - Überblick: 90-referenz/index.md

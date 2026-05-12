@@ -1,25 +1,26 @@
-# Paket 14: Erweiterter Kurs – Fehleranalyse-Methodik
+# Paket 15: Erweiterter Kurs – Security-Basics
 
-Dieses Paket ergänzt den erweiterten Kurs um eine strukturierte Methodik für Wireshark-Analysen.
+Dieses Paket ergänzt den erweiterten Kurs um defensive Security-Grundlagen mit Wireshark.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+docs/20-advanced-kurs/05-security-basics.md
 ```
 
 ## Ziel
 
-Dieser Abschnitt verbindet die bisherigen technischen Kapitel zu einer wiederholbaren Vorgehensweise:
+Dieser Abschnitt zeigt, wie Wireshark bei defensiver Sicherheitsanalyse helfen kann:
 
-- Symptome sauber erfassen
-- Capture-Punkte bewusst wählen
-- Hypothesen bilden und prüfen
-- Analyse über OSI-/TCP-IP-Schichten strukturieren
-- Belege mit Frame-Nummern dokumentieren
-- Netzwerk-, Client-, Server- und Applikationsprobleme abgrenzen
-- typische Denkfehler vermeiden
-- Analyseberichte nachvollziehbar formulieren
+- ungewöhnliche Kommunikation erkennen
+- Klartext-Protokolle und sensible Daten sichtbar machen
+- DNS-Auffälligkeiten bewerten
+- einfache Beaconing-Muster erkennen
+- Portscan-ähnliches Verhalten einordnen
+- TLS- und HTTP-Metadaten nutzen
+- Dateiübertragungen in Captures vorsichtig behandeln
+- IOCs suchen und dokumentieren
+- rechtliche und organisatorische Grenzen beachten
 
-Der Fokus liegt darauf, aus Paketbeobachtungen belastbare Aussagen zu machen.
+Der Abschnitt ist ausdrücklich kein offensives Security-Training.
