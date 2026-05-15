@@ -1,26 +1,25 @@
-# Paket 15: Erweiterter Kurs – Security-Basics
+# Paket 16: WCA-Vorbereitung
 
-Dieses Paket ergänzt den erweiterten Kurs um defensive Security-Grundlagen mit Wireshark.
+Dieses Paket ergänzt den Kurs um den Bereich `30-wca-vorbereitung`.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/20-advanced-kurs/05-security-basics.md
+docs/30-wca-vorbereitung/index.md
+docs/30-wca-vorbereitung/lernzielmatrix.md
+docs/30-wca-vorbereitung/pruefungsstrategie.md
+docs/30-wca-vorbereitung/uebungs-und-pruefungsmodell.md
 ```
 
 ## Ziel
 
-Dieser Abschnitt zeigt, wie Wireshark bei defensiver Sicherheitsanalyse helfen kann:
+Dieser Abschnitt schafft den Rahmen für die eigentliche WCA-Vorbereitung:
 
-- ungewöhnliche Kommunikation erkennen
-- Klartext-Protokolle und sensible Daten sichtbar machen
-- DNS-Auffälligkeiten bewerten
-- einfache Beaconing-Muster erkennen
-- Portscan-ähnliches Verhalten einordnen
-- TLS- und HTTP-Metadaten nutzen
-- Dateiübertragungen in Captures vorsichtig behandeln
-- IOCs suchen und dokumentieren
-- rechtliche und organisatorische Grenzen beachten
+- WCA-Ziele auf Kurskapitel abbilden
+- Lücken sichtbar machen
+- sinnvolle Prüfungsstrategie erklären
+- Übungs-, Quiz- und Lab-Modell festlegen
+- spätere Labs, Fragen, Screenshots und PCAP-Challenges strukturiert anbinden
 
-Der Abschnitt ist ausdrücklich kein offensives Security-Training.
+Der Kurs bleibt unabhängig und enthält keine echten Prüfungsfragen oder Exam Dumps.

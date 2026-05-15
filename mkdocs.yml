@@ -58,31 +58,23 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-
   - toc:
       permalink: true
       title: Auf dieser Seite
-
   - pymdownx.details
-
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
   - pymdownx.highlight:
       anchor_linenums: true
-
   - pymdownx.inlinehilite
   - pymdownx.snippets
-
   - pymdownx.tabbed:
       alternate_style: true
-
   - pymdownx.tasklist:
       custom_checkbox: true
-
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -145,6 +137,12 @@ nav:
       - HTTP und TLS: 20-advanced-kurs/03-http-tls.md
       - Fehleranalyse-Methodik: 20-advanced-kurs/04-fehleranalyse-methodik.md
       - Security-Basics: 20-advanced-kurs/05-security-basics.md
+
+  - WCA-Vorbereitung:
+      - Überblick: 30-wca-vorbereitung/index.md
+      - Lernzielmatrix: 30-wca-vorbereitung/lernzielmatrix.md
+      - Prüfungsstrategie: 30-wca-vorbereitung/pruefungsstrategie.md
+      - Übungs- und Prüfungsmodell: 30-wca-vorbereitung/uebungs-und-pruefungsmodell.md
 
   - Referenz:
       - Überblick: 90-referenz/index.md
