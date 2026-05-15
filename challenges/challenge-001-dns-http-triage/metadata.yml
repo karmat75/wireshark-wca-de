@@ -1,0 +1,35 @@
+id: challenge-001-dns-http-triage
+title: "DNS/HTTP Triage"
+level: basic
+estimated_time: 45m
+status: draft
+pcap:
+  mode: generated
+  path: pcaps/generated/challenge-001-dns-http-triage.pcapng
+docker_compose:
+  file: docker/compose/lab-basic-dns-http/compose.yml
+wca_objectives:
+  - display-filters
+  - dns
+  - udp
+  - tcp
+  - http
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - wireshark
+  - tshark
+  - dig
+  - curl
+expected_observations:
+  - dns-query-web-ok
+  - dns-query-web-slow
+  - dns-nxdomain-does-not-exist
+  - http-response-web-ok
+  - http-response-web-slow
+  - slow-http-response-web-slow
+outputs:
+  - analysis-report
+  - tshark-check
+commit_generated_files: false

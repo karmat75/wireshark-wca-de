@@ -158,6 +158,11 @@ nav:
       - Foundation-Quiz: 50-quizzes/foundation-quiz.md
       - Basic-Quiz: 50-quizzes/basic-quiz.md
 
+  - PCAP-Challenges:
+      - Überblick: 60-pcap-challenges/index.md
+      - Challenge-Struktur: 60-pcap-challenges/pcap-challenge-struktur.md
+      - Challenge 001 DNS/HTTP Triage: 60-pcap-challenges/challenge-001-dns-http-triage.md
+
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md
       - Lernzielmatrix: 30-wca-vorbereitung/lernzielmatrix.md

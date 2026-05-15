@@ -1,37 +1,35 @@
-# Paket 21: Screenshot-Styleguide und Asset-Struktur
+# Paket 22: Erste PCAP-Challenge – DNS/HTTP Triage
 
-Dieses Paket ergänzt den Referenzbereich um einen Screenshot-Styleguide und legt die Bildstruktur unter `docs/assets/images/` an.
+Dieses Paket ergänzt den Kurs um den Bereich `60-pcap-challenges` und die erste prüfungsnahe PCAP-Challenge.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/90-referenz/index.md
-docs/90-referenz/screenshot-styleguide.md
-docs/assets/images/README.md
-docs/assets/images/wireshark-ui/.gitkeep
-docs/assets/images/display-filter/.gitkeep
-docs/assets/images/tshark/.gitkeep
-docs/assets/images/tcp/.gitkeep
-docs/assets/images/dns/.gitkeep
-docs/assets/images/http-tls/.gitkeep
-docs/assets/images/performance/.gitkeep
-docs/assets/images/security/.gitkeep
-docs/assets/images/labs/.gitkeep
-docs/assets/images/wca-prep/.gitkeep
+docs/60-pcap-challenges/index.md
+docs/60-pcap-challenges/pcap-challenge-struktur.md
+docs/60-pcap-challenges/challenge-001-dns-http-triage.md
+pcaps/challenge/README.md
+pcaps/challenge/.gitkeep
+challenges/README.md
+challenges/challenge-001-dns-http-triage/README.md
+challenges/challenge-001-dns-http-triage/scenario.md
+challenges/challenge-001-dns-http-triage/tasks.md
+challenges/challenge-001-dns-http-triage/hints.md
+challenges/challenge-001-dns-http-triage/solution.md
+challenges/challenge-001-dns-http-triage/metadata.yml
+challenges/challenge-001-dns-http-triage/check_tshark.sh
 ```
 
 ## Ziel
 
-Mit diesem Paket bekommt der Kurs Regeln für Screenshots:
+Mit diesem Paket bekommt der Kurs die erste Challenge-Struktur:
 
-- keine produktiven oder personenbezogenen Daten
-- nur Lab-Captures oder saubere Beispielumgebungen
-- einheitliche Bildstruktur
-- einheitliche Dateinamen
-- sinnvolle Alt-Texte
-- sparsame Markierungen
-- klare Aussage pro Screenshot
-- Hinweise zu Lizenz, Datenschutz und Wartbarkeit
+- klare Trennung zwischen Labs und Challenges
+- prüfungsnahes Szenario
+- gestufte Hinweise
+- Musterlösung mit Frame-/Filter-Bezug
+- TShark-Check-Skript
+- Vorbereitung für spätere feste Challenge-PCAPs
 
-Screenshots sollen den Kurs unterstützen, aber keine Analyse ersetzen.
+Die erste Challenge nutzt bewusst das vorhandene Docker-DNS/HTTP-Lab, damit Lernende die PCAP lokal erzeugen können.
