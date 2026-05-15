@@ -1,0 +1,53 @@
+services:
+  lab-dns:
+    image: coredns/coredns:1.11.3
+    container_name: wwca-lab-dns
+    command: -conf /etc/coredns/Corefile
+    volumes:
+      - ./dns/Corefile:/etc/coredns/Corefile:ro
+      - ./dns/db.lab.local:/zones/db.lab.local:ro
+    networks:
+      labnet:
+        ipv4_address: 172.28.50.53
+
+  lab-web-ok:
+    image: nginx:1.27-alpine
+    container_name: wwca-lab-web-ok
+    volumes:
+      - ./web-ok/index.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      labnet:
+        ipv4_address: 172.28.50.10
+
+  lab-web-slow:
+    image: python:3.12-alpine
+    container_name: wwca-lab-web-slow
+    working_dir: /app
+    command: python /app/app.py
+    volumes:
+      - ./web-slow/app.py:/app/app.py:ro
+    networks:
+      labnet:
+        ipv4_address: 172.28.50.20
+
+  lab-client:
+    image: nicolaka/netshoot:latest
+    container_name: wwca-lab-client
+    command: sleep infinity
+    dns:
+      - 172.28.50.53
+    networks:
+      labnet:
+        ipv4_address: 172.28.50.100
+    depends_on:
+      - lab-dns
+      - lab-web-ok
+      - lab-web-slow
+
+networks:
+  labnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.50.0/24
+          gateway: 172.28.50.1

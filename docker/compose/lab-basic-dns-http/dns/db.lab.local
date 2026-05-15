@@ -1,0 +1,15 @@
+$ORIGIN lab.local.
+$TTL 60
+
+@       IN SOA  dns.lab.local. admin.lab.local. (
+            2026051501 ; serial
+            60         ; refresh
+            60         ; retry
+            120        ; expire
+            60         ; minimum
+        )
+
+@           IN NS   dns.lab.local.
+dns         IN A    172.28.50.53
+web-ok      IN A    172.28.50.10
+web-slow    IN A    172.28.50.20

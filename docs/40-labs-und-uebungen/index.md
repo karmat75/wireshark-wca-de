@@ -34,6 +34,7 @@ Die Labs sind in Tracks gegliedert.
 | Lab | Track | Thema | Status |
 |---|---|---|---|
 | [Foundation Lab 001](foundation-first-capture.md) | Foundation | erster eigener Capture | verfügbar |
+| [Basic Lab 020](basic-dns-http-docker.md) | Basic | Docker-Lab mit DNS, NXDOMAIN, HTTP und Wartezeit | verfügbar |
 
 ## Arbeitsweise
 
@@ -58,6 +59,12 @@ Lab-Beschreibungen liegen im Repository unter:
 labs/
 ```
 
+Docker-Labs liegen unter:
+
+```text
+docker/compose/
+```
+
 Von MkDocs aus werden wichtige Labs zusätzlich unter `docs/40-labs-und-uebungen/` verlinkt.
 
 Lokal erzeugte Captures sollen unterhalb von `pcaps/generated/` gespeichert werden.
@@ -66,7 +73,7 @@ Lokal erzeugte Captures sollen unterhalb von `pcaps/generated/` gespeichert werd
 pcaps/generated/
 ```
 
-Diese Dateien sollten normalerweise nicht ins Repository committed werden, weil sie lokal erzeugt sind und je nach Umgebung abweichen können.
+Diese Dateien werden nicht ins Repository committed, weil sie lokal erzeugt sind und je nach Umgebung abweichen können.
 
 ## Warum Labs so wichtig sind
 

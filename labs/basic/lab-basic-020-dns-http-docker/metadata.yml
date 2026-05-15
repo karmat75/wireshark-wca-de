@@ -1,0 +1,35 @@
+id: lab-basic-020-dns-http-docker
+title: "DNS und HTTP im Docker-Lab"
+track: basic
+level: basic
+estimated_time: 45m
+status: draft
+wca_objectives:
+  - display-filters
+  - dns
+  - udp
+  - tcp
+  - http
+  - capture-methods
+  - tshark
+tools:
+  - docker
+  - docker-compose
+  - wireshark
+  - tshark
+  - dig
+  - curl
+requires:
+  - lab-foundation-001-first-capture
+  - docs/10-basis-kurs/02-display-filter.md
+  - docs/10-basis-kurs/05-udp-dns-dhcp.md
+  - docs/20-advanced-kurs/03-http-tls.md
+docker_compose:
+  file: docker/compose/lab-basic-dns-http/compose.yml
+generated_files:
+  - pcaps/generated/lab-basic-020-dns-http-docker.pcapng
+commit_generated_files: false
+outputs:
+  - local-pcap
+  - short-analysis-report
+  - tshark-output
