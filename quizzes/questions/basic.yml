@@ -1,0 +1,311 @@
+id: basic
+title: "Basic Quiz"
+description: "Wiederholung zu Display Filtern, Ethernet, ARP, IP, ICMP, UDP, DNS, DHCP und TCP."
+version: "0.1.0"
+questions:
+  - id: q-basic-001
+    type: single-choice
+    objective: display-filters
+    question: "Welcher Display Filter zeigt Pakete, bei denen die IPv4-Adresse 1.1.1.1 Quelle oder Ziel ist?"
+    answers:
+      - text: "ip.addr == 1.1.1.1"
+        correct: true
+      - text: "host 1.1.1.1"
+        correct: false
+      - text: "ip = 1.1.1.1"
+        correct: false
+      - text: "capture.host == 1.1.1.1"
+        correct: false
+    explanation: "`ip.addr == 1.1.1.1` ist Display-Filter-Syntax. `host 1.1.1.1` ist Capture-Filter-Syntax."
+    references:
+      - docs/10-basis-kurs/02-display-filter.md
+
+  - id: q-basic-002
+    type: single-choice
+    objective: ethernet-broadcast
+    question: "Welche MAC-Adresse ist die Ethernet-Broadcast-Adresse?"
+    answers:
+      - text: "ff:ff:ff:ff:ff:ff"
+        correct: true
+      - text: "00:00:00:00:00:00"
+        correct: false
+      - text: "127.0.0.1"
+        correct: false
+      - text: "fe80::1"
+        correct: false
+    explanation: "Ethernet-Broadcast wird an `ff:ff:ff:ff:ff:ff` gesendet."
+    references:
+      - docs/10-basis-kurs/03-ethernet-arp-vlan.md
+
+  - id: q-basic-003
+    type: single-choice
+    objective: arp
+    question: "Welche Frage beantwortet ARP in IPv4-Netzen?"
+    answers:
+      - text: "Welche MAC-Adresse gehört zu dieser IPv4-Adresse?"
+        correct: true
+      - text: "Welche URL gehört zu diesem HTTP-Statuscode?"
+        correct: false
+      - text: "Welche TLS-Version nutzt der Server?"
+        correct: false
+      - text: "Welche Benutzergruppe hat ein Linux-User?"
+        correct: false
+    explanation: "ARP löst IPv4-Adressen im lokalen Layer-2-Segment zu MAC-Adressen auf."
+    references:
+      - docs/10-basis-kurs/03-ethernet-arp-vlan.md
+
+  - id: q-basic-004
+    type: single-choice
+    objective: vlan-visibility
+    question: "Was bedeutet es, wenn in einem Client-Capture keine VLAN-Tags sichtbar sind?"
+    answers:
+      - text: "Nur, dass am Capture-Punkt keine VLAN-Tags sichtbar sind."
+        correct: true
+      - text: "Dass im Netzwerk garantiert keine VLANs verwendet werden."
+        correct: false
+      - text: "Dass Wireshark defekt ist."
+        correct: false
+      - text: "Dass ARP deaktiviert ist."
+        correct: false
+    explanation: "VLAN-Tags sind am Client-Access-Port häufig nicht sichtbar. Der Capture-Punkt entscheidet."
+    references:
+      - docs/10-basis-kurs/03-ethernet-arp-vlan.md
+
+  - id: q-basic-005
+    type: single-choice
+    objective: ttl
+    question: "Was beschreibt TTL bei IPv4 praktisch?"
+    answers:
+      - text: "Einen Hop-Zähler, der von Routern reduziert wird."
+        correct: true
+      - text: "Die Uhrzeit, zu der ein Paket gesendet wurde."
+        correct: false
+      - text: "Die DNS-Lease-Zeit."
+        correct: false
+      - text: "Die TLS-Laufzeit eines Zertifikats."
+        correct: false
+    explanation: "TTL heißt zwar Time To Live, wird praktisch aber als Hop-Begrenzung verwendet."
+    references:
+      - docs/10-basis-kurs/04-ipv4-ipv6-icmp.md
+
+  - id: q-basic-006
+    type: multiple-choice
+    objective: ping-limits
+    question: "Welche Aussagen zu Ping sind korrekt?"
+    answers:
+      - text: "Ping nutzt typischerweise ICMP Echo Request und Echo Reply."
+        correct: true
+      - text: "Ein erfolgreicher Ping beweist nicht, dass HTTPS funktioniert."
+        correct: true
+      - text: "Ein fehlgeschlagener Ping beweist immer, dass das Ziel offline ist."
+        correct: false
+      - text: "ICMP kann blockiert oder anders behandelt werden."
+        correct: true
+    explanation: "Ping ist nützlich, aber kein vollständiger Anwendungstest."
+    references:
+      - docs/10-basis-kurs/04-ipv4-ipv6-icmp.md
+
+  - id: q-basic-007
+    type: single-choice
+    objective: ipv6-neighbor-discovery
+    question: "Welches Protokoll übernimmt bei IPv6 Aufgaben, für die bei IPv4 ARP verwendet wird?"
+    answers:
+      - text: "ICMPv6 Neighbor Discovery"
+        correct: true
+      - text: "FTP"
+        correct: false
+      - text: "SMTP"
+        correct: false
+      - text: "HTTP/1.1"
+        correct: false
+    explanation: "IPv6 nutzt Neighbor Discovery über ICMPv6 statt ARP."
+    references:
+      - docs/10-basis-kurs/04-ipv4-ipv6-icmp.md
+
+  - id: q-basic-008
+    type: single-choice
+    objective: udp
+    question: "Welche Aussage beschreibt UDP korrekt?"
+    answers:
+      - text: "UDP ist verbindungslos und hat keinen TCP-ähnlichen 3-Way Handshake."
+        correct: true
+      - text: "UDP garantiert automatisch erneute Übertragung verlorener Pakete."
+        correct: false
+      - text: "UDP funktioniert nur mit DNS."
+        correct: false
+      - text: "UDP verwendet immer Port 443."
+        correct: false
+    explanation: "UDP ist bewusst schlank und verbindungslos. Wiederholungen müssen durch die Anwendung erfolgen."
+    references:
+      - docs/10-basis-kurs/05-udp-dns-dhcp.md
+
+  - id: q-basic-009
+    type: single-choice
+    objective: dns-response-codes
+    question: "Was bedeutet DNS Response Code NXDOMAIN?"
+    answers:
+      - text: "Der angefragte Name existiert laut antwortendem DNS-Server nicht."
+        correct: true
+      - text: "Der Webserver hat HTTP 404 gesendet."
+        correct: false
+      - text: "Der TCP-Port ist geschlossen."
+        correct: false
+      - text: "Der DNS-Server liefert absichtlich keine IPv6-Adresse, aber der Name existiert sicher."
+        correct: false
+    explanation: "NXDOMAIN bedeutet, dass der Name aus Sicht des DNS-Servers nicht existiert."
+    references:
+      - docs/10-basis-kurs/05-udp-dns-dhcp.md
+
+  - id: q-basic-010
+    type: multiple-choice
+    objective: dns-visibility
+    question: "Warum kann klassische DNS-Kommunikation in einem Capture fehlen?"
+    answers:
+      - text: "Die Antwort kam aus einem Cache."
+        correct: true
+      - text: "Der Client nutzt DNS over HTTPS oder DNS over TLS."
+        correct: true
+      - text: "Der Capture wurde auf dem falschen Interface erstellt."
+        correct: true
+      - text: "DNS ist grundsätzlich nie in Wireshark sichtbar."
+        correct: false
+    explanation: "Klassisches DNS kann fehlen, obwohl Namensauflösung stattgefunden hat."
+    references:
+      - docs/10-basis-kurs/05-udp-dns-dhcp.md
+
+  - id: q-basic-011
+    type: single-choice
+    objective: dhcp
+    question: "Welche Reihenfolge beschreibt den klassischen DHCP-DORA-Ablauf?"
+    answers:
+      - text: "Discover, Offer, Request, ACK"
+        correct: true
+      - text: "DNS, Offer, Route, ACK"
+        correct: false
+      - text: "Discover, Open, Reset, Accept"
+        correct: false
+      - text: "Data, Output, Request, Answer"
+        correct: false
+    explanation: "DORA steht für Discover, Offer, Request und ACK."
+    references:
+      - docs/10-basis-kurs/05-udp-dns-dhcp.md
+
+  - id: q-basic-012
+    type: single-choice
+    objective: tcp-handshake
+    question: "Welche Paketfolge beschreibt einen erfolgreichen TCP 3-Way Handshake?"
+    answers:
+      - text: "SYN, SYN/ACK, ACK"
+        correct: true
+      - text: "SYN, FIN, ACK"
+        correct: false
+      - text: "ACK, ACK, RST"
+        correct: false
+      - text: "DNS, SYN, HTTP"
+        correct: false
+    explanation: "TCP-Verbindungen beginnen typischerweise mit SYN, SYN/ACK und ACK."
+    references:
+      - docs/10-basis-kurs/06-tcp-grundlagen.md
+
+  - id: q-basic-013
+    type: single-choice
+    objective: tcp-rst
+    question: "Ein Client sendet SYN an einen Server, der Server antwortet mit RST/ACK. Welche Bewertung ist am besten?"
+    answers:
+      - text: "Das Ziel ist erreichbar, aber der Port wird aktiv abgelehnt oder der Dienst lauscht nicht."
+        correct: true
+      - text: "Der Server ist garantiert ausgeschaltet."
+        correct: false
+      - text: "DNS ist immer die Ursache."
+        correct: false
+      - text: "TLS ist erfolgreich abgeschlossen."
+        correct: false
+    explanation: "RST/ACK auf SYN spricht häufig für einen geschlossenen oder aktiv abgelehnten Port."
+    references:
+      - docs/10-basis-kurs/06-tcp-grundlagen.md
+
+  - id: q-basic-014
+    type: single-choice
+    objective: tcp-timeout
+    question: "Im Client-Capture sind mehrere SYN Retransmissions sichtbar, aber kein SYN/ACK. Welche Aussage ist sauber belegbar?"
+    answers:
+      - text: "Am Capture-Punkt ist keine passende Antwort auf die SYN-Pakete sichtbar."
+        correct: true
+      - text: "Der Server ist definitiv ausgeschaltet."
+        correct: false
+      - text: "Der HTTP-Statuscode ist 500."
+        correct: false
+      - text: "DNS hat NXDOMAIN geliefert."
+        correct: false
+    explanation: "Der Capture belegt nur, dass keine passende Antwort sichtbar ist. Ursache kann Firewall, Routing, Zielsystem, asymmetrischer Weg oder Capture-Punkt sein."
+    references:
+      - docs/10-basis-kurs/06-tcp-grundlagen.md
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-basic-015
+    type: single-choice
+    objective: tcp-stream
+    question: "Wofür ist `tcp.stream == <nummer>` besonders nützlich?"
+    answers:
+      - text: "Um eine einzelne TCP-Verbindung im Capture zu isolieren."
+        correct: true
+      - text: "Um alle DNS-Antworten mit NXDOMAIN zu löschen."
+        correct: false
+      - text: "Um VLAN-Tags sichtbar zu machen."
+        correct: false
+      - text: "Um den Capture-Punkt nachträglich zu ändern."
+        correct: false
+    explanation: "`tcp.stream` isoliert zusammengehörige Pakete einer TCP-Verbindung."
+    references:
+      - docs/10-basis-kurs/06-tcp-grundlagen.md
+
+  - id: q-basic-016
+    type: multiple-choice
+    objective: http-basic
+    question: "Welche Aussagen zu HTTP ohne TLS sind korrekt?"
+    answers:
+      - text: "HTTP-Requests und HTTP-Responses können in Wireshark oft im Klartext gelesen werden."
+        correct: true
+      - text: "HTTP-Header können sensible Informationen enthalten."
+        correct: true
+      - text: "Ein HTTP-Statuscode 404 ist automatisch ein Netzwerkfehler."
+        correct: false
+      - text: "Follow TCP Stream kann bei unverschlüsseltem HTTP sehr hilfreich sein."
+        correct: true
+    explanation: "HTTP ohne TLS ist häufig gut lesbar. Statuscodes sind Anwendungsebene und nicht automatisch Netzwerkfehler."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-basic-017
+    type: single-choice
+    objective: tls-visibility
+    question: "Warum sind HTTP-Pfad, Cookies und Payload bei HTTPS normalerweise nicht sichtbar?"
+    answers:
+      - text: "Weil der HTTP-Inhalt durch TLS verschlüsselt ist."
+        correct: true
+      - text: "Weil Wireshark keine TCP-Pakete lesen kann."
+        correct: false
+      - text: "Weil HTTPS immer UDP ohne Metadaten verwendet."
+        correct: false
+      - text: "Weil DNS nicht funktioniert."
+        correct: false
+    explanation: "HTTPS verschlüsselt den HTTP-Inhalt. Verbindungsdaten und TLS-Metadaten bleiben aber häufig sichtbar."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-basic-018
+    type: multiple-choice
+    objective: docker-dns-http-lab
+    question: "Welche Beobachtungen sollte das Docker DNS/HTTP Lab typischerweise ermöglichen?"
+    answers:
+      - text: "DNS Query und Response für web-ok.lab.local."
+        correct: true
+      - text: "NXDOMAIN für does-not-exist.lab.local."
+        correct: true
+      - text: "HTTP Request und Response für web-slow.lab.local."
+        correct: true
+      - text: "Echte produktive TLS-Zertifikatsfehler im Unternehmensnetz."
+        correct: false
+    explanation: "Das Docker-Lab ist eine kontrollierte Umgebung für DNS, NXDOMAIN, HTTP und Wartezeit."
+    references:
+      - docs/40-labs-und-uebungen/basic-dns-http-docker.md

@@ -1,39 +1,31 @@
-# Paket 19: Docker-Lab DNS/HTTP
+# Paket 20: Quiz-Modell und erste Fragen
 
-Dieses Paket ergänzt den Kurs um das erste reproduzierbare Docker-basierte Lab.
+Dieses Paket ergänzt den Kurs um die erste Quiz-Struktur.
 
 ## Enthaltene Dateien
 
 ```text
-.gitignore
 mkdocs.yml
-docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/basic-dns-http-docker.md
-docker/compose/lab-basic-dns-http/README.md
-docker/compose/lab-basic-dns-http/compose.yml
-docker/compose/lab-basic-dns-http/dns/Corefile
-docker/compose/lab-basic-dns-http/dns/db.lab.local
-docker/compose/lab-basic-dns-http/web-ok/index.html
-docker/compose/lab-basic-dns-http/web-slow/app.py
-labs/basic/lab-basic-020-dns-http-docker/README.md
-labs/basic/lab-basic-020-dns-http-docker/scenario.md
-labs/basic/lab-basic-020-dns-http-docker/tasks.md
-labs/basic/lab-basic-020-dns-http-docker/hints.md
-labs/basic/lab-basic-020-dns-http-docker/solution.md
-labs/basic/lab-basic-020-dns-http-docker/metadata.yml
-pcaps/generated/.gitkeep
+docs/50-quizzes/index.md
+docs/50-quizzes/quiz-struktur.md
+docs/50-quizzes/foundation-quiz.md
+docs/50-quizzes/basic-quiz.md
+quizzes/README.md
+quizzes/questions/foundation.yml
+quizzes/questions/basic.yml
+quizzes/exams/.gitkeep
+quizzes/objectives/.gitkeep
 ```
 
 ## Ziel
 
-Dieses Paket macht Docker erstmals praktisch nutzbar:
+Mit diesem Paket bekommt der Kurs ein erstes prüfbares Wiederholungsmodell:
 
-- eigenes isoliertes Lab-Netz
-- eigener DNS-Server mit `lab.local`
-- normaler Webserver
-- langsamer Webserver
-- Client-Container für `dig` und `curl`
-- Host-Capture mit Wireshark oder TShark
-- Analyse von DNS, NXDOMAIN, HTTP und einfacher Wartezeit
+- Quizbereich in MkDocs
+- einheitliche Quiz-Struktur
+- YAML-Format für Fragen
+- Foundation-Fragen
+- Basic-Fragen
+- erste WCA-nahe Kompetenzzuordnung
 
-Lokal erzeugte PCAP-Dateien werden über `.gitignore` vom Commit ausgeschlossen.
+Die Fragen sind eigene Kursfragen und keine echten WCA-Prüfungsfragen.

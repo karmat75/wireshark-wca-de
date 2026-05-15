@@ -152,6 +152,12 @@ nav:
       - Foundation Lab 001: 40-labs-und-uebungen/foundation-first-capture.md
       - Basic Lab 020 DNS/HTTP Docker: 40-labs-und-uebungen/basic-dns-http-docker.md
 
+  - Quizzes:
+      - Überblick: 50-quizzes/index.md
+      - Quiz-Struktur: 50-quizzes/quiz-struktur.md
+      - Foundation-Quiz: 50-quizzes/foundation-quiz.md
+      - Basic-Quiz: 50-quizzes/basic-quiz.md
+
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md
       - Lernzielmatrix: 30-wca-vorbereitung/lernzielmatrix.md

@@ -1,0 +1,211 @@
+id: foundation
+title: "Foundation Quiz"
+description: "Wiederholung zu Lernumgebung, Linux-Grundlagen, Wireshark-Oberfläche und TShark."
+version: "0.1.0"
+questions:
+  - id: q-foundation-001
+    type: single-choice
+    objective: display-filter-basics
+    question: "Welche Aussage beschreibt einen Display Filter korrekt?"
+    answers:
+      - text: "Er verändert nur, welche Pakete in einem bereits geöffneten Capture angezeigt werden."
+        correct: true
+      - text: "Er entscheidet, welche Pakete überhaupt mitgeschnitten und gespeichert werden."
+        correct: false
+      - text: "Er löscht nicht passende Pakete aus der Capture-Datei."
+        correct: false
+      - text: "Er funktioniert nur in TShark, nicht in Wireshark."
+        correct: false
+    explanation: "Display Filter wirken auf vorhandene Pakete. Sie verändern den Capture nicht."
+    references:
+      - docs/10-basis-kurs/02-display-filter.md
+
+  - id: q-foundation-002
+    type: single-choice
+    objective: capture-filter-basics
+    question: "Was ist der wichtigste Unterschied zwischen Capture Filter und Display Filter?"
+    answers:
+      - text: "Capture Filter wirken vor oder während der Aufnahme; Display Filter wirken nach der Aufnahme auf die Anzeige."
+        correct: true
+      - text: "Display Filter sind schneller, Capture Filter sind nur für IPv6."
+        correct: false
+      - text: "Capture Filter werden nur für gespeicherte PCAPs verwendet."
+        correct: false
+      - text: "Display Filter können Pakete dauerhaft aus der Datei entfernen."
+        correct: false
+    explanation: "Capture Filter entscheiden, was erfasst wird. Display Filter entscheiden, was angezeigt wird."
+    references:
+      - docs/10-basis-kurs/01-capture-grundlagen.md
+      - docs/10-basis-kurs/02-display-filter.md
+
+  - id: q-foundation-003
+    type: multiple-choice
+    objective: wireshark-ui
+    question: "Welche Bereiche gehören typischerweise zur Wireshark-Hauptansicht?"
+    answers:
+      - text: "Paketliste"
+        correct: true
+      - text: "Paketdetails"
+        correct: true
+      - text: "Paketbytes"
+        correct: true
+      - text: "Registry Editor"
+        correct: false
+    explanation: "Wireshark zeigt typischerweise Paketliste, Paketdetails und Paketbytes."
+    references:
+      - docs/03-wireshark-erster-kontakt/oberflaeche-verstehen.md
+
+  - id: q-foundation-004
+    type: single-choice
+    objective: tshark-basics
+    question: "Wofür steht TShark im Kurs besonders?"
+    answers:
+      - text: "Für reproduzierbare Analyse im Terminal und auf Systemen ohne GUI."
+        correct: true
+      - text: "Für eine alternative grafische Oberfläche von Wireshark."
+        correct: false
+      - text: "Für ein Tool, das nur DNS analysieren kann."
+        correct: false
+      - text: "Für ein Windows-only Werkzeug."
+        correct: false
+    explanation: "TShark ist die Kommandozeilenvariante von Wireshark und ist besonders für Headless-Systeme und reproduzierbare Auswertung wichtig."
+    references:
+      - docs/03-wireshark-erster-kontakt/tshark-erster-kontakt.md
+      - docs/90-referenz/tshark-auf-systemen-ohne-gui.md
+
+  - id: q-foundation-005
+    type: single-choice
+    objective: shell-pipe-wc
+    question: "Was macht `wc -l` in einem Befehl wie `tshark -r capture.pcapng -Y "dns" | wc -l`?"
+    answers:
+      - text: "Es zählt die Ausgabezeilen."
+        correct: true
+      - text: "Es zählt direkt DNS-Transaktionen im PCAP-Format."
+        correct: false
+      - text: "Es löscht doppelte Pakete."
+        correct: false
+      - text: "Es zeigt nur fehlerhafte DNS-Antworten."
+        correct: false
+    explanation: "`wc` steht historisch für word count. Mit `-l` zählt es Zeilen. Bei TShark-Standardausgaben entspricht eine Zeile häufig einem Paket."
+    references:
+      - docs/02-linux-grundlagen-fuer-den-kurs/terminal-und-shell.md
+      - docs/03-wireshark-erster-kontakt/tshark-erster-kontakt.md
+
+  - id: q-foundation-006
+    type: single-choice
+    objective: pcap-files
+    question: "Welche Dateiendung verwendet Wireshark heute bevorzugt für moderne Capture-Dateien?"
+    answers:
+      - text: ".pcapng"
+        correct: true
+      - text: ".xlsx"
+        correct: false
+      - text: ".evtx"
+        correct: false
+      - text: ".har"
+        correct: false
+    explanation: "Wireshark nutzt heute standardmäßig pcapng als modernes Capture-Format."
+    references:
+      - docs/10-basis-kurs/01-capture-grundlagen.md
+
+  - id: q-foundation-007
+    type: multiple-choice
+    objective: capture-rights
+    question: "Warum arbeiten wir im Kurs nicht dauerhaft als `root`?"
+    answers:
+      - text: "Weil normale Arbeit mit normalen Rechten erfolgen soll."
+        correct: true
+      - text: "Weil administrative Aktionen bewusst mit `sudo` erfolgen sollen."
+        correct: true
+      - text: "Weil `root` auf Linux grundsätzlich keine Dateien lesen darf."
+        correct: false
+      - text: "Weil dadurch Fehler und Schäden begrenzt werden können."
+        correct: true
+    explanation: "Der Kurs folgt dem Prinzip: normale Arbeit mit normalen Rechten, erhöhte Rechte nur gezielt."
+    references:
+      - docs/02-linux-grundlagen-fuer-den-kurs/rechte-und-gruppen.md
+
+  - id: q-foundation-008
+    type: single-choice
+    objective: wireshark-profiles
+    question: "Warum ist ein eigenes Wireshark-Profil für den Kurs sinnvoll?"
+    answers:
+      - text: "Damit Spalten, Farben und Einstellungen angepasst werden können, ohne die Standardansicht zu verändern."
+        correct: true
+      - text: "Damit Wireshark schneller kompiliert."
+        correct: false
+      - text: "Damit Capture-Dateien kleiner werden."
+        correct: false
+      - text: "Damit DNS automatisch entschlüsselt wird."
+        correct: false
+    explanation: "Profile speichern Darstellungs- und Analyseeinstellungen und erlauben kontrollierte Anpassungen."
+    references:
+      - docs/03-wireshark-erster-kontakt/profile-und-spalten.md
+
+  - id: q-foundation-009
+    type: single-choice
+    objective: headless-tshark
+    question: "Welcher Befehl installiert TShark auf einem Ubuntu-Server ohne GUI typischerweise direkt?"
+    answers:
+      - text: "sudo apt install -y tshark"
+        correct: true
+      - text: "sudo apt install -y libreoffice"
+        correct: false
+      - text: "sudo docker install tshark"
+        correct: false
+      - text: "sudo systemctl enable tshark"
+        correct: false
+    explanation: "Auf Headless-Systemen reicht häufig das Paket `tshark`, ohne die komplette Wireshark-GUI zu installieren."
+    references:
+      - docs/90-referenz/tshark-auf-systemen-ohne-gui.md
+
+  - id: q-foundation-010
+    type: single-choice
+    objective: first-capture
+    question: "Welche Aussage ist nach einem erfolgreichen ersten Capture mit `dig`, `ping` und `curl -I https://example.org` typischerweise korrekt?"
+    answers:
+      - text: "Es sollten DNS-, ICMP- sowie TCP/TLS-Pakete sichtbar sein."
+        correct: true
+      - text: "Es dürfen keine anderen Pakete im Capture auftauchen."
+        correct: false
+      - text: "HTTPS-Inhalte müssen vollständig im Klartext sichtbar sein."
+        correct: false
+      - text: "VLAN-Tags müssen immer sichtbar sein."
+        correct: false
+    explanation: "Der erste Capture erzeugt bewusst DNS, ICMP und HTTPS-Verkehr. Hintergrundtraffic ist normal, HTTPS-Inhalte sind üblicherweise verschlüsselt."
+    references:
+      - labs/foundation/lab-foundation-001-first-capture/README.md
+
+  - id: q-foundation-011
+    type: multiple-choice
+    objective: observation-vs-conclusion
+    question: "Welche Aussagen sind sauber formulierte Beobachtungen?"
+    answers:
+      - text: "Im Client-Capture sind drei SYN-Pakete sichtbar, aber kein SYN/ACK."
+        correct: true
+      - text: "Die Firewall ist definitiv schuld."
+        correct: false
+      - text: "Der Filter `dns` zeigt keine Pakete im untersuchten Zeitfenster."
+        correct: true
+      - text: "Das Netzwerk ist kaputt."
+        correct: false
+    explanation: "Saubere Beobachtungen beschreiben, was im Capture sichtbar ist. Ursachen müssen danach vorsichtig bewertet werden."
+    references:
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-foundation-012
+    type: single-choice
+    objective: frame-metadata
+    question: "Was beschreibt der Bereich `Frame` in Wireshark hauptsächlich?"
+    answers:
+      - text: "Capture- und Paketmetadaten wie Frame-Nummer, Zeitpunkt und Paketlänge."
+        correct: true
+      - text: "Immer die physische OSI-Schicht 1."
+        correct: false
+      - text: "Nur DNS-spezifische Informationen."
+        correct: false
+      - text: "Nur die TCP-Nutzdaten."
+        correct: false
+    explanation: "`Frame` enthält Wireshark- und Capture-bezogene Metadaten und ist keine normale Protokollschicht wie Ethernet oder IP."
+    references:
+      - docs/90-referenz/osi-modell-fuer-wireshark.md
