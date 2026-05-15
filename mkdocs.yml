@@ -146,6 +146,11 @@ nav:
       - Fehleranalyse-Methodik: 20-advanced-kurs/04-fehleranalyse-methodik.md
       - Security-Basics: 20-advanced-kurs/05-security-basics.md
 
+  - Labs und Übungen:
+      - Überblick: 40-labs-und-uebungen/index.md
+      - Lab-Struktur: 40-labs-und-uebungen/lab-struktur.md
+      - Foundation Lab 001: 40-labs-und-uebungen/foundation-first-capture.md
+
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md
       - Lernzielmatrix: 30-wca-vorbereitung/lernzielmatrix.md

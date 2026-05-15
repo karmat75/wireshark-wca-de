@@ -1,0 +1,27 @@
+id: lab-foundation-001-first-capture
+title: "First Capture"
+track: foundation
+level: foundation
+estimated_time: 30m
+status: draft
+wca_objectives:
+  - wireshark-features
+  - capture-methods
+  - display-filters
+  - command-line-capture
+  - packet-details
+tools:
+  - wireshark
+  - tshark
+  - dig
+  - ping
+  - curl
+requires:
+  - docs/01-lern-und-uebungsumgebung/umgebung-pruefen.md
+  - docs/03-wireshark-erster-kontakt/erstes-capture-oeffnen.md
+outputs:
+  - local-pcap
+  - short-analysis-report
+generated_files:
+  - pcaps/generated/lab-foundation-001-first-capture.pcapng
+commit_generated_files: false
