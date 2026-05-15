@@ -1,31 +1,37 @@
-# Paket 20: Quiz-Modell und erste Fragen
+# Paket 21: Screenshot-Styleguide und Asset-Struktur
 
-Dieses Paket ergänzt den Kurs um die erste Quiz-Struktur.
+Dieses Paket ergänzt den Referenzbereich um einen Screenshot-Styleguide und legt die Bildstruktur unter `docs/assets/images/` an.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/50-quizzes/index.md
-docs/50-quizzes/quiz-struktur.md
-docs/50-quizzes/foundation-quiz.md
-docs/50-quizzes/basic-quiz.md
-quizzes/README.md
-quizzes/questions/foundation.yml
-quizzes/questions/basic.yml
-quizzes/exams/.gitkeep
-quizzes/objectives/.gitkeep
+docs/90-referenz/index.md
+docs/90-referenz/screenshot-styleguide.md
+docs/assets/images/README.md
+docs/assets/images/wireshark-ui/.gitkeep
+docs/assets/images/display-filter/.gitkeep
+docs/assets/images/tshark/.gitkeep
+docs/assets/images/tcp/.gitkeep
+docs/assets/images/dns/.gitkeep
+docs/assets/images/http-tls/.gitkeep
+docs/assets/images/performance/.gitkeep
+docs/assets/images/security/.gitkeep
+docs/assets/images/labs/.gitkeep
+docs/assets/images/wca-prep/.gitkeep
 ```
 
 ## Ziel
 
-Mit diesem Paket bekommt der Kurs ein erstes prüfbares Wiederholungsmodell:
+Mit diesem Paket bekommt der Kurs Regeln für Screenshots:
 
-- Quizbereich in MkDocs
-- einheitliche Quiz-Struktur
-- YAML-Format für Fragen
-- Foundation-Fragen
-- Basic-Fragen
-- erste WCA-nahe Kompetenzzuordnung
+- keine produktiven oder personenbezogenen Daten
+- nur Lab-Captures oder saubere Beispielumgebungen
+- einheitliche Bildstruktur
+- einheitliche Dateinamen
+- sinnvolle Alt-Texte
+- sparsame Markierungen
+- klare Aussage pro Screenshot
+- Hinweise zu Lizenz, Datenschutz und Wartbarkeit
 
-Die Fragen sind eigene Kursfragen und keine echten WCA-Prüfungsfragen.
+Screenshots sollen den Kurs unterstützen, aber keine Analyse ersetzen.

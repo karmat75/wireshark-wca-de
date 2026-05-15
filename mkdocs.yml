@@ -167,5 +167,6 @@ nav:
   - Referenz:
       - Überblick: 90-referenz/index.md
       - Externe Ressourcen: 90-referenz/externe-ressourcen.md
+      - Screenshot-Styleguide: 90-referenz/screenshot-styleguide.md
       - OSI-Modell für Wireshark: 90-referenz/osi-modell-fuer-wireshark.md
       - TShark auf Systemen ohne GUI: 90-referenz/tshark-auf-systemen-ohne-gui.md

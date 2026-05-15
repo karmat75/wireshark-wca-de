@@ -7,6 +7,7 @@ Die Referenzartikel sind keine normalen Lektionen, sondern Nachschlagepunkte fü
 ## Aktuelle Referenzen
 
 - [Externe Ressourcen](externe-ressourcen.md)
+- [Screenshot-Styleguide](screenshot-styleguide.md)
 - [OSI-Modell für Wireshark](osi-modell-fuer-wireshark.md)
 - [TShark auf Systemen ohne GUI](tshark-auf-systemen-ohne-gui.md)
 
@@ -20,5 +21,6 @@ Die Referenz soll helfen, wenn du schnell wissen musst:
 - welche Stolperfallen typischerweise auftreten
 - wie ein Thema in Wireshark praktisch einzuordnen ist
 - welche offiziellen oder externen Ressourcen sinnvoll sind
+- wie Screenshots für den Kurs erstellt und gepflegt werden
 
-Später kommen hier weitere Referenzen hinzu, zum Beispiel zu Display Filtern, TShark-Feldnamen, Capture-Filtern, Screenshots und Analyseberichten.
+Später kommen hier weitere Referenzen hinzu, zum Beispiel zu Display Filtern, TShark-Feldnamen, Capture-Filtern und Analyseberichten.
