@@ -158,6 +158,8 @@ nav:
       - Lokales Quiz-Tool: 50-quizzes/lokales-quiz-tool.md
       - Foundation-Quiz: 50-quizzes/foundation-quiz.md
       - Basic-Quiz: 50-quizzes/basic-quiz.md
+      - Advanced-Quiz: 50-quizzes/advanced-quiz.md
+      - WCA-Practice-Quiz: 50-quizzes/wca-practice-quiz.md
 
   - PCAP-Challenges:
       - Überblick: 60-pcap-challenges/index.md

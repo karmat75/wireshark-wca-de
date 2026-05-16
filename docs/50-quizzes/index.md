@@ -23,21 +23,29 @@ Quizzes sollen helfen:
 |---|---|---|
 | [Foundation-Quiz](foundation-quiz.md) | Umgebung, Wireshark-Oberfläche, TShark, Linux-Grundlagen | `quizzes/questions/foundation.yml` |
 | [Basic-Quiz](basic-quiz.md) | Display Filter, Ethernet, ARP, IP, ICMP, UDP, DNS, DHCP, TCP | `quizzes/questions/basic.yml` |
+| [Advanced-Quiz](advanced-quiz.md) | TCP Deep Dive, Performance, HTTP/TLS, Methodik, Security | `quizzes/questions/advanced.yml` |
+| [WCA-Practice-Quiz](wca-practice-quiz.md) | gemischte szenariobasierte Fragen | `quizzes/questions/wca-practice.yml` |
+
+## Aktueller Umfang
+
+```text
+Foundation:    12 Fragen
+Basic:         18 Fragen
+Advanced:      20 Fragen
+WCA Practice:  15 Fragen
+Gesamt:        65 Fragen
+```
 
 ## Lokales Quiz-Tool
 
-Die YAML-Fragen können jetzt lokal im Terminal ausgeführt werden.
-
-Siehe:
-
-```text
-docs/50-quizzes/lokales-quiz-tool.md
-```
+Die YAML-Fragen können lokal im Terminal ausgeführt werden.
 
 Beispiel:
 
 ```bash
-python3 tools/wwca/wwca.py quiz run foundation
+python3 tools/wwca/wwca.py quiz list
+python3 tools/wwca/wwca.py quiz run advanced --limit 10 --shuffle
+python3 tools/wwca/wwca.py quiz run wca-practice --shuffle
 ```
 
 ## Arbeitsweise

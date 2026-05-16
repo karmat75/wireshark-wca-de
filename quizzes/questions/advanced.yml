@@ -1,0 +1,349 @@
+id: advanced
+title: "Advanced Quiz"
+description: "Wiederholung zu TCP Deep Dive, Performanceanalyse, HTTP/TLS, Methodik und Security-Basics."
+version: "0.1.0"
+questions:
+  - id: q-advanced-001
+    type: single-choice
+    objective: tcp-stream-analysis
+    question: "Warum sollte man bei TCP-Problemen häufig zuerst den betroffenen TCP Stream isolieren?"
+    answers:
+      - text: "Weil ein Capture oft viele parallele TCP-Verbindungen enthält und sonst unterschiedliche Gespräche vermischt werden."
+        correct: true
+      - text: "Weil Wireshark ohne Stream-Filter keine Pakete anzeigen kann."
+        correct: false
+      - text: "Weil DNS nur innerhalb eines TCP Streams sichtbar ist."
+        correct: false
+      - text: "Weil dadurch verlorene Pakete automatisch wiederhergestellt werden."
+        correct: false
+    explanation: "TCP ist ein Gespräch. Der Stream-Filter verhindert, dass mehrere Verbindungen vermischt bewertet werden."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+
+  - id: q-advanced-002
+    type: single-choice
+    objective: tcp-sequence-ack
+    question: "Was beschreibt die TCP ACK Number vereinfacht?"
+    answers:
+      - text: "Das nächste Byte, das der Empfänger erwartet."
+        correct: true
+      - text: "Die Anzahl aller Pakete im Capture."
+        correct: false
+      - text: "Die VLAN-ID der Verbindung."
+        correct: false
+      - text: "Die TLS-Version des Servers."
+        correct: false
+    explanation: "ACK bestätigt kumulativ den empfangenen Datenstrom bis zum nächsten erwarteten Byte."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+
+  - id: q-advanced-003
+    type: multiple-choice
+    objective: tcp-retransmission
+    question: "Welche Aussagen zu TCP Retransmissions sind korrekt?"
+    answers:
+      - text: "Eine Retransmission ist eine erneute Übertragung von Daten."
+        correct: true
+      - text: "Eine Retransmission beweist allein nicht, wo ein Paket verloren ging."
+        correct: true
+      - text: "Capture-Punkt und Capture-Qualität müssen bewertet werden."
+        correct: true
+      - text: "Eine Retransmission ist immer ein DNS-Fehler."
+        correct: false
+    explanation: "Retransmissions sind wichtige Symptome, aber keine fertige Ursache."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+      - docs/20-advanced-kurs/02-performance-analyse.md
+
+  - id: q-advanced-004
+    type: single-choice
+    objective: duplicate-ack
+    question: "Was signalisiert ein Duplicate ACK typischerweise?"
+    answers:
+      - text: "Der Empfänger bestätigt erneut dasselbe nächste erwartete Byte, häufig weil ein Segment fehlt."
+        correct: true
+      - text: "Der Empfänger hat die Verbindung erfolgreich per TLS verschlüsselt."
+        correct: false
+      - text: "Der DNS-Server hat NXDOMAIN gesendet."
+        correct: false
+      - text: "Der Capture wurde automatisch komprimiert."
+        correct: false
+    explanation: "Duplicate ACKs können ein Hinweis auf fehlende Segmente sein und Fast Retransmit auslösen."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+
+  - id: q-advanced-005
+    type: single-choice
+    objective: previous-segment-not-captured
+    question: "Wireshark zeigt `TCP Previous segment not captured`. Welche Aussage ist am saubersten?"
+    answers:
+      - text: "Wireshark sieht eine Lücke im Capture; ob das echter Paketverlust war, muss der Kontext zeigen."
+        correct: true
+      - text: "Das Paket wurde sicher auf dem Kabel zerstört."
+        correct: false
+      - text: "Der HTTP-Server hat Status 500 gesendet."
+        correct: false
+      - text: "Der Client hat garantiert kein Gateway."
+        correct: false
+    explanation: "`Not captured` bedeutet zunächst, dass Wireshark das Segment nicht gesehen hat."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+
+  - id: q-advanced-006
+    type: multiple-choice
+    objective: zero-window
+    question: "Welche Aussagen zu TCP Zero Window sind korrekt?"
+    answers:
+      - text: "Der Empfänger signalisiert, dass er aktuell keine weiteren Daten aufnehmen kann."
+        correct: true
+      - text: "Es kann auf eine überlastete Anwendung oder volle Puffer hinweisen."
+        correct: true
+      - text: "Es beweist klassischen Paketverlust im Netzwerk."
+        correct: false
+      - text: "Ein späteres Window Update kann zeigen, dass wieder Daten angenommen werden können."
+        correct: true
+    explanation: "Zero Window ist eher ein Empfänger-/Anwendungs-Hinweis als ein klassischer Paketverlustbeweis."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+      - docs/20-advanced-kurs/02-performance-analyse.md
+
+  - id: q-advanced-007
+    type: single-choice
+    objective: sack
+    question: "Wofür ist SACK bei TCP hilfreich?"
+    answers:
+      - text: "Der Empfänger kann selektiv mitteilen, welche Datenbereiche angekommen sind und welche fehlen."
+        correct: true
+      - text: "Der Server kann dadurch DNS-Namen verschlüsseln."
+        correct: false
+      - text: "ARP kann dadurch über Router hinweg funktionieren."
+        correct: false
+      - text: "Wireshark kann dadurch HTTPS immer entschlüsseln."
+        correct: false
+    explanation: "SACK hilft TCP, bei Verlust effizienter erneut zu übertragen."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+
+  - id: q-advanced-008
+    type: single-choice
+    objective: performance-method
+    question: "Welche Frage ist bei Performanceanalyse besser als `Warum ist die Anwendung langsam?`"
+    answers:
+      - text: "Wo entsteht die Wartezeit zwischen DNS, TCP, TLS, Request und Response?"
+        correct: true
+      - text: "Welche Farbe hat das Paket in Wireshark?"
+        correct: false
+      - text: "Wie lösche ich alle Pakete ohne HTTP?"
+        correct: false
+      - text: "Warum ist UDP immer schneller?"
+        correct: false
+    explanation: "Performanceanalyse zerlegt ein unscharfes Symptom in messbare Abschnitte."
+    references:
+      - docs/20-advanced-kurs/02-performance-analyse.md
+
+  - id: q-advanced-009
+    type: multiple-choice
+    objective: performance-timing
+    question: "Welche Abschnitte sind bei einer HTTPS-Webanalyse sinnvolle Zeitabschnitte?"
+    answers:
+      - text: "DNS Query bis DNS Response"
+        correct: true
+      - text: "TCP SYN bis SYN/ACK"
+        correct: true
+      - text: "TLS Client Hello bis TLS-Handshake-Fortschritt"
+        correct: true
+      - text: "HTTP Request bis erste Antwort oder TLS Application Data"
+        correct: true
+    explanation: "Die Zerlegung in DNS, TCP, TLS und Anwendung hilft, Wartezeit einzugrenzen."
+    references:
+      - docs/20-advanced-kurs/02-performance-analyse.md
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-advanced-010
+    type: single-choice
+    objective: io-graphs
+    question: "Wofür sind I/O Graphs in Wireshark besonders nützlich?"
+    answers:
+      - text: "Um Traffic-Muster, Bursts, Pausen und Durchsatz über die Zeit sichtbar zu machen."
+        correct: true
+      - text: "Um gelöschte Pakete wiederherzustellen."
+        correct: false
+      - text: "Um DNS-Namen ohne Capture zu erraten."
+        correct: false
+      - text: "Um TLS-Zertifikate automatisch zu verlängern."
+        correct: false
+    explanation: "I/O Graphs zeigen Muster. Die Ursache muss danach im Paketdetail geprüft werden."
+    references:
+      - docs/20-advanced-kurs/02-performance-analyse.md
+
+  - id: q-advanced-011
+    type: single-choice
+    objective: http-status
+    question: "Ein Capture zeigt `HTTP/1.1 500 Internal Server Error`. Welche Bewertung ist am besten?"
+    answers:
+      - text: "Netzwerk und HTTP-Transport haben grundsätzlich funktioniert; die Anwendung oder ein Backend meldet einen Fehler."
+        correct: true
+      - text: "Der TCP-Handshake ist garantiert fehlgeschlagen."
+        correct: false
+      - text: "DNS hat garantiert NXDOMAIN geliefert."
+        correct: false
+      - text: "Es gab sicher keine Serverantwort."
+        correct: false
+    explanation: "HTTP 500 ist ein Anwendungssignal. Der Server hat geantwortet."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-advanced-012
+    type: multiple-choice
+    objective: https-visibility
+    question: "Welche Informationen können bei HTTPS trotz Verschlüsselung oft sichtbar bleiben?"
+    answers:
+      - text: "IP-Adressen und TCP-Ports"
+        correct: true
+      - text: "TLS Client Hello"
+        correct: true
+      - text: "SNI, wenn sichtbar und nicht verborgen"
+        correct: true
+      - text: "Cookies und Formulardaten im Klartext"
+        correct: false
+    explanation: "HTTPS verschlüsselt den Inhalt, aber Metadaten und Verbindungsverhalten bleiben häufig sichtbar."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-advanced-013
+    type: single-choice
+    objective: sni
+    question: "Wofür steht SNI im TLS-Kontext?"
+    answers:
+      - text: "Server Name Indication, also der vom Client angefragte Hostname im TLS Handshake."
+        correct: true
+      - text: "Secure Network Interface, also eine verschlüsselte Netzwerkkarte."
+        correct: false
+      - text: "Session Number Index, also die TCP Stream Nummer."
+        correct: false
+      - text: "Subnet Name Identifier für VLANs."
+        correct: false
+    explanation: "SNI hilft Servern, bei mehreren Hostnamen auf derselben IP das passende Zertifikat zu wählen."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-advanced-014
+    type: single-choice
+    objective: alpn
+    question: "Was zeigt ALPN im TLS-Handschake typischerweise an?"
+    answers:
+      - text: "Welches Anwendungsprotokoll über TLS ausgehandelt wird, zum Beispiel http/1.1 oder h2."
+        correct: true
+      - text: "Welche MAC-Adresse zum Gateway gehört."
+        correct: false
+      - text: "Wie viele DHCP-Leases verfügbar sind."
+        correct: false
+      - text: "Welche DNS-Zone autoritativ ist."
+        correct: false
+    explanation: "ALPN steht für Application-Layer Protocol Negotiation."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-advanced-015
+    type: single-choice
+    objective: methodology-observation
+    question: "Welche Formulierung ist methodisch am saubersten?"
+    answers:
+      - text: "Im Client-Capture sind drei SYN-Pakete sichtbar, aber keine SYN/ACK-Antwort."
+        correct: true
+      - text: "Die Firewall ist definitiv schuld."
+        correct: false
+      - text: "Der Server ist ausgeschaltet."
+        correct: false
+      - text: "Das Netzwerk ist kaputt."
+        correct: false
+    explanation: "Die erste Aussage beschreibt eine Beobachtung. Die anderen Aussagen sind mögliche Ursachen oder zu starke Schlüsse."
+    references:
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-advanced-016
+    type: multiple-choice
+    objective: methodology-reporting
+    question: "Welche Elemente gehören in einen guten Analysebericht?"
+    answers:
+      - text: "Capture-Punkt"
+        correct: true
+      - text: "verwendete Filter"
+        correct: true
+      - text: "relevante Frame-Nummern"
+        correct: true
+      - text: "Behauptungen ohne Beleg"
+        correct: false
+    explanation: "Ein Analysebericht muss nachvollziehbar sein. Capture-Punkt, Filter und Frames sind dafür zentral."
+    references:
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-advanced-017
+    type: single-choice
+    objective: negative-evidence
+    question: "Warum ist die Aussage `Es gibt kein DNS` oft zu stark?"
+    answers:
+      - text: "Weil im Capture nur an einem bestimmten Punkt und Zeitraum keine klassischen DNS-Pakete sichtbar sein können."
+        correct: true
+      - text: "Weil DNS nie in Wireshark angezeigt werden kann."
+        correct: false
+      - text: "Weil DNS immer über ARP läuft."
+        correct: false
+      - text: "Weil DNS nur in Windows existiert."
+        correct: false
+    explanation: "Fehlende Sichtbarkeit kann durch Cache, DoH/DoT, falschen Capture-Punkt oder Zeitpunkt entstehen."
+    references:
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+      - docs/10-basis-kurs/05-udp-dns-dhcp.md
+
+  - id: q-advanced-018
+    type: multiple-choice
+    objective: security-basics
+    question: "Welche Beobachtungen können in einer defensiven Security-Analyse interessant sein?"
+    answers:
+      - text: "HTTP ohne TLS mit sichtbaren Headern"
+        correct: true
+      - text: "viele DNS NXDOMAIN-Antworten"
+        correct: true
+      - text: "regelmäßige Verbindungen zu demselben Ziel"
+        correct: true
+      - text: "ein einzelner ARP Request im lokalen Netz"
+        correct: false
+    explanation: "Klartext, DNS-Fehler und regelmäßige Kommunikation können Hinweise sein. Ein einzelner ARP Request ist meist normal."
+    references:
+      - docs/20-advanced-kurs/05-security-basics.md
+
+  - id: q-advanced-019
+    type: single-choice
+    objective: beaconing
+    question: "Was ist bei regelmäßigem Traffic zu einem externen Ziel die beste erste Bewertung?"
+    answers:
+      - text: "Es ist eine interessante Beobachtung, die mit Kontext und weiteren Datenquellen geprüft werden muss."
+        correct: true
+      - text: "Es ist immer Malware-Beaconing."
+        correct: false
+      - text: "Es ist immer NTP."
+        correct: false
+      - text: "Es beweist, dass TLS fehlerhaft ist."
+        correct: false
+    explanation: "Regelmäßigkeit kann legitim oder verdächtig sein. Kontext entscheidet."
+    references:
+      - docs/20-advanced-kurs/05-security-basics.md
+
+  - id: q-advanced-020
+    type: single-choice
+    objective: security-pcaps
+    question: "Warum sollen keine produktiven Incident-Captures in das Kurs-Repository?"
+    answers:
+      - text: "Weil sie sensible Daten, reale Infrastrukturinformationen oder schädliche Inhalte enthalten können."
+        correct: true
+      - text: "Weil Wireshark solche Dateien nicht öffnen kann."
+        correct: false
+      - text: "Weil PCAPs grundsätzlich keine Netzwerkdaten enthalten."
+        correct: false
+      - text: "Weil Git nur Textdateien speichern kann."
+        correct: false
+    explanation: "Der Kurs verwendet saubere Lab-Daten oder klar lizenzierte Beispiel-Captures."
+    references:
+      - docs/20-advanced-kurs/05-security-basics.md
+      - docs/90-referenz/screenshot-styleguide.md

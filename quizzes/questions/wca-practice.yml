@@ -1,0 +1,264 @@
+id: wca-practice
+title: "WCA Practice Quiz"
+description: "Gemischte, szenariobasierte Wiederholung über Foundation, Basis, Advanced, Labs und Methodik."
+version: "0.1.0"
+questions:
+  - id: q-wca-practice-001
+    type: single-choice
+    objective: capture-point
+    question: "Ein Client-Capture zeigt SYN-Pakete zu 10.20.30.40:443, aber keine SYN/ACK-Antwort. Welche Aussage ist am besten belegbar?"
+    answers:
+      - text: "Am Capture-Punkt ist keine passende SYN/ACK-Antwort sichtbar."
+        correct: true
+      - text: "Der Server ist definitiv ausgeschaltet."
+        correct: false
+      - text: "Die Firewall ist definitiv schuld."
+        correct: false
+      - text: "TLS ist falsch konfiguriert."
+        correct: false
+    explanation: "Der Capture belegt die Sicht am Capture-Punkt. Ursache und Ort des Problems sind damit noch nicht eindeutig."
+    references:
+      - docs/10-basis-kurs/06-tcp-grundlagen.md
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-wca-practice-002
+    type: multiple-choice
+    objective: dns-troubleshooting
+    question: "Ein Client fragt `app.lab.local` ab und erhält NXDOMAIN. Welche Aussagen sind korrekt?"
+    answers:
+      - text: "Der angefragte Name existiert laut antwortendem DNS-Server nicht."
+        correct: true
+      - text: "Der DNS-Server hat geantwortet."
+        correct: true
+      - text: "Der Webserver hat HTTP 404 geliefert."
+        correct: false
+      - text: "Ein anderer DNS-Server könnte theoretisch anders antworten."
+        correct: true
+    explanation: "NXDOMAIN ist eine DNS-Antwort. Sie sagt nichts direkt über HTTP."
+    references:
+      - docs/10-basis-kurs/05-udp-dns-dhcp.md
+      - docs/40-labs-und-uebungen/basic-dns-http-docker.md
+
+  - id: q-wca-practice-003
+    type: single-choice
+    objective: vlan-capture
+    question: "Du schneidest auf einem normalen Client an einem Access-Port mit und siehst keine VLAN-Tags. Was ist die beste Bewertung?"
+    answers:
+      - text: "Das ist nicht automatisch ein Fehler; VLAN-Tags sind am Client-Access-Port oft nicht sichtbar."
+        correct: true
+      - text: "Es beweist, dass es im gesamten Netzwerk keine VLANs gibt."
+        correct: false
+      - text: "Es beweist, dass ARP nicht funktioniert."
+        correct: false
+      - text: "Es beweist, dass Wireshark keine Ethernet-Frames liest."
+        correct: false
+    explanation: "Der Capture-Punkt entscheidet, ob VLAN-Tags sichtbar sind."
+    references:
+      - docs/10-basis-kurs/03-ethernet-arp-vlan.md
+
+  - id: q-wca-practice-004
+    type: single-choice
+    objective: http-status-vs-network
+    question: "Ein Capture zeigt einen vollständigen TCP Handshake, HTTP Request und HTTP 500 Response. Welche Aussage passt am besten?"
+    answers:
+      - text: "Transport und HTTP-Kommunikation funktionieren grundsätzlich; der Fehler liegt eher auf Anwendungs-/Serverseite."
+        correct: true
+      - text: "Der TCP-Port ist blockiert."
+        correct: false
+      - text: "Der Client hat keine IP-Adresse."
+        correct: false
+      - text: "DNS hat garantiert nicht geantwortet."
+        correct: false
+    explanation: "HTTP 500 ist eine Server-/Anwendungsantwort, kein Beweis für einen Transportfehler."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-wca-practice-005
+    type: multiple-choice
+    objective: tls-analysis
+    question: "Bei einer HTTPS-Verbindung ohne Entschlüsselung: Welche Daten sind typischerweise nicht im Klartext sichtbar?"
+    answers:
+      - text: "HTTP Cookies"
+        correct: true
+      - text: "HTTP Request Body"
+        correct: true
+      - text: "vollständiger URL-Pfad"
+        correct: true
+      - text: "TCP-Zielport"
+        correct: false
+    explanation: "TLS schützt HTTP-Inhalte. IPs und Ports bleiben für die Verbindung sichtbar."
+    references:
+      - docs/20-advanced-kurs/03-http-tls.md
+
+  - id: q-wca-practice-006
+    type: single-choice
+    objective: tcp-zero-window
+    question: "Ein TCP Stream zeigt mehrfach Zero Window vom Server zum Client. Was ist die beste erste Hypothese?"
+    answers:
+      - text: "Der Server kann aktuell nicht schnell genug Daten aufnehmen oder die Anwendung liest zu langsam."
+        correct: true
+      - text: "DNS liefert NXDOMAIN."
+        correct: false
+      - text: "Der Client hat sicher keinen ARP Cache."
+        correct: false
+      - text: "Es ist zwingend Paketverlust auf dem Weg."
+        correct: false
+    explanation: "Zero Window zeigt, dass der Empfänger aktuell keinen Empfangspuffer mehr anbietet."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+
+  - id: q-wca-practice-007
+    type: single-choice
+    objective: display-filter-vs-capture-filter
+    question: "Du möchtest in einer bereits geöffneten PCAP-Datei nur DNS-Pakete anzeigen. Was verwendest du?"
+    answers:
+      - text: "Den Display Filter `dns`."
+        correct: true
+      - text: "Den Capture Filter `udp port 53`, nachdem die Datei geöffnet wurde."
+        correct: false
+      - text: "Einen DHCP-Relay."
+        correct: false
+      - text: "Einen VLAN-Trunk."
+        correct: false
+    explanation: "Bei bereits vorhandenen Paketen wird die Anzeige über Display Filter eingeschränkt."
+    references:
+      - docs/10-basis-kurs/02-display-filter.md
+
+  - id: q-wca-practice-008
+    type: multiple-choice
+    objective: pcap-challenge
+    question: "Welche Elemente machen eine PCAP-Challenge prüfungsnah?"
+    answers:
+      - text: "Szenario mit konkretem Symptom"
+        correct: true
+      - text: "Analyse mit Frame-Nummern"
+        correct: true
+      - text: "Musterlösung mit Einschränkungen"
+        correct: true
+      - text: "echte Exam-Dump-Fragen"
+        correct: false
+    explanation: "Prüfungsnähe entsteht durch Analysefähigkeit, nicht durch echte Prüfungsfragen."
+    references:
+      - docs/60-pcap-challenges/pcap-challenge-struktur.md
+
+  - id: q-wca-practice-009
+    type: single-choice
+    objective: arp-routing
+    question: "Ein Client spricht einen Server in einem anderen Subnetz an. Welche MAC-Adresse ist im Ethernet-Ziel meist zu erwarten?"
+    answers:
+      - text: "Die MAC-Adresse des lokalen Gateways."
+        correct: true
+      - text: "Die MAC-Adresse des entfernten Servers."
+        correct: false
+      - text: "Die Broadcast-Adresse bei jedem TCP-Paket."
+        correct: false
+      - text: "Die IPv6-Link-Local-Adresse."
+        correct: false
+    explanation: "MAC-Adressen gelten lokal. Zum entfernten Ziel geht das Paket zunächst an das Gateway."
+    references:
+      - docs/10-basis-kurs/03-ethernet-arp-vlan.md
+      - docs/90-referenz/osi-modell-fuer-wireshark.md
+
+  - id: q-wca-practice-010
+    type: single-choice
+    objective: performance
+    question: "DNS ist schnell, TCP Handshake ist schnell, TLS ist schnell. Danach vergehen 4 Sekunden bis zur ersten HTTP-Antwort. Was ist die beste Bewertung?"
+    answers:
+      - text: "Die sichtbare Wartezeit liegt eher nach der Anfrage beim Server oder in der Anwendung/Backend-Verarbeitung."
+        correct: true
+      - text: "DNS ist eindeutig die Ursache."
+        correct: false
+      - text: "TCP SYN wird geblockt."
+        correct: false
+      - text: "ARP ist garantiert defekt."
+        correct: false
+    explanation: "Die Zeitabschnitte grenzen das Problem ein. Wenn frühe Phasen schnell sind, liegt die Wartezeit später."
+    references:
+      - docs/20-advanced-kurs/02-performance-analyse.md
+
+  - id: q-wca-practice-011
+    type: multiple-choice
+    objective: tshark
+    question: "Welche Aussagen zu TShark im Kurs sind korrekt?"
+    answers:
+      - text: "TShark kann PCAPs mit Display Filtern auswerten."
+        correct: true
+      - text: "TShark eignet sich für reproduzierbare Ausgaben im Terminal."
+        correct: true
+      - text: "TShark ist besonders auf Systemen ohne GUI nützlich."
+        correct: true
+      - text: "TShark kann nur HTTP analysieren."
+        correct: false
+    explanation: "TShark ist die CLI-Komponente der Wireshark-Werkzeugfamilie."
+    references:
+      - docs/03-wireshark-erster-kontakt/tshark-erster-kontakt.md
+      - docs/90-referenz/tshark-auf-systemen-ohne-gui.md
+
+  - id: q-wca-practice-012
+    type: single-choice
+    objective: methodology
+    question: "Welche Aussage ist in einem Analysebericht am besten?"
+    answers:
+      - text: "Zwischen Request in Frame 120 und Response in Frame 148 liegen 3,8 Sekunden; im Stream sind keine Retransmissions sichtbar."
+        correct: true
+      - text: "Der Server ist lahm, weil ich das fühle."
+        correct: false
+      - text: "Das Netzwerk ist es nicht, ohne Begründung."
+        correct: false
+      - text: "Wireshark ist rot, also ist alles kaputt."
+        correct: false
+    explanation: "Gute Berichte nennen Beobachtung, Frames, Zeit und Einschränkungen."
+    references:
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-wca-practice-013
+    type: single-choice
+    objective: security
+    question: "Ein Capture zeigt HTTP Basic Auth im Klartext. Was ist die beste Einordnung?"
+    answers:
+      - text: "Das ist ein relevantes Sicherheitsrisiko und sollte nicht ungeschützt dokumentiert oder geteilt werden."
+        correct: true
+      - text: "Das ist immer harmlos, weil es nur im Capture sichtbar ist."
+        correct: false
+      - text: "Das beweist automatisch Malware."
+        correct: false
+      - text: "Das kann bei HTTP nie passieren."
+        correct: false
+    explanation: "Klartext-Protokolle können sensible Daten sichtbar machen. Captures müssen entsprechend geschützt werden."
+    references:
+      - docs/20-advanced-kurs/05-security-basics.md
+
+  - id: q-wca-practice-014
+    type: single-choice
+    objective: expert-information
+    question: "Wie sollte man Wireshark Expert Information verwenden?"
+    answers:
+      - text: "Als Einstieg und Hinweisquelle, danach die betroffenen Pakete im Kontext prüfen."
+        correct: true
+      - text: "Als automatische endgültige Ursachenanalyse."
+        correct: false
+      - text: "Nur zum Löschen fehlerhafter Pakete."
+        correct: false
+      - text: "Nur für DHCP, niemals für TCP."
+        correct: false
+    explanation: "Expert Information ist hilfreich, aber keine fertige Diagnose."
+    references:
+      - docs/20-advanced-kurs/02-performance-analyse.md
+      - docs/20-advanced-kurs/04-fehleranalyse-methodik.md
+
+  - id: q-wca-practice-015
+    type: multiple-choice
+    objective: screenshot-styleguide
+    question: "Welche Regeln gelten für Screenshots im Kurs?"
+    answers:
+      - text: "Nur Lab-Daten oder saubere Testdaten verwenden."
+        correct: true
+      - text: "Keine produktiven oder personenbezogenen Daten zeigen."
+        correct: true
+      - text: "Aussagekräftige Dateinamen und Alt-Texte verwenden."
+        correct: true
+      - text: "Produktive Incident-Screenshots sind grundsätzlich besser als Lab-Screenshots."
+        correct: false
+    explanation: "Screenshots sollen didaktisch helfen und müssen datenschutz- und lizenzsicher sein."
+    references:
+      - docs/90-referenz/screenshot-styleguide.md
