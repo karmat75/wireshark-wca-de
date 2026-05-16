@@ -44,6 +44,7 @@ PCAP-Challenges trainieren genau das:
 |---|---|---|
 | [Challenge 001: DNS/HTTP Triage](challenge-001-dns-http-triage.md) | DNS, NXDOMAIN, HTTP, Wartezeit | verfügbar |
 | [Challenge 002: TCP Handshake/Reset](challenge-002-tcp-handshake-reset.md) | TCP 3-Way Handshake, HTTP, RST/RST-ACK | verfügbar |
+| [Challenge 003: TCP Retransmission Triage](challenge-003-tcp-retransmission-triage.md) | TCP Retransmission, Duplicate ACK, Fast Retransmit | verfügbar |
 
 ## Arbeitsweise
 

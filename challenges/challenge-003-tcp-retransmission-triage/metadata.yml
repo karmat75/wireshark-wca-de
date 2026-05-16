@@ -1,0 +1,34 @@
+id: challenge-003-tcp-retransmission-triage
+title: "TCP Retransmission Triage"
+level: advanced
+estimated_time: 60m
+status: draft
+pcap:
+  mode: generated
+  path: pcaps/generated/challenge-003-tcp-retransmission-triage.pcapng
+docker_compose:
+  file: docker/compose/lab-advanced-tcp-loss/compose.yml
+wca_objectives:
+  - tcp
+  - tcp-analysis
+  - retransmission
+  - duplicate-ack
+  - fast-retransmit
+  - display-filters
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - wireshark
+  - tshark
+  - curl
+expected_observations:
+  - tcp-download-stream
+  - http-bigfile-request
+  - tcp-retransmission
+  - tcp-analysis-flags
+  - duplicate-ack-possible
+outputs:
+  - analysis-report
+  - tshark-check
+commit_generated_files: false
