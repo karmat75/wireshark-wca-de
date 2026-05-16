@@ -1,0 +1,33 @@
+id: lab-foundation-002-wireshark-core-features
+title: "Wireshark Core Features"
+track: foundation
+level: foundation
+estimated_time: 45m
+status: draft
+wca_objectives:
+  - wireshark-features
+  - capture-file-properties
+  - find-packet
+  - packet-comments
+  - file-comments
+  - time-reference
+  - export-specified-packets
+  - mark-packets
+  - ignore-packets
+  - decode-as
+tools:
+  - wireshark
+  - tshark
+requires:
+  - lab-foundation-001-first-capture
+recommended_input_files:
+  - pcaps/generated/lab-basic-020-dns-http-docker.pcapng
+  - pcaps/generated/lab-basic-030-tcp-handshake-reset.pcapng
+generated_files:
+  - pcaps/generated/lab-foundation-002-selected-packets.pcapng
+  - pcaps/generated/lab-foundation-002-with-comments.pcapng
+commit_generated_files: false
+outputs:
+  - prepared-pcap
+  - selected-packets-pcap
+  - short-work-report

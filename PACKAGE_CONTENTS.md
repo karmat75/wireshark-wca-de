@@ -1,32 +1,34 @@
-# Paket 26: Basic Lab – TCP Handshake und Reset
+# Paket 27: Foundation Lab – Wireshark Core Features
 
-Dieses Paket ergänzt den Lab-Bereich um ein weiteres praktisches TCP-Lab.
+Dieses Paket ergänzt den Lab-Bereich um ein weiteres Foundation-Lab.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/basic-tcp-handshake-reset.md
-labs/basic/lab-basic-030-tcp-handshake-reset/README.md
-labs/basic/lab-basic-030-tcp-handshake-reset/scenario.md
-labs/basic/lab-basic-030-tcp-handshake-reset/tasks.md
-labs/basic/lab-basic-030-tcp-handshake-reset/hints.md
-labs/basic/lab-basic-030-tcp-handshake-reset/solution.md
-labs/basic/lab-basic-030-tcp-handshake-reset/metadata.yml
-labs/basic/lab-basic-030-tcp-handshake-reset/check_tshark.sh
+docs/40-labs-und-uebungen/foundation-wireshark-core-features.md
+labs/foundation/lab-foundation-002-wireshark-core-features/README.md
+labs/foundation/lab-foundation-002-wireshark-core-features/scenario.md
+labs/foundation/lab-foundation-002-wireshark-core-features/tasks.md
+labs/foundation/lab-foundation-002-wireshark-core-features/hints.md
+labs/foundation/lab-foundation-002-wireshark-core-features/solution.md
+labs/foundation/lab-foundation-002-wireshark-core-features/metadata.yml
 ```
 
 ## Ziel
 
-Dieses Lab trainiert TCP-Grundlagen praktisch:
+Dieses Lab trainiert wichtige Wireshark-Funktionen, die für WCA und Praxis relevant sind:
 
-- erfolgreichen TCP 3-Way Handshake erkennen
-- TCP Stream isolieren
-- HTTP über TCP Port 80 einordnen
-- geschlossenen TCP-Port erkennen
-- RST/RST-ACK bewerten
-- Unterschied zwischen Beobachtung und Ursache formulieren
-- TShark-Auswertung mit Frame-Nummern verwenden
+- Capture File Properties
+- Find Packet
+- Packet Comments
+- File Comment
+- Time Reference
+- Export Specified Packets
+- Mark Packets
+- Ignore Packets
+- einfache Decode-As-Einordnung
+- saubere Dokumentation von Arbeitsschritten
 
-Das Lab verwendet das bereits vorhandene Docker-Lab `lab-basic-dns-http`.
+Das Lab nutzt eine bereits vorhandene lokale PCAP-Datei aus den vorherigen Labs.

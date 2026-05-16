@@ -34,6 +34,7 @@ Die Labs sind in Tracks gegliedert.
 | Lab | Track | Thema | Status |
 |---|---|---|---|
 | [Foundation Lab 001](foundation-first-capture.md) | Foundation | erster eigener Capture | verfügbar |
+| [Foundation Lab 002](foundation-wireshark-core-features.md) | Foundation | Wireshark Core Features | verfügbar |
 | [Basic Lab 020](basic-dns-http-docker.md) | Basic | Docker-Lab mit DNS, NXDOMAIN, HTTP und Wartezeit | verfügbar |
 | [Basic Lab 030](basic-tcp-handshake-reset.md) | Basic | TCP Handshake, Stream, geschlossener Port und Reset | verfügbar |
 
