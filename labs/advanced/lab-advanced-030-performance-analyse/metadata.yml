@@ -1,0 +1,37 @@
+id: lab-advanced-030-performance-analyse
+title: "Performanceanalyse"
+track: advanced
+level: advanced
+estimated_time: 60m
+status: draft
+wca_objectives:
+  - performance-analysis
+  - dns
+  - tcp
+  - http
+  - conversations
+  - io-graphs
+  - time-reference
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - docker-compose
+  - wireshark
+  - tshark
+  - dig
+  - curl
+requires:
+  - lab-basic-010-display-filter
+  - lab-basic-020-dns-http-docker
+  - docs/20-advanced-kurs/02-performance-analyse.md
+docker_compose:
+  file: docker/compose/lab-basic-dns-http/compose.yml
+generated_files:
+  - pcaps/generated/lab-advanced-030-performance-analyse.pcapng
+commit_generated_files: false
+outputs:
+  - local-pcap
+  - timing-table
+  - short-analysis-report
+  - tshark-output
