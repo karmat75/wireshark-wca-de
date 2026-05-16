@@ -1,0 +1,26 @@
+services:
+  lab-web-security:
+    build:
+      context: ./web-security
+    container_name: wwca-lab-web-security
+    networks:
+      labnet:
+        ipv4_address: 172.28.80.10
+
+  lab-client:
+    image: nicolaka/netshoot:latest
+    container_name: wwca-lab-security-client
+    command: sleep infinity
+    networks:
+      labnet:
+        ipv4_address: 172.28.80.100
+    depends_on:
+      - lab-web-security
+
+networks:
+  labnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.80.0/24
+          gateway: 172.28.80.1

@@ -1,0 +1,36 @@
+id: lab-advanced-040-security-basics
+title: "Security Basics"
+track: advanced
+level: advanced
+estimated_time: 60m
+status: draft
+wca_objectives:
+  - security-basics
+  - http
+  - display-filters
+  - follow-tcp-stream
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - docker-compose
+  - wireshark
+  - tshark
+  - curl
+requires:
+  - lab-basic-010-display-filter
+  - lab-advanced-020-http-tls
+  - docs/20-advanced-kurs/05-security-basics.md
+docker_compose:
+  file: docker/compose/lab-advanced-security-basics/compose.yml
+generated_files:
+  - pcaps/generated/lab-advanced-040-security-basics.pcapng
+commit_generated_files: false
+synthetic_lab_values:
+  - labuser
+  - LabPassword123
+  - LAB-TOKEN-12345
+outputs:
+  - local-pcap
+  - security-triage-report
+  - tshark-output

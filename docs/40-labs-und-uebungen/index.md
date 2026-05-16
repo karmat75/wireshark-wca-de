@@ -41,6 +41,7 @@ Die Labs sind in Tracks gegliedert.
 | [Advanced Lab 010](advanced-tcp-retransmission.md) | Advanced | TCP Retransmission, Duplicate ACK und Paketverlust | verfügbar |
 | [Advanced Lab 020](advanced-http-tls.md) | Advanced | HTTP, TLS, SNI, ALPN und TLS Alerts | verfügbar |
 | [Advanced Lab 030](advanced-performance-analyse.md) | Advanced | DNS-, TCP- und HTTP-Zeitabschnitte analysieren | verfügbar |
+| [Advanced Lab 040](advanced-security-basics.md) | Advanced | HTTP-Klartext, Basic Auth und Beacon-ähnliche Muster | verfügbar |
 
 ## Arbeitsweise
 

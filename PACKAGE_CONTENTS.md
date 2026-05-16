@@ -1,32 +1,38 @@
-# Paket 31: Advanced Lab – Performanceanalyse
+# Paket 32: Advanced Lab – Security Basics
 
-Dieses Paket ergänzt den Lab-Bereich um ein Advanced-Lab zur Performanceanalyse.
+Dieses Paket ergänzt den Lab-Bereich um ein defensives Security-Basics-Lab.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/advanced-performance-analyse.md
-labs/advanced/lab-advanced-030-performance-analyse/README.md
-labs/advanced/lab-advanced-030-performance-analyse/scenario.md
-labs/advanced/lab-advanced-030-performance-analyse/tasks.md
-labs/advanced/lab-advanced-030-performance-analyse/hints.md
-labs/advanced/lab-advanced-030-performance-analyse/solution.md
-labs/advanced/lab-advanced-030-performance-analyse/metadata.yml
-labs/advanced/lab-advanced-030-performance-analyse/check_tshark.sh
+docs/40-labs-und-uebungen/advanced-security-basics.md
+docker/compose/lab-advanced-security-basics/README.md
+docker/compose/lab-advanced-security-basics/compose.yml
+docker/compose/lab-advanced-security-basics/web-security/Dockerfile
+docker/compose/lab-advanced-security-basics/web-security/app.py
+labs/advanced/lab-advanced-040-security-basics/README.md
+labs/advanced/lab-advanced-040-security-basics/scenario.md
+labs/advanced/lab-advanced-040-security-basics/tasks.md
+labs/advanced/lab-advanced-040-security-basics/hints.md
+labs/advanced/lab-advanced-040-security-basics/solution.md
+labs/advanced/lab-advanced-040-security-basics/metadata.yml
+labs/advanced/lab-advanced-040-security-basics/check_tshark.sh
 ```
 
 ## Ziel
 
-Dieses Lab trainiert Performanceanalyse mit Wireshark:
+Dieses Lab trainiert defensive Security-Analyse mit Wireshark:
 
-- DNS-, TCP- und HTTP-Zeitabschnitte trennen
-- schnellen und langsamen Webserver vergleichen
-- Zeitspalten und Time Reference nutzen
-- Conversations und Protocol Hierarchy einsetzen
-- I/O Graphs sinnvoll verwenden
-- TShark-Ausgaben für Zeitmessungen erzeugen
-- vorsichtig bewerten, wo die Wartezeit entsteht
+- HTTP Basic Auth im Klartext erkennen
+- Formularwerte im HTTP-Body erkennen
+- regelmäßige Beacon-ähnliche Requests einordnen
+- Host-Header, User-Agent und URIs auswerten
+- zwischen Beobachtung und Bewertung unterscheiden
+- keine produktiven oder echten Zugangsdaten verwenden
+- TShark-Felder für HTTP-Security-Triage nutzen
 
-Das Lab nutzt das vorhandene Docker-Lab `lab-basic-dns-http`.
+Das Lab erzeugt ein eigenes Docker-Netz `172.28.80.0/24`.
+
+Alle Zugangsdaten und Tokens sind bewusst synthetische Lab-Werte.

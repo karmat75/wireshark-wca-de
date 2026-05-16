@@ -157,6 +157,7 @@ nav:
       - Advanced Lab 010 TCP Retransmission: 40-labs-und-uebungen/advanced-tcp-retransmission.md
       - Advanced Lab 020 HTTP/TLS: 40-labs-und-uebungen/advanced-http-tls.md
       - Advanced Lab 030 Performanceanalyse: 40-labs-und-uebungen/advanced-performance-analyse.md
+      - Advanced Lab 040 Security Basics: 40-labs-und-uebungen/advanced-security-basics.md
 
   - Quizzes:
       - Überblick: 50-quizzes/index.md
