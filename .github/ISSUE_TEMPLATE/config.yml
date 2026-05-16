@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Meldung
+    url: https://github.com/karmat75/wireshark-wca-de/security/advisories/new
+    about: Bitte nutze fuer Sicherheitsmeldungen den privaten Security-Advisory-Flow.

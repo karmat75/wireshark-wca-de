@@ -1,0 +1,38 @@
+name: Feature Request
+description: Schlage eine Verbesserung fuer Kurs, Labs, Quizzes oder Tooling vor
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: area
+    attributes:
+      label: Betroffener Bereich
+      description: z. B. docs, labs, challenges, quizzes, tools
+      placeholder: docs/20-advanced-kurs
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Welches Problem soll geloest werden?
+      description: Beschreibe den aktuellen Pain Point.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Vorschlag
+      description: Wie sollte die Verbesserung aussehen?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativen
+      description: Welche anderen Loesungen hast du betrachtet?
+  - type: textarea
+    id: impact
+    attributes:
+      label: Erwarteter Nutzen
+      description: Fuer wen bringt die Aenderung welchen Mehrwert?

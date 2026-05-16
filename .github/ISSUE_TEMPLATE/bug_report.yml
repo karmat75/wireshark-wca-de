@@ -1,0 +1,54 @@
+name: Bug Report
+description: Melde einen Fehler im Kursinhalt, Tooling oder Build-Verhalten
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fuer den Report. Bitte teile nur Informationen, die keine sensiblen Daten enthalten.
+  - type: input
+    id: area
+    attributes:
+      label: Betroffener Bereich
+      description: z. B. docs/..., labs/..., tools/..., mkdocs
+      placeholder: docs/10-basis-kurs/...
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Fehlerbeschreibung
+      description: Was ist falsch und was waere korrekt?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Schritte zur Reproduktion
+      description: Bitte moeglichst konkret und nummeriert
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Erwartetes Verhalten
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Umgebung
+      description: OS, Python-Version, relevante Tool-Versionen
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checkliste
+      options:
+        - label: Ich habe keine sensiblen Daten, Zugangsdaten oder privaten PCAPs beigefuegt.
+          required: true
