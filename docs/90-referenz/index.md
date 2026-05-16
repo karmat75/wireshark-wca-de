@@ -1,26 +1,41 @@
 # Referenz
 
-Dieser Bereich sammelt besonders wichtige Referenzartikel.
+Dieser Bereich sammelt Nachschlagewerke, Querverweise, Styleguides und Arbeitsvorlagen.
 
-Die Referenzartikel sind keine normalen Lektionen, sondern Nachschlagepunkte für Themen, die im Kurs immer wieder relevant werden.
+Die Referenzseiten sind nicht als Ersatz für Labs gedacht.
 
-## Aktuelle Referenzen
+Sie sollen helfen, während einer Analyse schnell die richtige Richtung zu finden.
 
-- [Externe Ressourcen](externe-ressourcen.md)
-- [Screenshot-Styleguide](screenshot-styleguide.md)
-- [OSI-Modell für Wireshark](osi-modell-fuer-wireshark.md)
-- [TShark auf Systemen ohne GUI](tshark-auf-systemen-ohne-gui.md)
+## Inhalte
 
-## Ziel
+| Seite | Zweck |
+|---|---|
+| [Externe Ressourcen](externe-ressourcen.md) | weiterführende Quellen, Artikel und Videos |
+| [Screenshot-Styleguide](screenshot-styleguide.md) | Regeln für saubere und sichere Screenshots |
+| [OSI-Modell für Wireshark](osi-modell-fuer-wireshark.md) | Einordnung von Schichten und Protokollen |
+| [TShark auf Systemen ohne GUI](tshark-auf-systemen-ohne-gui.md) | Installation und Nutzung von TShark ohne Desktop |
+| [Display-Filter-Cheatsheet](display-filter-cheatsheet.md) | kompakte Filterreferenz |
+| [TCP-Analyse-Cheatsheet](tcp-analyse-cheatsheet.md) | TCP-Symptome und sinnvolle Filter |
+| [TShark-Cheatsheet](tshark-cheatsheet.md) | wiederverwendbare TShark-Befehle |
+| [Analysebericht-Vorlage](analysebericht-vorlage.md) | Struktur für nachvollziehbare Analyseberichte |
 
-Die Referenz soll helfen, wenn du schnell wissen musst:
+## Vorlagen im Repository
 
-- wie ein Werkzeug installiert wird
-- welche Befehle wichtig sind
-- welche Unterschiede in der Praxis relevant sind
-- welche Stolperfallen typischerweise auftreten
-- wie ein Thema in Wireshark praktisch einzuordnen ist
-- welche offiziellen oder externen Ressourcen sinnvoll sind
-- wie Screenshots für den Kurs erstellt und gepflegt werden
+Zusätzliche Markdown-Vorlagen liegen unter:
 
-Später kommen hier weitere Referenzen hinzu, zum Beispiel zu Display Filtern, TShark-Feldnamen, Capture-Filtern und Analyseberichten.
+```text
+templates/
+```
+
+Aktuell:
+
+```text
+templates/analysis-report-template.md
+templates/pcap-challenge-notes-template.md
+templates/lab-notes-template.md
+```
+
+## Merksatz
+
+> Eine gute Referenz ersetzt nicht das Denken.  
+> Sie verhindert aber, dass man bei jeder Analyse wieder bei null beginnt.

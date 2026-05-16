@@ -191,3 +191,7 @@ nav:
       - Screenshot-Styleguide: 90-referenz/screenshot-styleguide.md
       - OSI-Modell für Wireshark: 90-referenz/osi-modell-fuer-wireshark.md
       - TShark auf Systemen ohne GUI: 90-referenz/tshark-auf-systemen-ohne-gui.md
+      - Display-Filter-Cheatsheet: 90-referenz/display-filter-cheatsheet.md
+      - TCP-Analyse-Cheatsheet: 90-referenz/tcp-analyse-cheatsheet.md
+      - TShark-Cheatsheet: 90-referenz/tshark-cheatsheet.md
+      - Analysebericht-Vorlage: 90-referenz/analysebericht-vorlage.md
