@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as _dt
+import os
 import json
 import random
 import shutil
@@ -27,6 +28,10 @@ import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+if os.name != "nt":
+    import termios
+    import tty
 
 try:
     import yaml
@@ -175,6 +180,102 @@ def score_label(score: float) -> str:
     return "Thema erneut durcharbeiten"
 
 
+class UserAborted(Exception):
+    pass
+
+
+def clear_screen() -> None:
+    if os.name == "nt":
+        os.system("cls")
+        return
+
+    sys.stdout.write("\033[2J\033[H")
+    sys.stdout.flush()
+
+
+def read_single_key() -> str:
+    if os.name == "nt":
+        import msvcrt
+
+        ch = msvcrt.getwch()
+        if ch in {"\x00", "\xe0"}:
+            msvcrt.getwch()
+            return ""
+        return ch
+
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(fd)
+        return sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+
+def wait_for_continue(prompt: str = "Weiter mit Enter ... oder ESC zum Abbrechen") -> None:
+    if not sys.stdin.isatty():
+        try:
+            input(prompt)
+        except (EOFError, KeyboardInterrupt) as exc:
+            raise UserAborted from exc
+        return
+
+    print(prompt, end="", flush=True)
+    try:
+        key = read_single_key()
+    except (EOFError, KeyboardInterrupt) as exc:
+        raise UserAborted from exc
+
+    print()
+    if key == "\x1b":
+        raise UserAborted
+
+
+def shuffled_answers(question: Dict[str, Any]) -> List[Tuple[int, Dict[str, Any]]]:
+    answers = question.get("answers") or []
+    ordered = list(enumerate(answers, start=1))
+    random.shuffle(ordered)
+    return ordered
+
+
+def question_correct_from_order(
+    ordered_answers: List[Tuple[int, Dict[str, Any]]], selected_numbers: List[int]
+) -> bool:
+    selected_indexes = {n - 1 for n in selected_numbers}
+    correct_indexes = {
+        display_index for display_index, (_original_index, answer) in enumerate(ordered_answers) if bool(answer.get("correct"))
+    }
+    return selected_indexes == correct_indexes
+
+
+def correct_answer_numbers_from_order(ordered_answers: List[Tuple[int, Dict[str, Any]]]) -> List[str]:
+    return [str(display_index + 1) for display_index, (_original_index, answer) in enumerate(ordered_answers) if bool(answer.get("correct"))]
+
+
+def validate_answer_selection(raw: str, answer_count: int, qtype: str) -> Tuple[str, List[int], str]:
+    selected = normalize_answer_input(raw)
+
+    if not raw.strip():
+        return "invalid", [], "Bitte eine Antwort eingeben."
+
+    if selected == [0]:
+        return "skip", [], ""
+
+    if not selected:
+        return "invalid", [], "Bitte nur Zahlen eingeben."
+
+    if 0 in selected:
+        return "invalid", [], "0 ist nur allein als Überspringen erlaubt."
+
+    if any(number < 1 or number > answer_count for number in selected):
+        return "invalid", [], f"Bitte nur Zahlen zwischen 1 und {answer_count} verwenden."
+
+    if qtype.startswith("single") and len(selected) != 1:
+        return "invalid", [], "Bitte genau eine Antwort wählen."
+
+    return "valid", selected, ""
+
+
 def ask_questions(
     *,
     title: str,
@@ -187,7 +288,12 @@ def ask_questions(
     if not questions:
         raise ValueError("No questions to ask")
 
-    print()
+    correct_count = 0
+    skipped_count = 0
+    answered: List[Dict[str, Any]] = []
+    started = time.monotonic()
+
+    clear_screen()
     print(f"{mode.title()}: {title}")
     print(f"Quelle: {source_label}")
     print(f"Fragen: {len(questions)}")
@@ -199,54 +305,87 @@ def ask_questions(
     print("  Multiple Choice: 1,3,4")
     print()
 
-    correct_count = 0
-    answered: List[Dict[str, Any]] = []
-    started = time.monotonic()
-
     for idx, question in enumerate(questions, start=1):
         qtype = str(question.get("type", "single-choice"))
-        answers = question.get("answers") or []
+        ordered_answers = shuffled_answers(question)
 
-        print("=" * 78)
-        print(format_question_header(idx, len(questions), question))
-        print()
-        print(question.get("question", "<no question text>"))
-        print()
+        while True:
+            clear_screen()
 
-        for ans_idx, answer in enumerate(answers, start=1):
-            print(f"  {ans_idx}. {answer.get('text', '')}")
-
-        print()
-        raw = input("Antwort: ")
-        selected = normalize_answer_input(raw)
-
-        is_correct = question_correct(question, selected)
-        if is_correct:
-            correct_count += 1
-
-        if mode == "quiz":
-            status = "RICHTIG" if is_correct else "FALSCH"
+            print("=" * 78)
+            print("Fragenbereich")
+            print(format_question_header(idx, len(questions), question))
             print()
-            print(status)
-            print(f"Richtige Antwort(en): {', '.join(correct_answer_numbers(question))}")
+            print(question.get("question", "<no question text>"))
+            print()
 
+            for ans_idx, (_original_index, answer) in enumerate(ordered_answers, start=1):
+                print(f"  {ans_idx}. {answer.get('text', '')}")
+
+            print()
+            try:
+                raw = input("Antwort (0 = überspringen): ")
+            except (EOFError, KeyboardInterrupt) as exc:
+                raise UserAborted from exc
+
+            validation, selected, message = validate_answer_selection(raw, len(ordered_answers), qtype)
+            if validation == "invalid":
+                print()
+                print("Ungültige Eingabe.")
+                print(message)
+                print()
+                try:
+                    wait_for_continue()
+                except UserAborted:
+                    raise
+                continue
+
+            skipped = validation == "skip"
+            if skipped:
+                skipped_count += 1
+                is_correct = False
+            else:
+                is_correct = question_correct_from_order(ordered_answers, selected)
+                if is_correct:
+                    correct_count += 1
+            break
+
+        print()
+        print("-" * 78)
+        print("Auswertung")
+
+        if skipped:
+            print("Übersprungen.")
+            if mode == "quiz":
+                print("Zählt im Quiz nicht in die Bewertung.")
+            else:
+                print("Wird in der Prüfung wie eine falsche Antwort gewertet.")
+        elif mode == "quiz":
+            status = "RICHTIG" if is_correct else "FALSCH"
+            print(status)
+        else:
+            print("Antwort gespeichert.")
+
+        print(f"Deine Antwort(en): {', '.join(str(x) for x in selected) or '-'}")
+        correct_answers = [] if skipped else correct_answer_numbers_from_order(ordered_answers)
+        if skipped:
+            print("Richtige Antwort(en): wird bei Übersprung nicht angezeigt.")
+        else:
+            print(f"Richtige Antwort(en): {', '.join(correct_answers)}")
+
+        if not skipped:
+            references = question.get("references") or []
             explanation = question.get("explanation")
             if explanation:
                 print()
                 print("Erklärung:")
                 print(explanation)
 
-            references = question.get("references") or []
             if references:
                 print()
                 print("Referenzen:")
                 for ref in references:
                     print(f"  - {ref}")
-
-            print()
-        else:
-            print("Antwort gespeichert.")
-            print()
 
         answered.append(
             {
@@ -255,17 +394,30 @@ def ask_questions(
                 "objective": question.get("objective"),
                 "selected": selected,
                 "correct": is_correct,
-                "correct_answers": correct_answer_numbers(question),
+                "skipped": skipped,
+                "correct_answers": correct_answers,
             }
         )
 
+        print()
+        try:
+            wait_for_continue()
+        except UserAborted:
+            raise
+
     elapsed_seconds = int(time.monotonic() - started)
     total = len(questions)
-    score = round((correct_count / total) * 100, 2)
+    scored_total = total if mode == "exam" else total - skipped_count
+    if scored_total <= 0:
+        score = 0.0
+    else:
+        score = round((correct_count / scored_total) * 100, 2)
 
     print("=" * 78)
     print("Ergebnis")
-    print(f"Richtig: {correct_count}/{total}")
+    print(f"Richtig: {correct_count}/{scored_total}")
+    if skipped_count:
+        print(f"Übersprungen: {skipped_count}")
     print(f"Score:   {score:.2f}%")
     print(f"Bewertung: {score_label(score)}")
     print(f"Dauer: {elapsed_seconds // 60}m {elapsed_seconds % 60}s")
@@ -276,25 +428,29 @@ def ask_questions(
         print("Auswertung")
         for idx, question in enumerate(questions, start=1):
             result = answered[idx - 1]
-            status = "RICHTIG" if result["correct"] else "FALSCH"
+            status = "ÜBERSPRUNGEN" if result.get("skipped") else ("RICHTIG" if result["correct"] else "FALSCH")
             print("-" * 78)
             print(format_question_header(idx, len(questions), question))
             print(status)
             print(f"Deine Antwort(en): {', '.join(str(x) for x in result['selected']) or '-'}")
-            print(f"Richtige Antwort(en): {', '.join(result['correct_answers'])}")
+            if result.get("skipped"):
+                print("Richtige Antwort(en): wird bei Übersprung nicht angezeigt.")
+            else:
+                print(f"Richtige Antwort(en): {', '.join(result['correct_answers'])}")
 
-            explanation = question.get("explanation")
-            if explanation:
-                print()
-                print("Erklärung:")
-                print(explanation)
+            if not result.get("skipped"):
+                explanation = question.get("explanation")
+                if explanation:
+                    print()
+                    print("Erklärung:")
+                    print(explanation)
 
-            references = question.get("references") or []
-            if references:
-                print()
-                print("Referenzen:")
-                for ref in references:
-                    print(f"  - {ref}")
+                references = question.get("references") or []
+                if references:
+                    print()
+                    print("Referenzen:")
+                    for ref in references:
+                        print(f"  - {ref}")
 
     return correct_count, total, score, answered
 
@@ -321,13 +477,17 @@ def run_quiz(args: argparse.Namespace) -> int:
         print("No questions found.")
         return 1
 
-    correct_count, total, score, answered = ask_questions(
-        title=str(quiz.get("title", quiz.get("id", args.quiz_id))),
-        source_label=str(quiz.get("_path", "")),
-        questions=questions,
-        pass_score=80,
-        mode="quiz",
-    )
+    try:
+        correct_count, total, score, answered = ask_questions(
+            title=str(quiz.get("title", quiz.get("id", args.quiz_id))),
+            source_label=str(quiz.get("_path", "")),
+            questions=questions,
+            pass_score=80,
+            mode="quiz",
+        )
+    except UserAborted:
+        print("Abgebrochen.")
+        return 0
 
     progress = load_progress()
     progress.setdefault("attempts", []).append(
@@ -579,14 +739,18 @@ def exam_run(args: argparse.Namespace) -> int:
     pass_score = float(exam.get("pass_score", 80))
     time_limit = exam.get("time_limit_minutes")
 
-    correct_count, total, score, answered = ask_questions(
-        title=str(exam.get("title", args.exam_id)),
-        source_label=str(exam.get("_path", "")),
-        questions=questions,
-        pass_score=pass_score,
-        mode="exam",
-        time_limit_minutes=int(time_limit) if time_limit else None,
-    )
+    try:
+        correct_count, total, score, answered = ask_questions(
+            title=str(exam.get("title", args.exam_id)),
+            source_label=str(exam.get("_path", "")),
+            questions=questions,
+            pass_score=pass_score,
+            mode="exam",
+            time_limit_minutes=int(time_limit) if time_limit else None,
+        )
+    except UserAborted:
+        print("Abgebrochen.")
+        return 0
 
     progress = load_progress()
     progress.setdefault("attempts", []).append(
@@ -721,25 +885,29 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = build_parser()
-    args = parser.parse_args(argv)
+    try:
+        parser = build_parser()
+        args = parser.parse_args(argv)
 
-    if args.command == "progress" and args.progress_command is None:
-        return progress_show(args)
+        if args.command == "progress" and args.progress_command is None:
+            return progress_show(args)
 
-    if args.command == "quiz" and args.quiz_command is None:
-        parser.parse_args(["quiz", "--help"])
-        return 2
+        if args.command == "quiz" and args.quiz_command is None:
+            parser.parse_args(["quiz", "--help"])
+            return 2
 
-    if args.command == "exam" and args.exam_command is None:
-        parser.parse_args(["exam", "--help"])
-        return 2
+        if args.command == "exam" and args.exam_command is None:
+            parser.parse_args(["exam", "--help"])
+            return 2
 
-    if args.func is None:
-        parser.print_help()
-        return 2
+        if args.func is None:
+            parser.print_help()
+            return 2
 
-    return int(args.func(args))
+        return int(args.func(args))
+    except KeyboardInterrupt:
+        print("Abgebrochen.")
+        return 0
 
 
 if __name__ == "__main__":
