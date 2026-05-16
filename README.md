@@ -304,6 +304,29 @@ Deshalb gelten für dieses Repository folgende Regeln:
 
 Dieses Projekt befindet sich im Aufbau.
 
+---
+
+## Maintainer-Checkliste (Qualitaet absichern)
+
+Fuer Maintainer und Admins dieses Repositories:
+
+1. CI-Workflow `Quality Checks` ist aktiv und laeuft bei Pull Requests.
+2. Unter `Settings -> Branches` ist eine Protection-Regel fuer `main` gesetzt.
+3. `Require a pull request before merging` ist aktiv.
+4. `Require status checks to pass before merging` ist aktiv.
+5. Als Pflichtcheck ist `Quality Checks / quality` gesetzt.
+6. (Optional) `Require branches to be up to date before merging` ist aktiv.
+
+Fuer Contributor lokal empfohlen:
+
+```bash
+bash tools/quality/install_git_hooks.sh
+```
+
+Damit laufen die Repository-Checks automatisch vor jedem Commit.
+
+Details siehe `CONTRIBUTING.md` und `tools/quality/README.md`.
+
 Geplante erste Meilensteine:
 
 ### Milestone 0.1: Foundation MVP

@@ -10,6 +10,28 @@ Aus dem Repository-Root:
 bash tools/quality/run_quality_checks.sh
 ```
 
+## Als Pre-Commit-Hook aktivieren
+
+Aus dem Repository-Root:
+
+```bash
+bash tools/quality/install_git_hooks.sh
+```
+
+Danach laufen die Quality Checks automatisch bei jedem `git commit`.
+
+Hinweis: Git-Hooks sind lokal. Für verbindliche Durchsetzung im Team sollte zusätzlich CI mit Pflicht-Statuschecks genutzt werden.
+
+## Teamweit erzwingen (GitHub)
+
+In GitHub unter `Settings -> Branches` für `main` eine Branch-Protection-Regel setzen und mindestens aktivieren:
+
+- `Require a pull request before merging`
+- `Require status checks to pass before merging`
+- Pflichtcheck: `Quality Checks / quality`
+
+So ist der Check nicht nur lokal, sondern auch vor jedem Merge verbindlich.
+
 ## Einzelchecks
 
 ```bash

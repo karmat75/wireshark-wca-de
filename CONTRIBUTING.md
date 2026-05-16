@@ -113,6 +113,29 @@ source .venv/bin/activate
 bash tools/quality/run_quality_checks.sh
 ```
 
+Automatisch bei jedem Commit (empfohlen):
+
+```bash
+bash tools/quality/install_git_hooks.sh
+```
+
+Damit wird ein versionierter `pre-commit`-Hook aus `.githooks/` aktiviert.
+
+Wichtig: Lokale Git-Hooks sind nicht zentral erzwingbar. Verbindlich wird es über CI-Statuschecks in Pull Requests.
+
+### Verbindliche Durchsetzung in GitHub
+
+Empfohlene Einrichtung (Repository Settings):
+
+1. Unter `Settings -> Branches` eine Branch-Protection-Regel fuer `main` anlegen.
+2. `Require a pull request before merging` aktivieren.
+3. `Require status checks to pass before merging` aktivieren.
+4. Als Pflichtcheck den Workflow-Job `Quality Checks / quality` auswaehlen.
+5. Optional aktivieren: `Require branches to be up to date before merging`.
+6. Optional aktivieren: `Require conversation resolution before merging`.
+
+Damit kann niemand direkt in `main` mergen, wenn `bash tools/quality/run_quality_checks.sh` in CI fehlschlaegt.
+
 Mindestens sollte funktionieren:
 
 ```bash
