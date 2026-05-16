@@ -13,6 +13,7 @@ site_dir: site
 theme:
   name: material
   language: de
+  custom_dir: overrides
 
   palette:
     - scheme: default
@@ -50,6 +51,10 @@ theme:
 plugins:
   - search:
       lang: de
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: datetime
+      locale: de
 
 extra_css:
   - assets/stylesheets/header-home-link.css
@@ -94,6 +99,8 @@ markdown_extensions:
 
 extra:
   generator: false
+  course_version: !ENV [COURSE_VERSION, "lokal-dev"]
+  build_date: !ENV [BUILD_DATE, "lokaler Build"]
 
 copyright: >
   Dieses Projekt ist ein unabhängiger deutschsprachiger Open-Source-Kurs.

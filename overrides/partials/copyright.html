@@ -1,0 +1,15 @@
+{% if config.copyright %}
+  <div class="md-copyright__highlight">
+    {{ config.copyright }}
+  </div>
+{% endif %}
+
+<div>
+  Kurs-Version: {{ config.extra.course_version }} | Build: {{ config.extra.build_date }}
+</div>
+
+{% if page and page.meta and page.meta.git_revision_date_localized %}
+  <div>
+    Zuletzt aktualisiert: {{ page.meta.git_revision_date_localized }}
+  </div>
+{% endif %}
