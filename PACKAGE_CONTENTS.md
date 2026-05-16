@@ -1,32 +1,32 @@
-# Paket 39: Qualitätssicherung und CI
+# Paket 40: Beitragen, Review und Repository-Regeln
 
-Dieses Paket ergänzt das Repository um lokale Qualitätschecks und eine GitHub Actions Pipeline.
+Dieses Paket ergänzt das Repository um klare Regeln für Beiträge, Reviews und sichere Inhalte.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
+CONTRIBUTING.md
 docs/90-referenz/index.md
-docs/90-referenz/qualitaetssicherung-und-ci.md
-.github/workflows/ci.yml
-tools/quality/README.md
-tools/quality/check_markdown_fences.py
-tools/quality/check_repo_structure.py
-tools/quality/run_quality_checks.sh
+docs/90-referenz/beitragen-und-review.md
+.github/PULL_REQUEST_TEMPLATE.md
+.github/ISSUE_TEMPLATE/config.yml
+.github/ISSUE_TEMPLATE/content-improvement.yml
+.github/ISSUE_TEMPLATE/lab-or-challenge.yml
+.github/ISSUE_TEMPLATE/bug-report.yml
+.github/ISSUE_TEMPLATE/resource-suggestion.yml
 ```
 
 ## Ziel
 
-Der Kurs ist inzwischen groß genug, dass einfache Qualitätsprüfungen wichtig werden.
+Nach Labs, Challenges, Referenzen und CI braucht das Projekt klare Mitmach-Regeln:
 
-Dieses Paket ergänzt:
+- Wie sollen Beiträge erstellt werden?
+- Welche Branch- und Commit-Regeln gelten?
+- Wie sollen Labs und Challenges erweitert werden?
+- Welche Inhalte dürfen nicht ins Repository?
+- Wie gehen wir mit PCAPs, Screenshots und Zugangsdaten um?
+- Was muss ein Pull Request enthalten?
+- Welche Issue-Typen gibt es?
 
-- lokale Qualitätschecks
-- Prüfung der Markdown-Code-Fences
-- Prüfung wichtiger Repository-Verzeichnisse
-- MkDocs Build in CI
-- Quiz- und Exam-Validierung in CI
-- reproduzierbare Befehle für lokale Prüfung
-- GitHub Actions Workflow für Pull Requests und Pushes
-
-Damit wird aus „sieht lokal gut aus“ ein sauberer, wiederholbarer Prüfpfad.
+Damit wird das Projekt für weitere Beiträge deutlich robuster.
