@@ -1,0 +1,26 @@
+services:
+  lab-web-tls:
+    build:
+      context: ./web-tls
+    container_name: wwca-lab-web-tls
+    networks:
+      labnet:
+        ipv4_address: 172.28.70.10
+
+  lab-client:
+    image: nicolaka/netshoot:latest
+    container_name: wwca-lab-http-tls-client
+    command: sleep infinity
+    networks:
+      labnet:
+        ipv4_address: 172.28.70.100
+    depends_on:
+      - lab-web-tls
+
+networks:
+  labnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.70.0/24
+          gateway: 172.28.70.1

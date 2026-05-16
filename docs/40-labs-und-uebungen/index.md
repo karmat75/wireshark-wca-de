@@ -39,6 +39,7 @@ Die Labs sind in Tracks gegliedert.
 | [Basic Lab 020](basic-dns-http-docker.md) | Basic | Docker-Lab mit DNS, NXDOMAIN, HTTP und Wartezeit | verfügbar |
 | [Basic Lab 030](basic-tcp-handshake-reset.md) | Basic | TCP Handshake, Stream, geschlossener Port und Reset | verfügbar |
 | [Advanced Lab 010](advanced-tcp-retransmission.md) | Advanced | TCP Retransmission, Duplicate ACK und Paketverlust | verfügbar |
+| [Advanced Lab 020](advanced-http-tls.md) | Advanced | HTTP, TLS, SNI, ALPN und TLS Alerts | verfügbar |
 
 ## Arbeitsweise
 

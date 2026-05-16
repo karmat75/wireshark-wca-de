@@ -1,0 +1,32 @@
+id: lab-advanced-020-http-tls
+title: "HTTP und TLS"
+track: advanced
+level: advanced
+estimated_time: 60m
+status: draft
+wca_objectives:
+  - http
+  - tls
+  - display-filters
+  - tshark
+  - troubleshooting
+  - security-basics
+tools:
+  - docker
+  - docker-compose
+  - wireshark
+  - tshark
+  - curl
+requires:
+  - lab-basic-010-display-filter
+  - lab-basic-030-tcp-handshake-reset
+  - docs/20-advanced-kurs/03-http-tls.md
+docker_compose:
+  file: docker/compose/lab-advanced-http-tls/compose.yml
+generated_files:
+  - pcaps/generated/lab-advanced-020-http-tls.pcapng
+commit_generated_files: false
+outputs:
+  - local-pcap
+  - short-analysis-report
+  - tshark-output

@@ -155,6 +155,7 @@ nav:
       - Basic Lab 020 DNS/HTTP Docker: 40-labs-und-uebungen/basic-dns-http-docker.md
       - Basic Lab 030 TCP Handshake/Reset: 40-labs-und-uebungen/basic-tcp-handshake-reset.md
       - Advanced Lab 010 TCP Retransmission: 40-labs-und-uebungen/advanced-tcp-retransmission.md
+      - Advanced Lab 020 HTTP/TLS: 40-labs-und-uebungen/advanced-http-tls.md
 
   - Quizzes:
       - Überblick: 50-quizzes/index.md

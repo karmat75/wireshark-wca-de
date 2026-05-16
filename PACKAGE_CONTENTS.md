@@ -1,39 +1,40 @@
-# Paket 29: Advanced Lab – TCP Retransmission
+# Paket 30: Advanced Lab – HTTP und TLS
 
-Dieses Paket ergänzt den Lab-Bereich um ein erstes Advanced-Lab zu TCP Retransmissions.
+Dieses Paket ergänzt den Lab-Bereich um ein Advanced-Lab zu HTTP und TLS.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/advanced-tcp-retransmission.md
-docker/compose/lab-advanced-tcp-loss/README.md
-docker/compose/lab-advanced-tcp-loss/compose.yml
-docker/compose/lab-advanced-tcp-loss/web-loss/Dockerfile
-docker/compose/lab-advanced-tcp-loss/web-loss/entrypoint.sh
-docker/compose/lab-advanced-tcp-loss/web-loss/nginx.conf
-docker/compose/lab-advanced-tcp-loss/web-loss/index.html
-labs/advanced/lab-advanced-010-tcp-retransmission/README.md
-labs/advanced/lab-advanced-010-tcp-retransmission/scenario.md
-labs/advanced/lab-advanced-010-tcp-retransmission/tasks.md
-labs/advanced/lab-advanced-010-tcp-retransmission/hints.md
-labs/advanced/lab-advanced-010-tcp-retransmission/solution.md
-labs/advanced/lab-advanced-010-tcp-retransmission/metadata.yml
-labs/advanced/lab-advanced-010-tcp-retransmission/check_tshark.sh
+docs/40-labs-und-uebungen/advanced-http-tls.md
+docker/compose/lab-advanced-http-tls/README.md
+docker/compose/lab-advanced-http-tls/compose.yml
+docker/compose/lab-advanced-http-tls/web-tls/Dockerfile
+docker/compose/lab-advanced-http-tls/web-tls/entrypoint.sh
+docker/compose/lab-advanced-http-tls/web-tls/nginx.conf
+docker/compose/lab-advanced-http-tls/web-tls/index.html
+labs/advanced/lab-advanced-020-http-tls/README.md
+labs/advanced/lab-advanced-020-http-tls/scenario.md
+labs/advanced/lab-advanced-020-http-tls/tasks.md
+labs/advanced/lab-advanced-020-http-tls/hints.md
+labs/advanced/lab-advanced-020-http-tls/solution.md
+labs/advanced/lab-advanced-020-http-tls/metadata.yml
+labs/advanced/lab-advanced-020-http-tls/check_tshark.sh
 ```
 
 ## Ziel
 
-Dieses Lab trainiert eine zentrale Advanced-/WCA-nahe TCP-Fähigkeit:
+Dieses Lab trainiert HTTP- und TLS-Analyse praktisch:
 
-- kontrollierten TCP-Datenverkehr erzeugen
-- absichtlichen Paketverlust im Lab einbauen
-- TCP Retransmissions erkennen
-- Duplicate ACKs und Fast Retransmit einordnen
-- TCP Stream isolieren
-- Wireshark-generierte Analysefelder richtig bewerten
-- nicht vorschnell „das Netzwerk ist schuld“ sagen
-- TShark für reproduzierbare Auswertung verwenden
+- HTTP im Klartext erkennen
+- HTTPS/TLS-Verkehr erkennen
+- verstehen, was bei TLS noch sichtbar ist
+- SNI im TLS Client Hello finden
+- ALPN-Felder suchen
+- TLS Alert durch Zertifikatsfehler provozieren
+- HTTP Request/Response von TLS Application Data unterscheiden
+- TShark-Auswertung für HTTP und TLS verwenden
+- sichere und vorsichtige Analyseformulierungen üben
 
-Das Lab baut ein eigenes Docker-Netz `172.28.60.0/24` auf.
+Das Lab erzeugt ein eigenes Docker-Netz `172.28.70.0/24`.
