@@ -177,6 +177,7 @@ nav:
       - Challenge 003 TCP Retransmission Triage: 60-pcap-challenges/challenge-003-tcp-retransmission-triage.md
       - Challenge 004 HTTP/TLS Triage: 60-pcap-challenges/challenge-004-http-tls-triage.md
       - Challenge 005 Security Basics Triage: 60-pcap-challenges/challenge-005-security-basics-triage.md
+      - Challenge 006 Performance Triage: 60-pcap-challenges/challenge-006-performance-triage.md
 
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md

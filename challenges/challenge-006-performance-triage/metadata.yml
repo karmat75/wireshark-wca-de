@@ -1,0 +1,35 @@
+id: challenge-006-performance-triage
+title: "Performance Triage"
+level: advanced
+estimated_time: 60m
+status: draft
+pcap:
+  mode: generated
+  path: pcaps/generated/challenge-006-performance-triage.pcapng
+docker_compose:
+  file: docker/compose/lab-basic-dns-http/compose.yml
+wca_objectives:
+  - performance-analysis
+  - dns
+  - tcp
+  - http
+  - conversations
+  - display-filters
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - wireshark
+  - tshark
+  - dig
+  - curl
+expected_observations:
+  - dns-query-response-ok
+  - tcp-handshake-ok
+  - http-response-ok
+  - http-response-slow
+  - request-response-delay
+outputs:
+  - performance-triage-report
+  - tshark-check
+commit_generated_files: false
