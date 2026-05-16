@@ -1,35 +1,35 @@
-# Paket 22: Erste PCAP-Challenge – DNS/HTTP Triage
+# Paket 23: Lokales Quiz-Tool
 
-Dieses Paket ergänzt den Kurs um den Bereich `60-pcap-challenges` und die erste prüfungsnahe PCAP-Challenge.
+Dieses Paket ergänzt den Kurs um ein erstes lokales Quiz-Tool.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/60-pcap-challenges/index.md
-docs/60-pcap-challenges/pcap-challenge-struktur.md
-docs/60-pcap-challenges/challenge-001-dns-http-triage.md
-pcaps/challenge/README.md
-pcaps/challenge/.gitkeep
-challenges/README.md
-challenges/challenge-001-dns-http-triage/README.md
-challenges/challenge-001-dns-http-triage/scenario.md
-challenges/challenge-001-dns-http-triage/tasks.md
-challenges/challenge-001-dns-http-triage/hints.md
-challenges/challenge-001-dns-http-triage/solution.md
-challenges/challenge-001-dns-http-triage/metadata.yml
-challenges/challenge-001-dns-http-triage/check_tshark.sh
+docs/50-quizzes/index.md
+docs/50-quizzes/lokales-quiz-tool.md
+tools/README.md
+tools/wwca/README.md
+tools/wwca/wwca.py
+tools/wwca/wwca
 ```
 
 ## Ziel
 
-Mit diesem Paket bekommt der Kurs die erste Challenge-Struktur:
+Mit diesem Paket werden die YAML-Fragen aus `quizzes/questions/` erstmals praktisch nutzbar:
 
-- klare Trennung zwischen Labs und Challenges
-- prüfungsnahes Szenario
-- gestufte Hinweise
-- Musterlösung mit Frame-/Filter-Bezug
-- TShark-Check-Skript
-- Vorbereitung für spätere feste Challenge-PCAPs
+- verfügbare Quizzes auflisten
+- Fragen-Dateien technisch validieren
+- Quiz interaktiv im Terminal ausführen
+- Fragen optional mischen oder begrenzen
+- Ergebnisse lokal speichern
+- Fortschritt anzeigen
+- Fortschritt exportieren
 
-Die erste Challenge nutzt bewusst das vorhandene Docker-DNS/HTTP-Lab, damit Lernende die PCAP lokal erzeugen können.
+Das Tool speichert Fortschritt lokal unter:
+
+```text
+~/.local/share/wireshark-wca-de/progress.json
+```
+
+Es benötigt Python 3 und PyYAML. PyYAML ist in vielen MkDocs-Umgebungen bereits als Abhängigkeit vorhanden.

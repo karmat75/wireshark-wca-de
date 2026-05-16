@@ -24,6 +24,22 @@ Quizzes sollen helfen:
 | [Foundation-Quiz](foundation-quiz.md) | Umgebung, Wireshark-Oberfläche, TShark, Linux-Grundlagen | `quizzes/questions/foundation.yml` |
 | [Basic-Quiz](basic-quiz.md) | Display Filter, Ethernet, ARP, IP, ICMP, UDP, DNS, DHCP, TCP | `quizzes/questions/basic.yml` |
 
+## Lokales Quiz-Tool
+
+Die YAML-Fragen können jetzt lokal im Terminal ausgeführt werden.
+
+Siehe:
+
+```text
+docs/50-quizzes/lokales-quiz-tool.md
+```
+
+Beispiel:
+
+```bash
+python3 tools/wwca/wwca.py quiz run foundation
+```
+
 ## Arbeitsweise
 
 Die Fragen liegen maschinenlesbar unter:
@@ -32,9 +48,7 @@ Die Fragen liegen maschinenlesbar unter:
 quizzes/questions/
 ```
 
-Aktuell sind sie noch nicht interaktiv in MkDocs eingebunden.
-
-Der nächste Schritt ist ein kleines lokales Tool oder Skript, das die YAML-Fragen laden und abfragen kann.
+Das lokale Tool liest diese Dateien ein, stellt Fragen im Terminal und speichert Fortschritt lokal.
 
 ## Keine Exam Dumps
 
