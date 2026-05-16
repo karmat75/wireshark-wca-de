@@ -175,6 +175,7 @@ nav:
       - Challenge 001 DNS/HTTP Triage: 60-pcap-challenges/challenge-001-dns-http-triage.md
       - Challenge 002 TCP Handshake/Reset: 60-pcap-challenges/challenge-002-tcp-handshake-reset.md
       - Challenge 003 TCP Retransmission Triage: 60-pcap-challenges/challenge-003-tcp-retransmission-triage.md
+      - Challenge 004 HTTP/TLS Triage: 60-pcap-challenges/challenge-004-http-tls-triage.md
 
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md
