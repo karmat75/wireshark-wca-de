@@ -1,0 +1,38 @@
+id: challenge-005-security-basics-triage
+title: "Security Basics Triage"
+level: advanced
+estimated_time: 60m
+status: draft
+pcap:
+  mode: generated
+  path: pcaps/generated/challenge-005-security-basics-triage.pcapng
+docker_compose:
+  file: docker/compose/lab-advanced-security-basics/compose.yml
+wca_objectives:
+  - http
+  - security-basics
+  - display-filters
+  - follow-tcp-stream
+  - tshark
+  - methodology
+tools:
+  - docker
+  - wireshark
+  - tshark
+  - curl
+synthetic_lab_values:
+  - labuser
+  - LabPassword123
+  - LAB-TOKEN-12345
+  - WWCA-LabClient/1.0
+  - WWCA-BeaconSimulator/1.0
+expected_observations:
+  - http-cleartext
+  - http-basic-auth
+  - http-post-form-data
+  - synthetic-token-visible
+  - beacon-like-requests
+outputs:
+  - security-triage-report
+  - tshark-check
+commit_generated_files: false

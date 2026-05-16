@@ -1,34 +1,36 @@
-# Paket 35: PCAP-Challenge – HTTP/TLS Triage
+# Paket 36: PCAP-Challenge – Security Basics Triage
 
-Dieses Paket ergänzt den Bereich `60-pcap-challenges` um eine vierte prüfungsnahe Challenge.
+Dieses Paket ergänzt den Bereich `60-pcap-challenges` um eine fünfte prüfungsnahe Challenge.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/60-pcap-challenges/index.md
-docs/60-pcap-challenges/challenge-004-http-tls-triage.md
-challenges/challenge-004-http-tls-triage/README.md
-challenges/challenge-004-http-tls-triage/scenario.md
-challenges/challenge-004-http-tls-triage/tasks.md
-challenges/challenge-004-http-tls-triage/hints.md
-challenges/challenge-004-http-tls-triage/solution.md
-challenges/challenge-004-http-tls-triage/metadata.yml
-challenges/challenge-004-http-tls-triage/check_tshark.sh
+docs/60-pcap-challenges/challenge-005-security-basics-triage.md
+challenges/challenge-005-security-basics-triage/README.md
+challenges/challenge-005-security-basics-triage/scenario.md
+challenges/challenge-005-security-basics-triage/tasks.md
+challenges/challenge-005-security-basics-triage/hints.md
+challenges/challenge-005-security-basics-triage/solution.md
+challenges/challenge-005-security-basics-triage/metadata.yml
+challenges/challenge-005-security-basics-triage/check_tshark.sh
 ```
 
 ## Ziel
 
-Diese Challenge prüft HTTP-/TLS-Analyse prüfungsnah:
+Diese Challenge prüft defensive Security-Triage mit Wireshark:
 
-- HTTP im Klartext erkennen
-- HTTPS/TLS von HTTP unterscheiden
-- TLS Client Hello finden
-- SNI auswerten
-- ALPN prüfen
-- TLS Alerts einordnen
-- TLS Application Data erkennen
-- sauber formulieren, was sichtbar ist und was nicht
+- HTTP-Klartext erkennen
+- Basic Auth Header finden
+- Formularwerte und synthetische Tokens im HTTP Body erkennen
+- Beacon-ähnliche Requests einordnen
+- User-Agent und URI auswerten
+- Follow TCP Stream bewusst einsetzen
+- Schutzbedarf echter Captures benennen
+- nicht vorschnell Malware behaupten
 - Triage mit Frame-Nummern schreiben
 
-Die Challenge nutzt das vorhandene Docker-Lab `lab-advanced-http-tls`.
+Die Challenge nutzt das vorhandene Docker-Lab `lab-advanced-security-basics`.
+
+Alle Werte sind synthetische Lab-Werte.

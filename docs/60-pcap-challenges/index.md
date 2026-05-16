@@ -46,6 +46,7 @@ PCAP-Challenges trainieren genau das:
 | [Challenge 002: TCP Handshake/Reset](challenge-002-tcp-handshake-reset.md) | TCP 3-Way Handshake, HTTP, RST/RST-ACK | verfügbar |
 | [Challenge 003: TCP Retransmission Triage](challenge-003-tcp-retransmission-triage.md) | TCP Retransmission, Duplicate ACK, Fast Retransmit | verfügbar |
 | [Challenge 004: HTTP/TLS Triage](challenge-004-http-tls-triage.md) | HTTP, TLS, SNI, ALPN, TLS Alert | verfügbar |
+| [Challenge 005: Security Basics Triage](challenge-005-security-basics-triage.md) | HTTP-Klartext, Basic Auth, Formularwerte, Beacon-Muster | verfügbar |
 
 ## Arbeitsweise
 
