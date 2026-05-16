@@ -39,8 +39,8 @@ jobs:
 
       - name: Build site
         run: |
-          echo "COURSE_VERSION=$(git describe --tags --always)" >> "$GITHUB_ENV"
-          echo "BUILD_DATE=$(date -u +'%Y-%m-%d %H:%M UTC')" >> "$GITHUB_ENV"
+          export COURSE_VERSION="$(git describe --tags --always)"
+          export BUILD_DATE="$(date -u +'%Y-%m-%d %H:%M UTC')"
           mkdocs build
 
       - name: Upload artifact
