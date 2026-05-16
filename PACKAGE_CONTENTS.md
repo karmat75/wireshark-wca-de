@@ -1,37 +1,39 @@
-# Paket 28: Basic Lab – Display Filter
+# Paket 29: Advanced Lab – TCP Retransmission
 
-Dieses Paket ergänzt den Lab-Bereich um ein gezieltes Display-Filter-Lab.
+Dieses Paket ergänzt den Lab-Bereich um ein erstes Advanced-Lab zu TCP Retransmissions.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/basic-display-filter.md
-labs/basic/lab-basic-010-display-filter/README.md
-labs/basic/lab-basic-010-display-filter/scenario.md
-labs/basic/lab-basic-010-display-filter/tasks.md
-labs/basic/lab-basic-010-display-filter/hints.md
-labs/basic/lab-basic-010-display-filter/solution.md
-labs/basic/lab-basic-010-display-filter/metadata.yml
-labs/basic/lab-basic-010-display-filter/check_tshark.sh
+docs/40-labs-und-uebungen/advanced-tcp-retransmission.md
+docker/compose/lab-advanced-tcp-loss/README.md
+docker/compose/lab-advanced-tcp-loss/compose.yml
+docker/compose/lab-advanced-tcp-loss/web-loss/Dockerfile
+docker/compose/lab-advanced-tcp-loss/web-loss/entrypoint.sh
+docker/compose/lab-advanced-tcp-loss/web-loss/nginx.conf
+docker/compose/lab-advanced-tcp-loss/web-loss/index.html
+labs/advanced/lab-advanced-010-tcp-retransmission/README.md
+labs/advanced/lab-advanced-010-tcp-retransmission/scenario.md
+labs/advanced/lab-advanced-010-tcp-retransmission/tasks.md
+labs/advanced/lab-advanced-010-tcp-retransmission/hints.md
+labs/advanced/lab-advanced-010-tcp-retransmission/solution.md
+labs/advanced/lab-advanced-010-tcp-retransmission/metadata.yml
+labs/advanced/lab-advanced-010-tcp-retransmission/check_tshark.sh
 ```
 
 ## Ziel
 
-Dieses Lab trainiert Display Filter systematisch:
+Dieses Lab trainiert eine zentrale Advanced-/WCA-nahe TCP-Fähigkeit:
 
-- einfache Protokollfilter
-- IP-, Port- und Hostfilter
-- DNS Query/Response Filter
-- DNS Response Codes
-- HTTP Request/Response Filter
-- TCP Stream Filter
-- logische Operatoren
-- Klammern
-- `contains`
-- Negation
-- Unterschied zwischen Display Filter und Capture Filter
-- Filter dokumentieren und mit TShark gegenprüfen
+- kontrollierten TCP-Datenverkehr erzeugen
+- absichtlichen Paketverlust im Lab einbauen
+- TCP Retransmissions erkennen
+- Duplicate ACKs und Fast Retransmit einordnen
+- TCP Stream isolieren
+- Wireshark-generierte Analysefelder richtig bewerten
+- nicht vorschnell „das Netzwerk ist schuld“ sagen
+- TShark für reproduzierbare Auswertung verwenden
 
-Das Lab nutzt eine vorhandene oder neu erzeugte PCAP aus dem Docker-DNS/HTTP-Lab.
+Das Lab baut ein eigenes Docker-Netz `172.28.60.0/24` auf.

@@ -1,0 +1,28 @@
+services:
+  lab-web-loss:
+    build:
+      context: ./web-loss
+    container_name: wwca-lab-web-loss
+    cap_add:
+      - NET_ADMIN
+    networks:
+      labnet:
+        ipv4_address: 172.28.60.10
+
+  lab-client:
+    image: nicolaka/netshoot:latest
+    container_name: wwca-lab-tcp-client
+    command: sleep infinity
+    networks:
+      labnet:
+        ipv4_address: 172.28.60.100
+    depends_on:
+      - lab-web-loss
+
+networks:
+  labnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.60.0/24
+          gateway: 172.28.60.1

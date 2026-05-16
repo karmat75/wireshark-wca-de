@@ -38,6 +38,7 @@ Die Labs sind in Tracks gegliedert.
 | [Basic Lab 010](basic-display-filter.md) | Basic | Display Filter systematisch üben | verfügbar |
 | [Basic Lab 020](basic-dns-http-docker.md) | Basic | Docker-Lab mit DNS, NXDOMAIN, HTTP und Wartezeit | verfügbar |
 | [Basic Lab 030](basic-tcp-handshake-reset.md) | Basic | TCP Handshake, Stream, geschlossener Port und Reset | verfügbar |
+| [Advanced Lab 010](advanced-tcp-retransmission.md) | Advanced | TCP Retransmission, Duplicate ACK und Paketverlust | verfügbar |
 
 ## Arbeitsweise
 

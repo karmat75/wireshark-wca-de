@@ -1,0 +1,33 @@
+id: lab-advanced-010-tcp-retransmission
+title: "TCP Retransmission"
+track: advanced
+level: advanced
+estimated_time: 60m
+status: draft
+wca_objectives:
+  - tcp
+  - tcp-analysis
+  - retransmission
+  - duplicate-ack
+  - display-filters
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - docker-compose
+  - wireshark
+  - tshark
+  - curl
+requires:
+  - lab-basic-030-tcp-handshake-reset
+  - docs/20-advanced-kurs/01-tcp-deep-dive.md
+  - docs/20-advanced-kurs/02-performance-analyse.md
+docker_compose:
+  file: docker/compose/lab-advanced-tcp-loss/compose.yml
+generated_files:
+  - pcaps/generated/lab-advanced-010-tcp-retransmission.pcapng
+commit_generated_files: false
+outputs:
+  - local-pcap
+  - short-analysis-report
+  - tshark-output

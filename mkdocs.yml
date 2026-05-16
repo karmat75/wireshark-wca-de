@@ -154,6 +154,7 @@ nav:
       - Basic Lab 010 Display Filter: 40-labs-und-uebungen/basic-display-filter.md
       - Basic Lab 020 DNS/HTTP Docker: 40-labs-und-uebungen/basic-dns-http-docker.md
       - Basic Lab 030 TCP Handshake/Reset: 40-labs-und-uebungen/basic-tcp-handshake-reset.md
+      - Advanced Lab 010 TCP Retransmission: 40-labs-und-uebungen/advanced-tcp-retransmission.md
 
   - Quizzes:
       - Überblick: 50-quizzes/index.md
