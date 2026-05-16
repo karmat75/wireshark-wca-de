@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Wireshark WCA DE Icon</title>
+  <desc id="desc">Ein stilisierter Hai ueber einem offenen Buch.</desc>
+  <defs>
+    <linearGradient id="bg" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12395b"/>
+      <stop offset="1" stop-color="#2d7d8c"/>
+    </linearGradient>
+    <linearGradient id="bookShade" x1="76" y1="148" x2="180" y2="216" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#dbe8f2"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="16" y="16" width="224" height="224" rx="48" fill="url(#bg)"/>
+  <circle cx="128" cy="100" r="74" fill="#7fd0df" opacity="0.18"/>
+
+  <path
+    d="M60 122c21-26 51-42 88-42 18 0 34 4 49 13-12 2-24 9-31 21 9 2 17 7 23 14-11 2-20 6-28 12-17 12-33 17-52 17-24 0-38-13-49-35z"
+    fill="#0b2237"
+  />
+  <path
+    d="M94 95l18-42 20 39z"
+    fill="#0b2237"
+  />
+  <circle cx="170" cy="109" r="6" fill="#f7fbff"/>
+  <circle cx="172" cy="109" r="2.5" fill="#0b2237"/>
+  <path
+    d="M183 125c8 2 16 6 22 11-5 1-10 3-14 6"
+    fill="none"
+    stroke="#d7eef6"
+    stroke-linecap="round"
+    stroke-width="5"
+  />
+
+  <path
+    d="M48 176c22-15 49-23 80-23v57c-30-8-57-7-80 2z"
+    fill="url(#bookShade)"
+  />
+  <path
+    d="M208 176c-22-15-49-23-80-23v57c30-8 57-7 80 2z"
+    fill="url(#bookShade)"
+  />
+  <path
+    d="M48 176c22-15 49-23 80-23m80 23c-22-15-49-23-80-23m0 0v57m-80-34c23-9 50-10 80 0m80 0c-23-9-50-10-80 0"
+    fill="none"
+    stroke="#0f3d5f"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="6"
+  />
+  <path
+    d="M120 153c3 10 5 23 5 36 0 8-1 15-2 21"
+    fill="none"
+    stroke="#b5cad9"
+    stroke-linecap="round"
+    stroke-width="4"
+  />
+  <path
+    d="M136 153c-3 10-5 23-5 36 0 8 1 15 2 21"
+    fill="none"
+    stroke="#b5cad9"
+    stroke-linecap="round"
+    stroke-width="4"
+  />
+</svg>

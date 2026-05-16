@@ -14,6 +14,7 @@ theme:
   name: material
   language: de
   custom_dir: overrides
+  favicon: assets/images/favicon.svg
 
   palette:
     - scheme: default
