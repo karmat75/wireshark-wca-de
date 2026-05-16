@@ -113,6 +113,12 @@ source .venv/bin/activate
 bash tools/quality/run_quality_checks.sh
 ```
 
+Bei Struktur-, Navigations- oder Meta-Doku-Änderungen zusätzlich kurz prüfen:
+
+```text
+docs/90-referenz/meta-doku-health-check.md
+```
+
 Automatisch bei jedem Commit (empfohlen):
 
 ```bash

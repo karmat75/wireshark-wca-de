@@ -75,7 +75,7 @@ Andere Betriebssysteme können funktionieren, werden aber nicht als primärer Le
 
 ---
 
-## Geplanter Kursaufbau
+## Kursaufbau
 
 Der Kurs ist in mehrere Bereiche unterteilt.
 
@@ -153,14 +153,18 @@ Inhalte:
 
 ## Repository-Struktur
 
-Die geplante Struktur des Repositories:
+Aktuelle Struktur des Repositories:
 
 ```text
 .
 ├── README.md
 ├── LICENSE
+├── LICENSES/
 ├── AGENTS.md
+├── CONTRIBUTING.md
 ├── mkdocs.yml
+├── PACKAGE_CONTENTS.md
+├── challenges/
 ├── docs/
 │   ├── index.md
 │   ├── 00-orientierung/
@@ -170,30 +174,29 @@ Die geplante Struktur des Repositories:
 │   ├── 10-basis-kurs/
 │   ├── 20-advanced-kurs/
 │   ├── 30-wca-vorbereitung/
+│   ├── 40-labs-und-uebungen/
+│   ├── 50-quizzes/
+│   ├── 60-pcap-challenges/
 │   └── 90-referenz/
 ├── labs/
 │   ├── foundation/
 │   ├── basic/
 │   ├── advanced/
 │   └── wca-practice/
-├── pcaps/
-│   ├── generated/
-│   ├── challenge/
-│   └── external/
-├── docker/
-│   ├── compose/
-│   ├── images/
-│   └── traffic-generators/
 ├── quizzes/
 │   ├── questions/
 │   ├── exams/
 │   └── objectives/
+├── pcaps/
+│   ├── generated/
+│   └── challenge/
+├── docker/
+│   └── compose/
 ├── tools/
-│   ├── wwca
-│   ├── check-lab
-│   └── export-progress
-├── .devcontainer/
-│   └── devcontainer.json
+│   ├── quality/
+│   └── wwca/
+├── templates/
+├── overrides/
 └── .github/
     ├── workflows/
     └── ISSUE_TEMPLATE/
@@ -302,7 +305,7 @@ Deshalb gelten für dieses Repository folgende Regeln:
 
 ## Status
 
-Dieses Projekt befindet sich im Aufbau.
+Dieses Projekt ist aktiv gepflegt und wird laufend erweitert.
 
 ---
 
@@ -327,40 +330,6 @@ Damit laufen die Repository-Checks automatisch vor jedem Commit.
 
 Details siehe `CONTRIBUTING.md` und `tools/quality/README.md`.
 
-Geplante erste Meilensteine:
-
-### Milestone 0.1: Foundation MVP
-
-- Grundstruktur des Repositories
-- README
-- AGENTS.md
-- Lizenzstruktur
-- MkDocs-Grundgerüst
-- Setup-Kapitel für Ubuntu/Pop!_OS
-- Installation der benötigten Werkzeuge
-- erstes Demo-Lab
-- erstes Quiz
-- lokale Fortschrittsspeicherung als Konzept
-
-### Milestone 0.2: Basis-Kurs
-
-- Wireshark-Grundlagen
-- Capture- und Display-Filter
-- Ethernet und ARP
-- IPv4 und ICMP
-- DNS und DHCP
-- TCP-Grundlagen
-- erste Modulprüfung
-
-### Milestone 0.3: Advanced/WCA
-
-- TCP Deep Dive
-- Performanceanalyse
-- HTTP und TLS
-- Troubleshooting-Szenarien
-- WCA-Lernzielmatrix
-- Probeprüfung
-
 ---
 
 ## Schnellstart für Mitwirkende
@@ -378,7 +347,7 @@ Projekt in VSCode öffnen:
 code .
 ```
 
-Optional mit DevContainer öffnen, sobald die DevContainer-Konfiguration vorhanden ist.
+Optional mit DevContainer öffnen, falls später eine passende Konfiguration ergänzt wird.
 
 Lokale Dokumentation starten:
 

@@ -9,7 +9,7 @@ mkdocs.yml
 CONTRIBUTING.md
 docs/90-referenz/index.md
 docs/90-referenz/beitragen-und-review.md
-.github/PULL_REQUEST_TEMPLATE.md
+.github/pull_request_template.md
 .github/ISSUE_TEMPLATE/config.yml
 .github/ISSUE_TEMPLATE/content-improvement.yml
 .github/ISSUE_TEMPLATE/lab-or-challenge.yml

@@ -100,6 +100,9 @@ docs/
 ├── 10-basis-kurs/
 ├── 20-advanced-kurs/
 ├── 30-wca-vorbereitung/
+├── 40-labs-und-uebungen/
+├── 50-quizzes/
+├── 60-pcap-challenges/
 └── 90-referenz/
 ```
 
@@ -117,7 +120,7 @@ labs/basic/lab-basic-030-dns-nxdomain/
 ├── hints.md
 ├── solution.md
 ├── metadata.yml
-├── check.py
+├── check_tshark.sh
 └── files/
     └── capture.pcapng
 ```

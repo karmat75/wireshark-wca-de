@@ -20,6 +20,7 @@ Sie sollen helfen, während einer Analyse schnell die richtige Richtung zu finde
 | [Analysebericht-Vorlage](analysebericht-vorlage.md) | Struktur für nachvollziehbare Analyseberichte |
 | [Qualitätssicherung und CI](qualitaetssicherung-und-ci.md) | lokale Checks und GitHub Actions Workflow |
 | [Beitragen und Review](beitragen-und-review.md) | Regeln für Beiträge, PRs, Reviews und sichere Inhalte |
+| [Meta-Doku-Health-Check](meta-doku-health-check.md) | Kurzprozess für Aktualität von README, AGENTS, Navigation und Meta-Dateien |
 
 ## Vorlagen im Repository
 
