@@ -1,30 +1,32 @@
-# Paket 38: Kompaktreferenzen und Analysevorlagen
+# Paket 39: Qualitätssicherung und CI
 
-Dieses Paket ergänzt den Referenzbereich um kompakte Arbeitsblätter und Vorlagen.
+Dieses Paket ergänzt das Repository um lokale Qualitätschecks und eine GitHub Actions Pipeline.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/90-referenz/index.md
-docs/90-referenz/display-filter-cheatsheet.md
-docs/90-referenz/tcp-analyse-cheatsheet.md
-docs/90-referenz/tshark-cheatsheet.md
-docs/90-referenz/analysebericht-vorlage.md
-templates/analysis-report-template.md
-templates/pcap-challenge-notes-template.md
-templates/lab-notes-template.md
+docs/90-referenz/qualitaetssicherung-und-ci.md
+.github/workflows/ci.yml
+tools/quality/README.md
+tools/quality/check_markdown_fences.py
+tools/quality/check_repo_structure.py
+tools/quality/run_quality_checks.sh
 ```
 
 ## Ziel
 
-Nach den Labs und PCAP-Challenges braucht der Kurs schnelle Nachschlagewerke und wiederverwendbare Notizvorlagen:
+Der Kurs ist inzwischen groß genug, dass einfache Qualitätsprüfungen wichtig werden.
 
-- Display-Filter-Kompaktreferenz
-- TCP-Analyse-Kompaktreferenz
-- TShark-Kompaktreferenz
-- Vorlage für Analyseberichte
-- Vorlage für PCAP-Challenge-Notizen
-- Vorlage für Lab-Notizen
+Dieses Paket ergänzt:
 
-Die Vorlagen sollen Lernenden helfen, nicht nur Pakete zu finden, sondern Ergebnisse sauber und wiederholbar zu dokumentieren.
+- lokale Qualitätschecks
+- Prüfung der Markdown-Code-Fences
+- Prüfung wichtiger Repository-Verzeichnisse
+- MkDocs Build in CI
+- Quiz- und Exam-Validierung in CI
+- reproduzierbare Befehle für lokale Prüfung
+- GitHub Actions Workflow für Pull Requests und Pushes
+
+Damit wird aus „sieht lokal gut aus“ ein sauberer, wiederholbarer Prüfpfad.

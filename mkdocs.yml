@@ -195,3 +195,4 @@ nav:
       - TCP-Analyse-Cheatsheet: 90-referenz/tcp-analyse-cheatsheet.md
       - TShark-Cheatsheet: 90-referenz/tshark-cheatsheet.md
       - Analysebericht-Vorlage: 90-referenz/analysebericht-vorlage.md
+      - Qualitätssicherung und CI: 90-referenz/qualitaetssicherung-und-ci.md

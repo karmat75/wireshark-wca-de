@@ -18,6 +18,7 @@ Sie sollen helfen, während einer Analyse schnell die richtige Richtung zu finde
 | [TCP-Analyse-Cheatsheet](tcp-analyse-cheatsheet.md) | TCP-Symptome und sinnvolle Filter |
 | [TShark-Cheatsheet](tshark-cheatsheet.md) | wiederverwendbare TShark-Befehle |
 | [Analysebericht-Vorlage](analysebericht-vorlage.md) | Struktur für nachvollziehbare Analyseberichte |
+| [Qualitätssicherung und CI](qualitaetssicherung-und-ci.md) | lokale Checks und GitHub Actions Workflow |
 
 ## Vorlagen im Repository
 
