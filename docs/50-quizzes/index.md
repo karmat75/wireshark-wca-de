@@ -1,6 +1,6 @@
 # Quizzes
 
-Dieser Bereich sammelt Wiederholungsfragen und später auch Modulprüfungen.
+Dieser Bereich sammelt Wiederholungsfragen und Modulprüfungen.
 
 Die Quizzes sind keine echten WCA-Prüfungsfragen.
 
@@ -26,6 +26,25 @@ Quizzes sollen helfen:
 | [Advanced-Quiz](advanced-quiz.md) | TCP Deep Dive, Performance, HTTP/TLS, Methodik, Security | `quizzes/questions/advanced.yml` |
 | [WCA-Practice-Quiz](wca-practice-quiz.md) | gemischte szenariobasierte Fragen | `quizzes/questions/wca-practice.yml` |
 
+## Modulprüfungen
+
+Modulprüfungen ziehen Fragen aus vorhandenen Fragepools.
+
+Siehe:
+
+```text
+docs/50-quizzes/modulpruefungen.md
+```
+
+Aktuell definiert:
+
+| Exam | Zweck | Datei |
+|---|---|---|
+| Foundation Check | Grundlagenprüfung | `quizzes/exams/foundation-check.yml` |
+| Basic Module | Basis-Kurs-Prüfung | `quizzes/exams/module-basic.yml` |
+| Advanced Module | Advanced-Kurs-Prüfung | `quizzes/exams/module-advanced.yml` |
+| WCA Practice Exam 01 | gemischte Probeprüfung | `quizzes/exams/wca-practice-exam-01.yml` |
+
 ## Aktueller Umfang
 
 ```text
@@ -45,18 +64,9 @@ Beispiel:
 ```bash
 python3 tools/wwca/wwca.py quiz list
 python3 tools/wwca/wwca.py quiz run advanced --limit 10 --shuffle
-python3 tools/wwca/wwca.py quiz run wca-practice --shuffle
+python3 tools/wwca/wwca.py exam list
+python3 tools/wwca/wwca.py exam run module-basic
 ```
-
-## Arbeitsweise
-
-Die Fragen liegen maschinenlesbar unter:
-
-```text
-quizzes/questions/
-```
-
-Das lokale Tool liest diese Dateien ein, stellt Fragen im Terminal und speichert Fortschritt lokal.
 
 ## Keine Exam Dumps
 
@@ -73,4 +83,4 @@ Das lokale Tool liest diese Dateien ein, stellt Fragen im Terminal und speichert
 | 3 | Modulprüfungen definieren |
 | 4 | Fortschritt lokal speichern |
 | 5 | PCAP-basierte Fragen einbinden |
-| 6 | WCA-nahe Probeprüfung erstellen |
+| 6 | WCA-nahe Probeprüfung ausbauen |

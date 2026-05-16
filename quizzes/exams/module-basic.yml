@@ -1,0 +1,11 @@
+id: module-basic
+title: "Basic Module Exam"
+description: "Modulprüfung zum Basis-Kurs mit Foundation- und Basic-Fragen."
+pass_score: 80
+time_limit_minutes: 45
+shuffle: true
+sections:
+  - pool: foundation
+    count: 4
+  - pool: basic
+    count: 16

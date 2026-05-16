@@ -1,0 +1,15 @@
+id: wca-practice-exam-01
+title: "WCA Practice Exam 01"
+description: "Gemischte prüfungsnahe Wiederholung aus allen aktuellen Fragepools."
+pass_score: 80
+time_limit_minutes: 60
+shuffle: true
+sections:
+  - pool: foundation
+    count: 5
+  - pool: basic
+    count: 10
+  - pool: advanced
+    count: 10
+  - pool: wca-practice
+    count: 5

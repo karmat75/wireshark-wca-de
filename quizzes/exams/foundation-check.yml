@@ -1,0 +1,9 @@
+id: foundation-check
+title: "Foundation Check"
+description: "Kurze Grundlagenprüfung zu Umgebung, Oberfläche, TShark und erstem Capture."
+pass_score: 80
+time_limit_minutes: 20
+shuffle: true
+sections:
+  - pool: foundation
+    count: 10

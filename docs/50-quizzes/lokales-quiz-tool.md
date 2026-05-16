@@ -1,6 +1,6 @@
 # Lokales Quiz-Tool
 
-Das lokale Quiz-Tool macht die YAML-Fragen aus `quizzes/questions/` im Terminal nutzbar.
+Das lokale Quiz-Tool macht die YAML-Fragen aus `quizzes/questions/` und die Modulprüfungen aus `quizzes/exams/` im Terminal nutzbar.
 
 Es ist bewusst einfach gehalten.
 
@@ -26,6 +26,12 @@ Fragen:
 quizzes/questions/
 ```
 
+Prüfungen:
+
+```text
+quizzes/exams/
+```
+
 Fortschritt:
 
 ```text
@@ -34,9 +40,7 @@ Fortschritt:
 
 ## Voraussetzung
 
-Du brauchst Python 3.
-
-Zusätzlich wird PyYAML benötigt.
+Du brauchst Python 3 und PyYAML.
 
 Prüfen:
 
@@ -63,52 +67,43 @@ python -m pip install PyYAML
 python3 tools/wwca/wwca.py quiz list
 ```
 
-Oder über den Wrapper:
-
-```bash
-tools/wwca/wwca quiz list
-```
-
 ## Fragen validieren
 
 ```bash
 python3 tools/wwca/wwca.py quiz validate
 ```
 
-Das prüft grob:
-
-- YAML-Dateien lesbar
-- Fragen vorhanden
-- IDs eindeutig
-- Antwortoptionen vorhanden
-- richtige Antworten vorhanden
-- Referenzen gesetzt
-
 ## Quiz ausführen
-
-Foundation:
 
 ```bash
 python3 tools/wwca/wwca.py quiz run foundation
+python3 tools/wwca/wwca.py quiz run basic --limit 10 --shuffle
+python3 tools/wwca/wwca.py quiz run advanced --limit 10 --shuffle
+python3 tools/wwca/wwca.py quiz run wca-practice --shuffle
 ```
 
-Basic:
+## Modulprüfungen auflisten
 
 ```bash
-python3 tools/wwca/wwca.py quiz run basic
+python3 tools/wwca/wwca.py exam list
 ```
 
-## Anzahl begrenzen
+## Modulprüfungen validieren
 
 ```bash
-python3 tools/wwca/wwca.py quiz run basic --limit 10
+python3 tools/wwca/wwca.py exam validate
 ```
 
-## Fragen mischen
+## Modulprüfung starten
 
 ```bash
-python3 tools/wwca/wwca.py quiz run basic --shuffle
+python3 tools/wwca/wwca.py exam run foundation-check
+python3 tools/wwca/wwca.py exam run module-basic
+python3 tools/wwca/wwca.py exam run module-advanced
+python3 tools/wwca/wwca.py exam run wca-practice-exam-01
 ```
+
+Im Exam-Modus werden Erklärungen erst am Ende angezeigt.
 
 ## Fortschritt anzeigen
 
@@ -127,8 +122,6 @@ python3 tools/wwca/wwca.py progress export ./mein-fortschritt.json
 ```bash
 python3 tools/wwca/wwca.py progress reset
 ```
-
-Das fragt zur Sicherheit nach Bestätigung.
 
 ## Bedienung im Quiz
 
@@ -154,6 +147,9 @@ Das Tool zeigt am Ende:
 - richtige Antworten
 - Prozentwert
 - grobe Bewertung
+- Bestehensgrenze bei Exams
+
+Bewertung:
 
 | Ergebnis | Bedeutung |
 |---:|---|
@@ -173,12 +169,14 @@ Es unterstützt aktuell:
 - `multiple-choice`
 - einfache Fortschrittsspeicherung
 - JSON-Export
+- Quiz-Modus mit Soforterklärung
+- Exam-Modus mit Erklärung am Ende
+- modulare Prüfungsdefinitionen
 
 Noch nicht enthalten:
 
-- PCAP-Fragen
-- Zeitlimit
-- Modulprüfungen
+- PCAP-Fragen mit automatischer Auswertung
+- hartes Zeitlimit
 - Import von Fortschritt
 - gewichtete Bewertung
 - Weboberfläche

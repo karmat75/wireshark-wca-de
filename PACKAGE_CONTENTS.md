@@ -1,25 +1,33 @@
-# Paket 24: Advanced-Quiz und WCA-Practice-Quiz
+# Paket 25: Modulprüfungen und Exam-Modus
 
-Dieses Paket ergänzt den Quizbereich um zwei weitere Fragensammlungen.
+Dieses Paket ergänzt den Quizbereich um Modulprüfungen und erweitert das lokale Tool `wwca`.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/50-quizzes/index.md
-docs/50-quizzes/advanced-quiz.md
-docs/50-quizzes/wca-practice-quiz.md
-quizzes/questions/advanced.yml
-quizzes/questions/wca-practice.yml
+docs/50-quizzes/lokales-quiz-tool.md
+docs/50-quizzes/modulpruefungen.md
+quizzes/exams/foundation-check.yml
+quizzes/exams/module-basic.yml
+quizzes/exams/module-advanced.yml
+quizzes/exams/wca-practice-exam-01.yml
+tools/wwca/README.md
+tools/wwca/wwca.py
 ```
 
 ## Ziel
 
-Mit diesem Paket wird der Quizbereich deutlich prüfungsnäher:
+Mit diesem Paket entsteht der nächste Schritt von Quizfragen zu prüfungsnaher Wiederholung:
 
-- Advanced-Fragen zu TCP Deep Dive, Performance, HTTP/TLS, Methodik und Security
-- gemischte WCA-Practice-Fragen mit stärkerer Szenario-Orientierung
-- Vorbereitung auf Modulprüfungen
-- mehr Fokus auf belegbare Aussagen statt Bauchgefühl
+- Modulprüfungen definieren
+- Fragen aus bestehenden Quiz-Pools ziehen
+- Exam-Modus im lokalen Tool
+- Fragen mischen
+- Erklärungen erst am Ende anzeigen
+- Bestehensgrenze pro Prüfung
+- einfache Zeitlimit-Information
+- Fortschritt getrennt nach Quiz und Exam speichern
 
-Die Fragen sind eigene Kursfragen und keine echten WCA-Prüfungsfragen.
+Das ist noch keine vollständige echte Prüfungssimulation, aber ein solider nächster Schritt.
