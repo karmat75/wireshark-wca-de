@@ -34,12 +34,11 @@ theme:
     code: Roboto Mono
 
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.indexes
+    - toc.integrate
     - navigation.top
     - navigation.footer
+    - navigation.path
     - toc.follow
     - search.suggest
     - search.highlight
@@ -51,6 +50,12 @@ theme:
 plugins:
   - search:
       lang: de
+
+extra_css:
+  - assets/stylesheets/header-home-link.css
+
+extra_javascript:
+  - assets/javascripts/header-home-link.js
 
 markdown_extensions:
   - admonition

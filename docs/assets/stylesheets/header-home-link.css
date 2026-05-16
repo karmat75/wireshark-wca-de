@@ -1,0 +1,9 @@
+.wwca-header-home-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wwca-header-home-link:hover,
+.wwca-header-home-link:focus {
+  text-decoration: none;
+}

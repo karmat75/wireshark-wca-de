@@ -76,7 +76,7 @@ questions:
   - id: q-foundation-005
     type: single-choice
     objective: shell-pipe-wc
-    question: "Was macht `wc -l` in einem Befehl wie `tshark -r capture.pcapng -Y "dns" | wc -l`?"
+    question: 'Was macht `wc -l` in einem Befehl wie `tshark -r capture.pcapng -Y "dns" | wc -l`?'
     answers:
       - text: "Es zählt die Ausgabezeilen."
         correct: true
