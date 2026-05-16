@@ -151,6 +151,7 @@ nav:
       - Lab-Struktur: 40-labs-und-uebungen/lab-struktur.md
       - Foundation Lab 001: 40-labs-und-uebungen/foundation-first-capture.md
       - Basic Lab 020 DNS/HTTP Docker: 40-labs-und-uebungen/basic-dns-http-docker.md
+      - Basic Lab 030 TCP Handshake/Reset: 40-labs-und-uebungen/basic-tcp-handshake-reset.md
 
   - Quizzes:
       - Überblick: 50-quizzes/index.md

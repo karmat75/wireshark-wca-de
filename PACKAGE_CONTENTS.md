@@ -1,33 +1,32 @@
-# Paket 25: Modulprüfungen und Exam-Modus
+# Paket 26: Basic Lab – TCP Handshake und Reset
 
-Dieses Paket ergänzt den Quizbereich um Modulprüfungen und erweitert das lokale Tool `wwca`.
+Dieses Paket ergänzt den Lab-Bereich um ein weiteres praktisches TCP-Lab.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/50-quizzes/index.md
-docs/50-quizzes/lokales-quiz-tool.md
-docs/50-quizzes/modulpruefungen.md
-quizzes/exams/foundation-check.yml
-quizzes/exams/module-basic.yml
-quizzes/exams/module-advanced.yml
-quizzes/exams/wca-practice-exam-01.yml
-tools/wwca/README.md
-tools/wwca/wwca.py
+docs/40-labs-und-uebungen/index.md
+docs/40-labs-und-uebungen/basic-tcp-handshake-reset.md
+labs/basic/lab-basic-030-tcp-handshake-reset/README.md
+labs/basic/lab-basic-030-tcp-handshake-reset/scenario.md
+labs/basic/lab-basic-030-tcp-handshake-reset/tasks.md
+labs/basic/lab-basic-030-tcp-handshake-reset/hints.md
+labs/basic/lab-basic-030-tcp-handshake-reset/solution.md
+labs/basic/lab-basic-030-tcp-handshake-reset/metadata.yml
+labs/basic/lab-basic-030-tcp-handshake-reset/check_tshark.sh
 ```
 
 ## Ziel
 
-Mit diesem Paket entsteht der nächste Schritt von Quizfragen zu prüfungsnaher Wiederholung:
+Dieses Lab trainiert TCP-Grundlagen praktisch:
 
-- Modulprüfungen definieren
-- Fragen aus bestehenden Quiz-Pools ziehen
-- Exam-Modus im lokalen Tool
-- Fragen mischen
-- Erklärungen erst am Ende anzeigen
-- Bestehensgrenze pro Prüfung
-- einfache Zeitlimit-Information
-- Fortschritt getrennt nach Quiz und Exam speichern
+- erfolgreichen TCP 3-Way Handshake erkennen
+- TCP Stream isolieren
+- HTTP über TCP Port 80 einordnen
+- geschlossenen TCP-Port erkennen
+- RST/RST-ACK bewerten
+- Unterschied zwischen Beobachtung und Ursache formulieren
+- TShark-Auswertung mit Frame-Nummern verwenden
 
-Das ist noch keine vollständige echte Prüfungssimulation, aber ein solider nächster Schritt.
+Das Lab verwendet das bereits vorhandene Docker-Lab `lab-basic-dns-http`.

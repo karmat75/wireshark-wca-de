@@ -35,6 +35,7 @@ Die Labs sind in Tracks gegliedert.
 |---|---|---|---|
 | [Foundation Lab 001](foundation-first-capture.md) | Foundation | erster eigener Capture | verfügbar |
 | [Basic Lab 020](basic-dns-http-docker.md) | Basic | Docker-Lab mit DNS, NXDOMAIN, HTTP und Wartezeit | verfügbar |
+| [Basic Lab 030](basic-tcp-handshake-reset.md) | Basic | TCP Handshake, Stream, geschlossener Port und Reset | verfügbar |
 
 ## Arbeitsweise
 
