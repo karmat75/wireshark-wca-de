@@ -1,38 +1,32 @@
-# Paket 32: Advanced Lab – Security Basics
+# Paket 33: PCAP-Challenge – TCP Handshake und Reset
 
-Dieses Paket ergänzt den Lab-Bereich um ein defensives Security-Basics-Lab.
+Dieses Paket ergänzt den Bereich `60-pcap-challenges` um eine zweite prüfungsnahe Challenge.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
-docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/advanced-security-basics.md
-docker/compose/lab-advanced-security-basics/README.md
-docker/compose/lab-advanced-security-basics/compose.yml
-docker/compose/lab-advanced-security-basics/web-security/Dockerfile
-docker/compose/lab-advanced-security-basics/web-security/app.py
-labs/advanced/lab-advanced-040-security-basics/README.md
-labs/advanced/lab-advanced-040-security-basics/scenario.md
-labs/advanced/lab-advanced-040-security-basics/tasks.md
-labs/advanced/lab-advanced-040-security-basics/hints.md
-labs/advanced/lab-advanced-040-security-basics/solution.md
-labs/advanced/lab-advanced-040-security-basics/metadata.yml
-labs/advanced/lab-advanced-040-security-basics/check_tshark.sh
+docs/60-pcap-challenges/index.md
+docs/60-pcap-challenges/challenge-002-tcp-handshake-reset.md
+challenges/challenge-002-tcp-handshake-reset/README.md
+challenges/challenge-002-tcp-handshake-reset/scenario.md
+challenges/challenge-002-tcp-handshake-reset/tasks.md
+challenges/challenge-002-tcp-handshake-reset/hints.md
+challenges/challenge-002-tcp-handshake-reset/solution.md
+challenges/challenge-002-tcp-handshake-reset/metadata.yml
+challenges/challenge-002-tcp-handshake-reset/check_tshark.sh
 ```
 
 ## Ziel
 
-Dieses Lab trainiert defensive Security-Analyse mit Wireshark:
+Mit dieser Challenge wird aus dem TCP-Handschlag-Lab eine prüfungsnahe Analyseaufgabe:
 
-- HTTP Basic Auth im Klartext erkennen
-- Formularwerte im HTTP-Body erkennen
-- regelmäßige Beacon-ähnliche Requests einordnen
-- Host-Header, User-Agent und URIs auswerten
-- zwischen Beobachtung und Bewertung unterscheiden
-- keine produktiven oder echten Zugangsdaten verwenden
-- TShark-Felder für HTTP-Security-Triage nutzen
+- erfolgreicher TCP 3-Way Handshake
+- HTTP auf Port 80
+- geschlossener TCP-Port
+- RST/RST-ACK
+- TCP Stream Isolation
+- saubere Bewertung: erreichbar, abgelehnt, nicht automatisch Firewall
+- kurze Triage mit Frame-Nummern
 
-Das Lab erzeugt ein eigenes Docker-Netz `172.28.80.0/24`.
-
-Alle Zugangsdaten und Tokens sind bewusst synthetische Lab-Werte.
+Die Challenge nutzt das vorhandene Docker-Lab `lab-basic-dns-http`.

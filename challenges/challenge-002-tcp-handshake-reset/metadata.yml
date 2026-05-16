@@ -1,0 +1,32 @@
+id: challenge-002-tcp-handshake-reset
+title: "TCP Handshake und Reset"
+level: basic
+estimated_time: 45m
+status: draft
+pcap:
+  mode: generated
+  path: pcaps/generated/challenge-002-tcp-handshake-reset.pcapng
+docker_compose:
+  file: docker/compose/lab-basic-dns-http/compose.yml
+wca_objectives:
+  - tcp
+  - tcp-flags
+  - tcp-stream
+  - http
+  - display-filters
+  - tshark
+  - troubleshooting
+tools:
+  - docker
+  - wireshark
+  - tshark
+  - curl
+expected_observations:
+  - tcp-handshake-port-80
+  - http-response-port-80
+  - tcp-syn-port-81
+  - tcp-rst-port-81
+outputs:
+  - analysis-report
+  - tshark-check
+commit_generated_files: false

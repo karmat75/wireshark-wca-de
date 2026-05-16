@@ -173,6 +173,7 @@ nav:
       - Überblick: 60-pcap-challenges/index.md
       - Challenge-Struktur: 60-pcap-challenges/pcap-challenge-struktur.md
       - Challenge 001 DNS/HTTP Triage: 60-pcap-challenges/challenge-001-dns-http-triage.md
+      - Challenge 002 TCP Handshake/Reset: 60-pcap-challenges/challenge-002-tcp-handshake-reset.md
 
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md
