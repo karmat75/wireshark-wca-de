@@ -151,6 +151,7 @@ nav:
       - Lab-Struktur: 40-labs-und-uebungen/lab-struktur.md
       - Foundation Lab 001: 40-labs-und-uebungen/foundation-first-capture.md
       - Foundation Lab 002 Wireshark Core Features: 40-labs-und-uebungen/foundation-wireshark-core-features.md
+      - Basic Lab 010 Display Filter: 40-labs-und-uebungen/basic-display-filter.md
       - Basic Lab 020 DNS/HTTP Docker: 40-labs-und-uebungen/basic-dns-http-docker.md
       - Basic Lab 030 TCP Handshake/Reset: 40-labs-und-uebungen/basic-tcp-handshake-reset.md
 

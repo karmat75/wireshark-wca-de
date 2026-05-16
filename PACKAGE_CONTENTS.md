@@ -1,34 +1,37 @@
-# Paket 27: Foundation Lab – Wireshark Core Features
+# Paket 28: Basic Lab – Display Filter
 
-Dieses Paket ergänzt den Lab-Bereich um ein weiteres Foundation-Lab.
+Dieses Paket ergänzt den Lab-Bereich um ein gezieltes Display-Filter-Lab.
 
 ## Enthaltene Dateien
 
 ```text
 mkdocs.yml
 docs/40-labs-und-uebungen/index.md
-docs/40-labs-und-uebungen/foundation-wireshark-core-features.md
-labs/foundation/lab-foundation-002-wireshark-core-features/README.md
-labs/foundation/lab-foundation-002-wireshark-core-features/scenario.md
-labs/foundation/lab-foundation-002-wireshark-core-features/tasks.md
-labs/foundation/lab-foundation-002-wireshark-core-features/hints.md
-labs/foundation/lab-foundation-002-wireshark-core-features/solution.md
-labs/foundation/lab-foundation-002-wireshark-core-features/metadata.yml
+docs/40-labs-und-uebungen/basic-display-filter.md
+labs/basic/lab-basic-010-display-filter/README.md
+labs/basic/lab-basic-010-display-filter/scenario.md
+labs/basic/lab-basic-010-display-filter/tasks.md
+labs/basic/lab-basic-010-display-filter/hints.md
+labs/basic/lab-basic-010-display-filter/solution.md
+labs/basic/lab-basic-010-display-filter/metadata.yml
+labs/basic/lab-basic-010-display-filter/check_tshark.sh
 ```
 
 ## Ziel
 
-Dieses Lab trainiert wichtige Wireshark-Funktionen, die für WCA und Praxis relevant sind:
+Dieses Lab trainiert Display Filter systematisch:
 
-- Capture File Properties
-- Find Packet
-- Packet Comments
-- File Comment
-- Time Reference
-- Export Specified Packets
-- Mark Packets
-- Ignore Packets
-- einfache Decode-As-Einordnung
-- saubere Dokumentation von Arbeitsschritten
+- einfache Protokollfilter
+- IP-, Port- und Hostfilter
+- DNS Query/Response Filter
+- DNS Response Codes
+- HTTP Request/Response Filter
+- TCP Stream Filter
+- logische Operatoren
+- Klammern
+- `contains`
+- Negation
+- Unterschied zwischen Display Filter und Capture Filter
+- Filter dokumentieren und mit TShark gegenprüfen
 
-Das Lab nutzt eine bereits vorhandene lokale PCAP-Datei aus den vorherigen Labs.
+Das Lab nutzt eine vorhandene oder neu erzeugte PCAP aus dem Docker-DNS/HTTP-Lab.
