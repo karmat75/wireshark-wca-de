@@ -27,8 +27,55 @@ function wwcaMakeHeaderTitleClickable() {
   homeLink.appendChild(siteNameNode);
 }
 
+function wwcaMarkExternalLinks() {
+  const contentLinks = document.querySelectorAll(".md-content a[href]");
+
+  for (const link of contentLinks) {
+    const href = link.getAttribute("href");
+    if (!href) {
+      continue;
+    }
+
+    if (
+      href.startsWith("#") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:")
+    ) {
+      continue;
+    }
+
+    let targetUrl;
+    try {
+      targetUrl = new URL(href, window.location.origin);
+    } catch (_error) {
+      continue;
+    }
+
+    if (targetUrl.origin === window.location.origin) {
+      continue;
+    }
+
+    link.classList.add("wwca-external-link");
+
+    const existingRel = (link.getAttribute("rel") || "")
+      .split(/\s+/)
+      .filter(Boolean);
+    const relSet = new Set(existingRel);
+    relSet.add("external");
+    relSet.add("nofollow");
+    relSet.add("noopener");
+    relSet.add("noreferrer");
+    link.setAttribute("rel", Array.from(relSet).join(" "));
+  }
+}
+
+function wwcaApplyEnhancements() {
+  wwcaMakeHeaderTitleClickable();
+  wwcaMarkExternalLinks();
+}
+
 if (typeof window.document$ !== "undefined") {
-  window.document$.subscribe(wwcaMakeHeaderTitleClickable);
+  window.document$.subscribe(wwcaApplyEnhancements);
 } else {
-  document.addEventListener("DOMContentLoaded", wwcaMakeHeaderTitleClickable);
+  document.addEventListener("DOMContentLoaded", wwcaApplyEnhancements);
 }

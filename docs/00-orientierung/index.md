@@ -77,6 +77,22 @@ Die Kurswebseite wird mit MkDocs Material gebaut. Lokal kannst du sie später mi
 mkdocs serve
 ```
 
+## Lizenz im Überblick
+
+Dieses Projekt nutzt eine gemischte Lizenzierung, damit Inhalte frei nutzbar bleiben und gleichzeitig die Rechte Dritter respektiert werden.
+
+- Kursinhalte (Dokumentation, Labs, Quiztexte): **CC BY 4.0**
+- Code und Skripte: **MIT**
+- selbst erzeugte PCAPs: **CC BY 4.0**
+
+Wichtig:
+
+- Fremdmaterial bleibt immer unter der jeweiligen Originallizenz.
+- Bei unklarer Lizenzlage wird nur verlinkt, nicht kopiert.
+- Marken, Produktnamen und Logos Dritter sind nicht durch diese Lizenzen freigegeben.
+
+Details stehen im Repository in den Dateien `LICENSE`, `LICENSES/MIT.txt` und `LICENSES/CC-BY-4.0.txt`.
+
 ## Aktueller Status
 
 Der Kurs befindet sich im Aufbau. Inhalte, Labs, Prüfungen und Werkzeuge werden Schritt für Schritt ergänzt.

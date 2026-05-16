@@ -444,13 +444,19 @@ Ziel ist nicht, möglichst akademisch zu klingen, sondern echte Analysefähigkei
 
 ## Lizenz
 
-Geplante Lizenzierung:
+Dieses Repository verwendet eine gemischte Lizenzierung:
 
-- Kursinhalte: Creative Commons Attribution-ShareAlike 4.0 International
-- Code und Skripte: MIT oder Apache-2.0
-- selbst erzeugte PCAPs: Creative Commons, sofern keine sensiblen Inhalte enthalten sind
+- Inhalte (Dokumentation, Labs, Quiztexte, Aufgaben, Loesungen): **CC BY 4.0**
+- Code und Skripte (Python, Bash, Tooling): **MIT**
+- Selbst erzeugte PCAPs: **CC BY 4.0**, sofern keine sensiblen Inhalte enthalten sind
 
-Die endgültige Lizenzstruktur wird im weiteren Projektverlauf festgelegt.
+Massgeblich ist die Zuordnung in der Datei `LICENSE`.
+
+Wichtige Hinweise:
+
+- Fremdmaterial bleibt unter der jeweiligen Originallizenz.
+- Inhalte mit unklarer Lizenz werden nicht uebernommen, sondern nur verlinkt.
+- Marken, Produktnamen und Logos (z. B. Wireshark) sind nicht durch diese Lizenz freigegeben.
 
 ---
 

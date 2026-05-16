@@ -7,3 +7,48 @@
 .wwca-header-home-link:focus {
   text-decoration: none;
 }
+
+.md-content a.wwca-external-link::after {
+  content: " [extern]";
+  font-size: 0.75em;
+  color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+}
+
+.wwca-footer-meta {
+  margin-top: 0.35rem;
+  width: 100%;
+  flex: 1 1 100%;
+}
+
+.wwca-footer-transparency {
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.4;
+}
+
+.wwca-footer-updated {
+  margin-top: 0.2rem;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+}
+
+.wwca-footer-version-row {
+  margin-top: 0.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.74rem;
+}
+
+.wwca-footer-version,
+.wwca-footer-build {
+  display: inline-block;
+}
+
+.wwca-footer-build {
+  text-align: right;
+}

@@ -267,6 +267,16 @@ Ein Review prüft mindestens:
 
 ## Lizenz und Quellen
 
+Beitraege muessen mit der Repository-Lizenzierung kompatibel sein:
+
+- Inhalte (Docs/Labs/Quiz): CC BY 4.0
+- Code/Skripte: MIT
+- PCAPs: nur selbst erzeugt oder mit klarer, dokumentierter Lizenz
+
+Mit einem Beitrag bestaetigst du, dass du die noetigen Rechte zur Einreichung besitzt.
+Bei uebernommenem Fremdmaterial muessen Quelle und Lizenz dokumentiert werden.
+Bei unklarer Lizenzlage bitte nur verlinken und nichts uebernehmen.
+
 Bei neuen Quellen:
 
 - offizielle Quellen bevorzugen

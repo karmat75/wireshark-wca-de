@@ -10,6 +10,12 @@ Spätere Kapitel, Labs und Quizfragen können von hier aus gezielt auf passende 
 
 Externe Ressourcen werden verlinkt, nicht ungeprüft kopiert.
 
+Hinweis zur Kursseite:
+
+- externe Links sind als externe Verweise gekennzeichnet
+- externe Links erhalten `rel="external nofollow noopener noreferrer"`
+- Referrer-Daten werden nicht an Zielseiten uebermittelt
+
 Das gilt besonders für:
 
 - Artikel

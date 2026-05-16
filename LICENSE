@@ -1,0 +1,43 @@
+Wireshark WCA DE - Lizenzhinweise
+
+Copyright (c) Wireshark WCA DE Contributors
+
+Dieses Repository verwendet eine gemischte Lizenzierung.
+
+1) Inhalte unter CC BY 4.0
+
+Die folgenden Inhalte stehen, sofern nicht anders gekennzeichnet, unter
+Creative Commons Attribution 4.0 International (CC BY 4.0):
+
+- Dokumentation und Kursinhalte unter docs/
+- Lab- und Challenge-Texte unter labs/ und challenges/
+- Quizinhalte unter quizzes/
+- Vorlagen unter templates/
+- Selbst erzeugte PCAP-Dateien im Repository
+
+Details: LICENSES/CC-BY-4.0.txt
+
+2) Code unter MIT
+
+Software, Skripte und Konfigurationslogik in diesem Repository stehen,
+sofern nicht anders gekennzeichnet, unter der MIT License. Dazu zaehlen
+insbesondere:
+
+- tools/
+- Hilfsskripte (z. B. *.py, *.sh)
+- Build-/Automationsdateien
+- Theme-/Frontend-Code (z. B. CSS/JavaScript)
+
+Details: LICENSES/MIT.txt
+
+3) Drittmaterial und Ausnahmen
+
+- Fremdmaterial (Texte, Bilder, PCAPs, Datensaetze, Logos, Marken) bleibt
+  unter der jeweiligen Originallizenz.
+- Wenn in einer Datei ein abweichender Lizenzhinweis steht, gilt dieser.
+- Bei unklarer Lizenzlage wird nur verlinkt, nicht uebernommen.
+
+4) Keine Markenfreigabe
+
+Diese Lizenzen gewaehrleisten keine Rechte an Marken, Produktnamen oder
+Logos Dritter (einschliesslich "Wireshark").

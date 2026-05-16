@@ -84,6 +84,25 @@ Grundsatz:
 
 Externe Artikel, Videos, Folien oder PCAPs werden nur dann direkt ins Repository übernommen, wenn die Lizenz das eindeutig erlaubt.
 
+Zusätzlich gelten für externe Links auf der Kursseite folgende Regeln:
+
+- externe Links werden als externe Verweise gekennzeichnet
+- externe Links erhalten `rel="external nofollow noopener noreferrer"`
+- dadurch werden keine Referrer-Daten an die Zielseite übertragen
+
+Damit bleibt für Lernende transparent, wann ein Verweis die Kursseite verlässt.
+
+## Transparenz zur KI-Unterstützung
+
+Dieser Kurs wird unter Zuhilfenahme von KI-Werkzeugen erstellt und überarbeitet.
+
+Wichtig dabei:
+
+- die inhaltliche Verantwortung liegt bei den Maintainern
+- Inhalte werden redaktionell und fachlich geprüft
+- externe Quellen werden weiterhin manuell bewertet und ausgewählt
+- Fehler sind möglich und sollen über Issues gemeldet werden
+
 ## Analyseberichte
 
 Analyseberichte in diesem Kurs sollen keine realen vertraulichen Daten enthalten.
