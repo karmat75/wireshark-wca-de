@@ -38,11 +38,9 @@ theme:
 
   features:
     - navigation.indexes
-    - toc.integrate
     - navigation.top
     - navigation.footer
     - navigation.path
-    - toc.follow
     - search.suggest
     - search.highlight
     - search.share
