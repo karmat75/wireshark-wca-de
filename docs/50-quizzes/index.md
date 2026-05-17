@@ -24,6 +24,7 @@ Quizzes sollen helfen:
 | [Foundation-Quiz](foundation-quiz.md) | Umgebung, Wireshark-Oberfläche, TShark, Linux-Grundlagen | `quizzes/questions/foundation.yml` |
 | [Basic-Quiz](basic-quiz.md) | Display Filter, Ethernet, ARP, IP, ICMP, UDP, DNS, DHCP, TCP | `quizzes/questions/basic.yml` |
 | [Advanced-Quiz](advanced-quiz.md) | TCP Deep Dive, Performance, HTTP/TLS, Methodik, Security | `quizzes/questions/advanced.yml` |
+| [Interface-Counter-Quiz](interface-counter-quiz.md) | Errors, Discards, Monitoring-Korrelation und Wireshark-Grenzen | `quizzes/questions/interface-counters.yml` |
 | [WCA-Practice-Quiz](wca-practice-quiz.md) | gemischte szenariobasierte Fragen | `quizzes/questions/wca-practice.yml` |
 
 ## Modulprüfungen
@@ -44,6 +45,7 @@ Aktuell definiert:
 | Basic Module | Basis-Kurs-Prüfung | `quizzes/exams/module-basic.yml` |
 | Advanced Module | Advanced-Kurs-Prüfung | `quizzes/exams/module-advanced.yml` |
 | WCA Practice Exam 01 | gemischte Probeprüfung | `quizzes/exams/wca-practice-exam-01.yml` |
+| Interface Counter Module | Interface-Counter-Praxisblock | `quizzes/exams/module-interface-counters.yml` |
 
 ## Aktueller Umfang
 
@@ -51,8 +53,9 @@ Aktuell definiert:
 Foundation:    12 Fragen
 Basic:         18 Fragen
 Advanced:      20 Fragen
+Interface:     12 Fragen
 WCA Practice:  15 Fragen
-Gesamt:        65 Fragen
+Gesamt:        77 Fragen
 ```
 
 ## Lokales Quiz-Tool

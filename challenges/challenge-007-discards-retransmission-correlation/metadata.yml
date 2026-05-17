@@ -1,0 +1,32 @@
+id: challenge-007-discards-retransmission-correlation
+title: "Discards und Retransmission-Korrelation"
+level: advanced
+estimated_time: 60m
+status: draft
+pcap:
+  mode: generated
+  path: pcaps/generated/challenge-007-discards-retransmission-correlation.pcapng
+docker_compose:
+  file: docker/compose/lab-advanced-tcp-loss/compose.yml
+wca_objectives:
+  - tcp
+  - retransmission
+  - duplicate-ack
+  - interface-counters
+  - monitoring-correlation
+  - troubleshooting
+tools:
+  - docker
+  - wireshark
+  - tshark
+  - curl
+expected_observations:
+  - tcp-download-stream
+  - http-bigfile-request
+  - tcp-retransmission
+  - duplicate-ack-possible
+  - monitoring-correlation
+outputs:
+  - correlation-triage-report
+  - tshark-check
+commit_generated_files: false

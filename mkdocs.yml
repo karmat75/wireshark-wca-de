@@ -159,6 +159,7 @@ nav:
       - HTTP und TLS: 20-advanced-kurs/03-http-tls.md
       - Fehleranalyse-Methodik: 20-advanced-kurs/04-fehleranalyse-methodik.md
       - Security-Basics: 20-advanced-kurs/05-security-basics.md
+      - Interface Errors und Discards: 20-advanced-kurs/06-interface-errors-discards.md
 
   - Labs und Übungen:
       - Überblick: 40-labs-und-uebungen/index.md
@@ -172,6 +173,7 @@ nav:
       - Advanced Lab 020 HTTP/TLS: 40-labs-und-uebungen/advanced-http-tls.md
       - Advanced Lab 030 Performanceanalyse: 40-labs-und-uebungen/advanced-performance-analyse.md
       - Advanced Lab 040 Security Basics: 40-labs-und-uebungen/advanced-security-basics.md
+      - Advanced Lab 050 Interface Counter Triage: 40-labs-und-uebungen/advanced-interface-counter-triage.md
 
   - Quizzes:
       - Überblick: 50-quizzes/index.md
@@ -181,6 +183,7 @@ nav:
       - Foundation-Quiz: 50-quizzes/foundation-quiz.md
       - Basic-Quiz: 50-quizzes/basic-quiz.md
       - Advanced-Quiz: 50-quizzes/advanced-quiz.md
+      - Interface-Counter-Quiz: 50-quizzes/interface-counter-quiz.md
       - WCA-Practice-Quiz: 50-quizzes/wca-practice-quiz.md
 
   - PCAP-Challenges:
@@ -192,6 +195,7 @@ nav:
       - Challenge 004 HTTP/TLS Triage: 60-pcap-challenges/challenge-004-http-tls-triage.md
       - Challenge 005 Security Basics Triage: 60-pcap-challenges/challenge-005-security-basics-triage.md
       - Challenge 006 Performance Triage: 60-pcap-challenges/challenge-006-performance-triage.md
+      - Challenge 007 Discards/Retransmission Correlation: 60-pcap-challenges/challenge-007-discards-retransmission-correlation.md
 
   - WCA-Vorbereitung:
       - Überblick: 30-wca-vorbereitung/index.md
@@ -207,6 +211,7 @@ nav:
       - TShark auf Systemen ohne GUI: 90-referenz/tshark-auf-systemen-ohne-gui.md
       - Display-Filter-Cheatsheet: 90-referenz/display-filter-cheatsheet.md
       - TCP-Analyse-Cheatsheet: 90-referenz/tcp-analyse-cheatsheet.md
+      - Interface-Counter-Cheatsheet: 90-referenz/interface-counter-cheatsheet.md
       - TShark-Cheatsheet: 90-referenz/tshark-cheatsheet.md
       - Analysebericht-Vorlage: 90-referenz/analysebericht-vorlage.md
       - Qualitätssicherung und CI: 90-referenz/qualitaetssicherung-und-ci.md

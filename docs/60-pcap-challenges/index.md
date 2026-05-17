@@ -48,6 +48,7 @@ PCAP-Challenges trainieren genau das:
 | [Challenge 004: HTTP/TLS Triage](challenge-004-http-tls-triage.md) | HTTP, TLS, SNI, ALPN, TLS Alert | verfügbar |
 | [Challenge 005: Security Basics Triage](challenge-005-security-basics-triage.md) | HTTP-Klartext, Basic Auth, Formularwerte, Beacon-Muster | verfügbar |
 | [Challenge 006: Performance Triage](challenge-006-performance-triage.md) | DNS-, TCP- und HTTP-Zeitabschnitte, web-ok vs. web-slow | verfügbar |
+| [Challenge 007: Discards/Retransmission Correlation](challenge-007-discards-retransmission-correlation.md) | Monitoring-OutDiscards, TCP Retransmissions und Korrelation | verfügbar |
 
 ## Arbeitsweise
 

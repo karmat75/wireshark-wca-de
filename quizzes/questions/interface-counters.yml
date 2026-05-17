@@ -1,0 +1,212 @@
+id: interface-counters
+title: "Interface Counter Quiz"
+description: "Fragen zu Interface Errors, Discards, Monitoring-Korrelation und Wireshark-Grenzen."
+version: "0.1.0"
+questions:
+  - id: q-interface-001
+    type: single-choice
+    objective: wireshark-limitations
+    question: "Warum sieht ein normaler Wireshark-Capture CRC- oder FCS-fehlerhafte Frames oft nicht?"
+    answers:
+      - text: "Weil solche Frames häufig schon von Switch, Netzwerkkarte oder Treiber verworfen werden, bevor Wireshark sie sieht."
+        correct: true
+      - text: "Weil Wireshark grundsätzlich kein Ethernet anzeigen kann."
+        correct: false
+      - text: "Weil CRC-Fehler immer DNS-Fehler sind."
+        correct: false
+      - text: "Weil CRC-Fehler nur bei IPv6 vorkommen."
+        correct: false
+    explanation: "CRC/FCS-Fehler sind Layer-1/2-nahe Fehler. Normale Captures sehen diese defekten Frames oft nicht."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+      - docs/90-referenz/interface-counter-cheatsheet.md
+
+  - id: q-interface-002
+    type: single-choice
+    objective: errors-vs-discards
+    question: "Welche Aussage beschreibt Discards am saubersten?"
+    answers:
+      - text: "Pakete oder Frames wurden verworfen, obwohl sie nicht zwingend physikalisch beschädigt waren."
+        correct: true
+      - text: "Jeder Discard ist ein defektes Kabel."
+        correct: false
+      - text: "Discards können nur bei DNS auftreten."
+        correct: false
+      - text: "Discards beweisen immer Malware."
+        correct: false
+    explanation: "Discards können durch Queue, Buffer, QoS, Policy oder Ressourcen entstehen. Sie sind nicht automatisch physikalische Fehler."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+
+  - id: q-interface-003
+    type: multiple-choice
+    objective: outdiscards
+    question: "Welche Ursachen können grundsätzlich zu OutDiscards passen?"
+    answers:
+      - text: "Egress Queue voll"
+        correct: true
+      - text: "QoS Drops"
+        correct: true
+      - text: "Microbursts oder Oversubscription"
+        correct: true
+      - text: "Ein einzelner erfolgreicher ARP Request"
+        correct: false
+    explanation: "OutDiscards entstehen häufig beim Senden, wenn Queue, Buffer, QoS oder Lastspitzen eine Rolle spielen."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+      - docs/90-referenz/interface-counter-cheatsheet.md
+
+  - id: q-interface-004
+    type: single-choice
+    objective: direction
+    question: "Warum ist die Richtung eines Interface-Counters wichtig?"
+    answers:
+      - text: "Weil InErrors, OutErrors, InDiscards und OutDiscards unterschiedliche Troubleshooting-Pfade nahelegen."
+        correct: true
+      - text: "Weil die Richtung nur die Farbe in Wireshark bestimmt."
+        correct: false
+      - text: "Weil nur eingehende Counter echt sind."
+        correct: false
+      - text: "Weil ausgehende Counter immer ignoriert werden können."
+        correct: false
+    explanation: "Ein InError auf einem Access-Port bedeutet etwas anderes als ein OutDiscard auf einem Uplink."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+
+  - id: q-interface-005
+    type: single-choice
+    objective: monitoring-correlation
+    question: "Ein Monitoring-System meldet OutDiscards im selben Zeitfenster, in dem ein PCAP TCP Retransmissions zeigt. Welche Aussage ist am saubersten?"
+    answers:
+      - text: "Die Beobachtungen passen zusammen und stützen die Hypothese von Paketverlust oder fehlenden Segmenten; der genaue Drop-Ort ist noch nicht bewiesen."
+        correct: true
+      - text: "Der Switch ist damit sicher defekt."
+        correct: false
+      - text: "Das beweist, dass DNS falsch konfiguriert ist."
+        correct: false
+      - text: "Wireshark hat damit den Discard direkt mitgeschnitten."
+        correct: false
+    explanation: "Korrelation macht eine Hypothese stärker, ersetzt aber nicht den Beweis des konkreten Fehlerorts."
+    references:
+      - docs/60-pcap-challenges/challenge-007-discards-retransmission-correlation.md
+
+  - id: q-interface-006
+    type: multiple-choice
+    objective: capture-points
+    question: "Welche Aussagen zu SPAN/Mirror-Port-Captures sind korrekt?"
+    answers:
+      - text: "Sie sind praktisch und häufig ausreichend für erste Analysen."
+        correct: true
+      - text: "Sie können selbst Pakete verlieren oder Timing verfälschen."
+        correct: true
+      - text: "Sie liefern in jedem Fall alle CRC-fehlerhaften Frames."
+        correct: false
+      - text: "Sie ersetzen immer einen TAP."
+        correct: false
+    explanation: "SPAN ist nützlich, aber nicht perfekt. Für harte Leitungsanalysen kann ein TAP belastbarer sein."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+
+  - id: q-interface-007
+    type: single-choice
+    objective: crc-triage
+    question: "Ein Access-Port zeigt steigende CRC/FCS-Errors, der PCAP ist unauffällig. Was ist die beste nächste Richtung?"
+    answers:
+      - text: "Physikalische Prüfung von Kabel, Patchfeld, SFP/Port und Gegenstelle."
+        correct: true
+      - text: "HTTP Header im PCAP zählen."
+        correct: false
+      - text: "Nur den Display Filter `dns` verwenden."
+        correct: false
+      - text: "Das Problem ignorieren, weil Wireshark nichts zeigt."
+        correct: false
+    explanation: "Ein unauffälliger PCAP schließt CRC/FCS-Probleme nicht aus. Layer-1/2-Prüfung ist hier wichtiger."
+    references:
+      - docs/40-labs-und-uebungen/advanced-interface-counter-triage.md
+
+  - id: q-interface-008
+    type: multiple-choice
+    objective: wireshark-symptoms
+    question: "Welche Wireshark-Beobachtungen können zu Paketverlust oder fehlenden Segmenten passen?"
+    answers:
+      - text: "TCP Retransmissions"
+        correct: true
+      - text: "Duplicate ACKs"
+        correct: true
+      - text: "Fast Retransmit"
+        correct: true
+      - text: "Ein sauberer HTTP 200 ohne weitere Auffälligkeit"
+        correct: false
+    explanation: "Retransmissions, Duplicate ACKs und Fast Retransmit sind typische TCP-Symptome, aber keine fertige Ursachenfeststellung."
+    references:
+      - docs/20-advanced-kurs/01-tcp-deep-dive.md
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+
+  - id: q-interface-009
+    type: single-choice
+    objective: report-language
+    question: "Welche Formulierung ist in einem Analysebericht am saubersten?"
+    answers:
+      - text: "Im Zeitraum der gemeldeten OutDiscards sind im Capture TCP Retransmissions sichtbar; der konkrete Drop-Ort ist noch nicht eindeutig belegt."
+        correct: true
+      - text: "Der Switch ist kaputt."
+        correct: false
+      - text: "Das Netzwerk ist immer schuld."
+        correct: false
+      - text: "Wireshark zeigt nichts, also existiert kein Problem."
+        correct: false
+    explanation: "Gute Berichte trennen Beobachtung, Bewertung und Vermutung."
+    references:
+      - docs/90-referenz/analysebericht-vorlage.md
+      - docs/90-referenz/interface-counter-cheatsheet.md
+
+  - id: q-interface-010
+    type: multiple-choice
+    objective: real-world-next-steps
+    question: "Welche nächsten Schritte sind bei OutDiscards auf einem Uplink sinnvoll?"
+    answers:
+      - text: "Queue- oder QoS-Counter prüfen"
+        correct: true
+      - text: "Interface-Auslastung im Zeitfenster prüfen"
+        correct: true
+      - text: "Top Talker oder betroffene Flows ermitteln"
+        correct: true
+      - text: "Sofort alle DNS-Zonen löschen"
+        correct: false
+    explanation: "OutDiscards auf einem Uplink erfordern Last-, Queue-, QoS- und Flow-Betrachtung."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+
+  - id: q-interface-011
+    type: single-choice
+    objective: monitoring-limitations
+    question: "Was ist eine typische Grenze eines Monitoring-Systems bei Interface-Countern?"
+    answers:
+      - text: "Es zeigt Counter und Zeitfenster, aber meist nicht das konkrete verworfene Paket oder die vollständige Ursache."
+        correct: true
+      - text: "Es kann grundsätzlich keine Interfaces überwachen."
+        correct: false
+      - text: "Es ersetzt jeden Packet Capture."
+        correct: false
+      - text: "Es zeigt immer die Anwendung, die schuld ist."
+        correct: false
+    explanation: "Monitoring ist der Einstieg in die Triage, nicht automatisch die Ursachenanalyse."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md
+
+  - id: q-interface-012
+    type: single-choice
+    objective: tap-vs-span
+    question: "Wann ist ein TAP gegenüber SPAN besonders interessant?"
+    answers:
+      - text: "Wenn eine möglichst belastbare Leitungssicht wichtig ist und SPAN-Paketverlust oder Timing-Verfälschung vermieden werden soll."
+        correct: true
+      - text: "Wenn man gar keinen Traffic sehen möchte."
+        correct: false
+      - text: "Wenn nur Markdown-Dateien geprüft werden sollen."
+        correct: false
+      - text: "Wenn DNS in Excel ausgewertet werden soll."
+        correct: false
+    explanation: "Ein TAP ist aufwendiger, kann aber für harte Analysen belastbarer als SPAN sein."
+    references:
+      - docs/20-advanced-kurs/06-interface-errors-discards.md

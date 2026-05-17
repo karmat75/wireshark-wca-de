@@ -16,6 +16,7 @@ Sie sollen helfen, während einer Analyse schnell die richtige Richtung zu finde
 | [TShark auf Systemen ohne GUI](tshark-auf-systemen-ohne-gui.md) | Installation und Nutzung von TShark ohne Desktop |
 | [Display-Filter-Cheatsheet](display-filter-cheatsheet.md) | kompakte Filterreferenz |
 | [TCP-Analyse-Cheatsheet](tcp-analyse-cheatsheet.md) | TCP-Symptome und sinnvolle Filter |
+| [Interface-Counter-Cheatsheet](interface-counter-cheatsheet.md) | Errors, Discards, Capture-Punkte und Wireshark-Grenzen |
 | [TShark-Cheatsheet](tshark-cheatsheet.md) | wiederverwendbare TShark-Befehle |
 | [Analysebericht-Vorlage](analysebericht-vorlage.md) | Struktur für nachvollziehbare Analyseberichte |
 | [Qualitätssicherung und CI](qualitaetssicherung-und-ci.md) | lokale Checks und GitHub Actions Workflow |

@@ -1,0 +1,27 @@
+id: lab-advanced-050-interface-counter-triage
+title: "Interface Counter Triage"
+track: advanced
+level: advanced
+estimated_time: 45m
+status: draft
+wca_objectives:
+  - troubleshooting-methodology
+  - capture-point-selection
+  - interface-counters
+  - errors-discards
+  - wireshark-limitations
+  - monitoring-correlation
+tools:
+  - monitoring-system
+  - switch-cli
+  - wireshark
+requires:
+  - docs/20-advanced-kurs/01-tcp-deep-dive.md
+  - docs/20-advanced-kurs/02-performance-analyse.md
+  - docs/20-advanced-kurs/06-interface-errors-discards.md
+generated_files: []
+commit_generated_files: false
+outputs:
+  - counter-triage-table
+  - capture-strategy
+  - short-triage-report

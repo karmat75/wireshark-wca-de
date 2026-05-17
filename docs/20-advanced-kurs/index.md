@@ -48,3 +48,24 @@ Das bedeutet:
 > Wireshark zeigt Beobachtungen. Die Ursache entsteht durch saubere Einordnung.
 
 Das ist besonders wichtig bei TCP. Viele TCP-Hinweise sehen dramatisch aus, sind aber ohne Kontext nicht eindeutig.
+
+
+## Neuer Praxisblock: Interface-Counter
+
+Ein wichtiger Advanced-Bereich ist die Einordnung von Interface Errors, Discards und Drops.
+
+Dabei geht es nicht darum, Wireshark als Allzweckantwort zu verwenden.
+
+Es geht darum zu erkennen:
+
+- wann Wireshark hilfreich ist
+- wann Switch-/Router-Counter wichtiger sind
+- wann Layer-1-/Layer-2-Diagnose notwendig ist
+- wie Monitoring-Zeitfenster, Counter und PCAPs korreliert werden
+- wie man Beobachtungen vorsichtig formuliert
+
+Siehe:
+
+```text
+docs/20-advanced-kurs/06-interface-errors-discards.md
+```

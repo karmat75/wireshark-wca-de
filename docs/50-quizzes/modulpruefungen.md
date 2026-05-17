@@ -27,6 +27,7 @@ Aktuelle Dateien:
 quizzes/exams/foundation-check.yml
 quizzes/exams/module-basic.yml
 quizzes/exams/module-advanced.yml
+quizzes/exams/module-interface-counters.yml
 quizzes/exams/wca-practice-exam-01.yml
 ```
 
@@ -38,6 +39,7 @@ quizzes/exams/wca-practice-exam-01.yml
 | Basic Module | 20 | 80 % | Foundation + Basic |
 | Advanced Module | 20 | 80 % | Basic + Advanced |
 | WCA Practice Exam 01 | 30 | 80 % | gemischt |
+| Interface Counter Module | 10 | 80 % | Interface Errors, Discards und Monitoring-Korrelation |
 
 ## Exam auflisten
 
@@ -55,6 +57,7 @@ python3 tools/wwca/wwca.py exam validate
 
 ```bash
 python3 tools/wwca/wwca.py exam run module-basic
+python3 tools/wwca/wwca.py exam run module-interface-counters
 ```
 
 ## Exam-Dateiformat
